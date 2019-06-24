@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "github.com/citisoft/web/routers"
+	_ "github.com/citisoft/daosoft/routers"
 	"github.com/astaxie/beego"
 )
 
