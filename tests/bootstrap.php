@@ -11,9 +11,9 @@ date_default_timezone_set('Asia/Shanghai');
 defined('BASE_PATH') or define('BASE_PATH', dirname(__DIR__));
 defined('SWOOLE_HOOK_FLAGS') or define('SWOOLE_HOOK_FLAGS', SWOOLE_HOOK_ALL);
 
-Swoole\Runtime::enableCoroutine(true);
-
 require BASE_PATH . '/vendor/autoload.php';
+
+Swoole\Runtime::enableCoroutine(true, swoole_hook_flags());
 
 Hyperf\Di\ClassLoader::init();
 
