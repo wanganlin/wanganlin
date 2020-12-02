@@ -6,7 +6,7 @@
     <meta name="renderer" content="webkit">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>user</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sentsin/layui@v2.5.6/dist/css/layui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sentsin/layui@v2.5.7/dist/css/layui.css">
     <link rel="stylesheet" href="{{ skin('css/app.css') }}">
 </head>
 
@@ -38,7 +38,7 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/sentsin/layui@v2.5.6/dist/layui.all.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/sentsin/layui@v2.5.7/dist/layui.all.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@v2.6.12"></script>
 <script src="{{ skin('js/app.js') }}"></script>
 </body>
