@@ -2,7 +2,7 @@
 # exp：docker build -t daosoft/hyperman .
 
 FROM hyperf/hyperf:7.4-alpine-v3.11-swoole
-LABEL maintainer="wanganlin <inbox@wanganlin.com>" version="1.0" license="MIT" app.name="Hyperman"
+LABEL maintainer="Daosoft Developers <inbox@daosoft.cn>" version="1.0" license="MIT" app.name="Hyperman"
 
 ##
 # ---------- env settings ----------

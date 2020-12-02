@@ -5,5 +5,5 @@
 .env.backup
 .phpunit.result.cache
 *.lock
-*.log
 *-lock.json
+*.log
