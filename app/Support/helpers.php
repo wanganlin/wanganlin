@@ -19,18 +19,6 @@ if (!function_exists('app')) {
     }
 }
 
-if (!function_exists('csrf_field')) {
-    /**
-     * Generate a CSRF token form field.
-     * @param string $name
-     * @return string
-     */
-    function csrf_field($name = '_token')
-    {
-        return '<input type="hidden" name="' . $name . '" value="' . csrf_token() . '">';
-    }
-}
-
 if (!function_exists('csrf_token')) {
     /**
      * Get the CSRF token value.
@@ -48,6 +36,18 @@ if (!function_exists('csrf_token')) {
         $session->set('CSRF_TOKEN', $csrfToken);
 
         return $csrfToken;
+    }
+}
+
+if (!function_exists('csrf_field')) {
+    /**
+     * Generate a CSRF token form field.
+     * @param string $name
+     * @return string
+     */
+    function csrf_field($name = '_token')
+    {
+        return '<input type="hidden" name="' . $name . '" value="' . csrf_token() . '">';
     }
 }
 
@@ -200,7 +200,9 @@ if (!function_exists('skin')) {
      */
     function skin($url = '')
     {
-        return asset('themes/default/' . ltrim($url, '/'));
+        $theme = env('TEMPLATE_THEME', 'default');
+
+        return asset('themes/' . $theme . '/' . ltrim($url, '/'));
     }
 }
 

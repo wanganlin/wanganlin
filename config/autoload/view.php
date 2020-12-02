@@ -21,6 +21,6 @@ return [
 
     # 视图命名空间 (用于扩展包中)
     'namespaces' => [
-        'frontend' => BASE_PATH . '/public/themes/default/html',
+        'frontend' => BASE_PATH . '/public/themes/' . env('TEMPLATE_THEME', 'default') . '/html',
     ],
 ];
