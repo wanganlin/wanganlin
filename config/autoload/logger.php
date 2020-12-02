@@ -7,7 +7,7 @@ return [
         'handler' => [
             'class' => Monolog\Handler\StreamHandler::class,
             'constructor' => [
-                'stream' => BASE_PATH . '/runtime/logs/app.log',
+                'stream' => BASE_PATH . '/runtime/logs/hyperman.log',
                 'level' => Monolog\Logger::INFO,
             ],
         ],

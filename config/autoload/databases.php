@@ -5,9 +5,9 @@ declare(strict_types=1);
 return [
     'default' => [
         'driver' => env('DB_DRIVER', 'mysql'),
-        'host' => env('DB_HOST', 'localhost'),
+        'host' => env('DB_HOST', '127.0.0.1'),
         'port' => env('DB_PORT', 3306),
-        'database' => env('DB_DATABASE', 'hyperf'),
+        'database' => env('DB_DATABASE', 'hyperman'),
         'username' => env('DB_USERNAME', 'root'),
         'password' => env('DB_PASSWORD', ''),
         'charset' => env('DB_CHARSET', 'utf8mb4'),
@@ -31,7 +31,7 @@ return [
         ],
         'commands' => [
             'gen:model' => [
-                'path' => 'app/Model',
+                'path' => 'app/Models',
                 'force_casts' => true,
                 'inheritance' => 'Model',
                 'uses' => '',
