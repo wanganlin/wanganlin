@@ -1,7 +1,6 @@
 @extends('layouts.auth')
 
 @section('content')
-
 <form class="form-signin">
 {!! csrf_field() !!}
     <div class="text-center">

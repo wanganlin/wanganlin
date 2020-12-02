@@ -12,7 +12,7 @@
 
 <body>
 <div class="shortcut">
-    <div class="layui-container w">
+    <div class="container w">
         <ul class="fl">
             <li>上海</li>
         </ul>
@@ -39,17 +39,17 @@
 </div>
 
 <div class="header">
-    <div class="layui-container">
+    <div class="container">
         <a href="{{ url('/') }}">首页</a>
     </div>
 </div>
 
-<div class="layui-container">
+<div class="container">
     @yield('content')
 </div>
 
 <div class="footer">
-    <div class="layui-container">
+    <div class="container">
         footer
     </div>
 </div>
