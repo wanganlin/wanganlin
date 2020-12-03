@@ -5,23 +5,25 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\AbstractController;
-use Hyperf\HttpServer\Annotation\AutoController;
-use Hyperf\HttpServer\Annotation\PostMapping;
+use Hyperf\HttpServer\Annotation\Controller;
+use Hyperf\HttpServer\Annotation\GetMapping;
+use Psr\Http\Message\ResponseInterface;
 
 /**
- * @AutoController(prefix="api")
+ * @Controller(prefix="api")
  * Class IndexController
  * @package App\Http\Controllers\Api
  */
 class IndexController extends AbstractController
 {
     /**
-     * @return array
+     * @GetMapping(path="")
+     * @return ResponseInterface
      */
     public function index()
     {
-        return [
+        return $this->succeed([
             'message' => 'Hello API',
-        ];
+        ]);
     }
 }

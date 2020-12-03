@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\AbstractController;
 use Hyperf\HttpServer\Annotation\Controller;
 use Hyperf\HttpServer\Annotation\PostMapping;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * @Controller(prefix="api/auth")
@@ -17,25 +18,25 @@ class AuthController extends AbstractController
 {
     /**
      * @PostMapping("login")
-     * @return array
+     * @return ResponseInterface
      */
     public function login()
     {
-        return [
+        return $this->succeed([
             'method' => 'handle',
             'message' => 'Login',
-        ];
+        ]);
     }
 
     /**
      * @PostMapping("register")
-     * @return array
+     * @return ResponseInterface
      */
     public function register()
     {
-        return [
+        return $this->succeed([
             'method' => 'handle',
             'message' => 'Register',
-        ];
+        ]);
     }
 }

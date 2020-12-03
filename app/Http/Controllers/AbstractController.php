@@ -61,10 +61,24 @@ abstract class AbstractController
      * The view to render
      * @param $template
      * @param array $data
+     * @param string $namespace
      * @return mixed
      */
-    protected function render($template, array $data = [])
+    protected function render($template, array $data = [], $namespace = '')
     {
+        $template = empty($template) ? $template : $namespace . '::' . $template;
+
         return $this->view->render($template, $data);
+    }
+
+    /**
+     * The view to render
+     * @param $template
+     * @param array $data
+     * @return mixed
+     */
+    protected function display($template, array $data = [])
+    {
+        return $this->render($template, $data, 'frontend');
     }
 }

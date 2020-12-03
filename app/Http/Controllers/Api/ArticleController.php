@@ -5,33 +5,36 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\AbstractController;
-use Hyperf\HttpServer\Annotation\AutoController;
-use Hyperf\HttpServer\Annotation\PostMapping;
+use Hyperf\HttpServer\Annotation\Controller;
+use Hyperf\HttpServer\Annotation\GetMapping;
+use Psr\Http\Message\ResponseInterface;
 
 /**
- * @AutoController(prefix="api/article")
+ * @Controller(prefix="api/article")
  * Class ArticleController
  * @package App\Http\Controllers\Api
  */
 class ArticleController extends AbstractController
 {
     /**
-     * @return array
+     * @GetMapping(path="index")
+     * @return ResponseInterface
      */
     public function index()
     {
-        return [
-            'message' => 'Hello article index',
-        ];
+        return $this->succeed([
+            'message' => 'api article index',
+        ]);
     }
 
     /**
-     * @return array
+     * @GetMapping(path="detail")
+     * @return ResponseInterface
      */
     public function detail()
     {
-        return [
-            'message' => 'Hello article detail',
-        ];
+        return $this->succeed([
+            'message' => 'api article detail',
+        ]);
     }
 }

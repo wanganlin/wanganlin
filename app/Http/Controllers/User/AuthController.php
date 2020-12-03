@@ -6,55 +6,37 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\AbstractController;
 use Hyperf\HttpServer\Annotation\Controller;
-use Hyperf\HttpServer\Annotation\GetMapping;
 use Hyperf\HttpServer\Annotation\PostMapping;
+use Psr\Http\Message\ResponseInterface;
 
 /**
- * @Controller(prefix="user")
+ * @Controller(prefix="api/user/auth")
  * Class AuthController
  * @package App\Http\Controllers\User
  */
 class AuthController extends AbstractController
 {
     /**
-     * @GetMapping("login")
-     * @return array
+     * @PostMapping("login")
+     * @return ResponseInterface
      */
     public function login()
     {
-        return $this->render('frontend::login');
-    }
-
-    /**
-     * @PostMapping("login")
-     * @return array
-     */
-    public function loginHandler()
-    {
-        return [
+        return $this->succeed([
             'method' => 'handle',
             'message' => 'Login',
-        ];
-    }
-
-    /**
-     * @GetMapping("register")
-     * @return array
-     */
-    public function register()
-    {
-        return $this->render('frontend::register');
+        ]);
     }
 
     /**
      * @PostMapping("register")
-     * @return array
+     * @return ResponseInterface
      */
-    public function registerHandler()
+    public function register()
     {
-        return [
+        return $this->succeed([
             'method' => 'handle',
             'message' => 'Register',
-        ];
+        ]);
     }
 }

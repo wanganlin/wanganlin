@@ -90,13 +90,13 @@ class GenerateModel extends BaseCommand
 
 declare (strict_types=1);
 
-namespace App\Model;
+namespace App\Models;
 
 use Hyperf\DbConnection\Model\Model;
 
 /**
  * Class {$class}
- * @package App\Model
+ * @package App\Models
  */
 class {$class} extends Model
 {

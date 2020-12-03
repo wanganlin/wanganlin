@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Managers\Shipping;
+namespace App\Managers;
 
 use Hyperf\Guzzle\ClientFactory;
 
 /**
  * Class ShippingProxy
- * @package App\Managers\Shipping
+ * @package App\Managers
  */
 class ShippingProxy
 {
