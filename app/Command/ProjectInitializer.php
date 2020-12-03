@@ -10,10 +10,10 @@ use Psr\Container\ContainerInterface;
 
 /**
  * @Command
- * Class ProjectInit
+ * Class ProjectInitializer
  * @package App\Command
  */
-class ProjectInit extends BaseCommand
+class ProjectInitializer extends BaseCommand
 {
     /**
      * @var ContainerInterface

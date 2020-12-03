@@ -12,10 +12,10 @@ use Psr\Container\ContainerInterface;
 
 /**
  * @Command
- * Class GenerateModel
+ * Class ModelGenerator
  * @package App\Command
  */
-class GenerateModel extends BaseCommand
+class ModelGenerator extends BaseCommand
 {
     /**
      * @var ContainerInterface
