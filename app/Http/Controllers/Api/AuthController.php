@@ -10,7 +10,7 @@ use Hyperf\HttpServer\Annotation\PostMapping;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * @Controller(prefix="api/auth")
+ * @Controller(prefix="api")
  * Class AuthController
  * @package App\Http\Controllers\Api
  */

@@ -66,7 +66,7 @@ abstract class AbstractController
      */
     protected function render($template, array $data = [], $namespace = '')
     {
-        $template = empty($template) ? $template : $namespace . '::' . $template;
+        $template = empty($namespace) ? $template : $namespace . '::' . $template;
 
         return $this->view->render($template, $data);
     }

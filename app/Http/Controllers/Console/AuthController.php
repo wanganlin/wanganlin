@@ -6,22 +6,32 @@ namespace App\Http\Controllers\Console;
 
 use App\Http\Controllers\AbstractController;
 use Hyperf\HttpServer\Annotation\Controller;
+use Hyperf\HttpServer\Annotation\GetMapping;
 use Hyperf\HttpServer\Annotation\PostMapping;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * @Controller(prefix="api/console/auth")
+ * @Controller(prefix="admin")
  * Class AuthController
  * @package App\Http\Controllers\Console
  */
 class AuthController extends AbstractController
 {
     /**
-     * @PostMapping("login")
+     * @GetMapping("login")
      * @return ResponseInterface
      */
     public function login(): ResponseInterface
     {
-        return $this->succeed(['auth login']);
+        return $this->render('auth.login');
+    }
+
+    /**
+     * @PostMapping("login")
+     * @return ResponseInterface
+     */
+    public function loginHandler(): ResponseInterface
+    {
+        return $this->succeed(['admin auth login']);
     }
 }

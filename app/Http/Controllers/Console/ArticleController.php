@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Console;
 
 use App\Http\Controllers\AbstractController;
 use App\Http\Middleware\AuthMiddleware;
@@ -12,12 +12,12 @@ use Hyperf\HttpServer\Annotation\Middleware;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * @Controller(prefix="user")
+ * @Controller(prefix="admin/article")
  * @Middleware(AuthMiddleware::class)
- * Class IndexController
- * @package App\Http\Controllers\User
+ * Class ArticleController
+ * @package App\Http\Controllers\Console
  */
-class IndexController extends AbstractController
+class ArticleController extends AbstractController
 {
     /**
      * @GetMapping(path="")
@@ -25,6 +25,6 @@ class IndexController extends AbstractController
      */
     public function index(): ResponseInterface
     {
-        return $this->display('user');
+        return $this->render('article.index');
     }
 }

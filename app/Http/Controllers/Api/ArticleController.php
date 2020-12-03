@@ -17,7 +17,7 @@ use Psr\Http\Message\ResponseInterface;
 class ArticleController extends AbstractController
 {
     /**
-     * @GetMapping(path="index")
+     * @GetMapping(path="")
      * @return ResponseInterface
      */
     public function index(): ResponseInterface
