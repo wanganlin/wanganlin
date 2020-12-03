@@ -60,7 +60,7 @@ class GenerateModel extends BaseCommand
         $this->line('Done', 'info');
     }
 
-    private function tableInfo($table)
+    private function tableInfo($table): array
     {
         $pk = null;
         $fields = '';
@@ -81,7 +81,7 @@ class GenerateModel extends BaseCommand
         return ['fillable' => $fields, 'pk' => $pk];
     }
 
-    private function template($class, $table, $prefix)
+    private function template($class, $table, $prefix): string
     {
         $info = $this->tableInfo($prefix . $table);
 

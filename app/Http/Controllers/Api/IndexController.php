@@ -20,7 +20,7 @@ class IndexController extends AbstractController
      * @GetMapping(path="")
      * @return ResponseInterface
      */
-    public function index()
+    public function index(): ResponseInterface
     {
         return $this->succeed([
             'message' => 'Hello API',

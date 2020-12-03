@@ -20,7 +20,7 @@ class AuthController extends AbstractController
      * @PostMapping("login")
      * @return ResponseInterface
      */
-    public function login()
+    public function login(): ResponseInterface
     {
         return $this->succeed(['auth login']);
     }

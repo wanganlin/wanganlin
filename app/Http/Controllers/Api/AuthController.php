@@ -20,7 +20,7 @@ class AuthController extends AbstractController
      * @PostMapping("login")
      * @return ResponseInterface
      */
-    public function login()
+    public function login(): ResponseInterface
     {
         return $this->succeed([
             'method' => 'handle',
@@ -32,7 +32,7 @@ class AuthController extends AbstractController
      * @PostMapping("register")
      * @return ResponseInterface
      */
-    public function register()
+    public function register(): ResponseInterface
     {
         return $this->succeed([
             'method' => 'handle',

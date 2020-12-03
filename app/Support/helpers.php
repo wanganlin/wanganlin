@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
+use Psr\Container\ContainerInterface;
+
 if (!function_exists('app')) {
     /**
      * @param null $id
-     * @return mixed|\Psr\Container\ContainerInterface
+     * @return mixed
      */
     function app($id = null)
     {
@@ -24,7 +26,7 @@ if (!function_exists('csrf_token')) {
      * Get the CSRF token value.
      * @return string
      */
-    function csrf_token()
+    function csrf_token(): string
     {
         $session = app(\Hyperf\Contract\SessionInterface::class);
 
@@ -45,7 +47,7 @@ if (!function_exists('csrf_field')) {
      * @param string $name
      * @return string
      */
-    function csrf_field($name = '_token')
+    function csrf_field($name = '_token'): string
     {
         return '<input type="hidden" name="' . $name . '" value="' . csrf_token() . '">';
     }
@@ -54,9 +56,9 @@ if (!function_exists('csrf_field')) {
 if (!function_exists('stdLog')) {
     /**
      * 控制台日志
-     * @return mixed|\Psr\Container\ContainerInterface
+     * @return mixed|ContainerInterface
      */
-    function stdLog()
+    function stdLog(): ContainerInterface
     {
         return app(\Hyperf\Contract\StdoutLoggerInterface::class);
     }
@@ -78,9 +80,9 @@ if (!function_exists('logger')) {
 if (!function_exists('redis')) {
     /**
      * redis 客户端实例
-     * @return mixed|\Psr\Container\ContainerInterface
+     * @return mixed|ContainerInterface
      */
-    function redis()
+    function redis(): ContainerInterface
     {
         return app(Hyperf\Redis\Redis::class);
     }
@@ -89,9 +91,9 @@ if (!function_exists('redis')) {
 if (!function_exists('cache')) {
     /**
      * 缓存实例 简单的缓存
-     * @return mixed|\Psr\Container\ContainerInterface
+     * @return mixed|ContainerInterface
      */
-    function cache()
+    function cache(): ContainerInterface
     {
         return app(\Psr\SimpleCache\CacheInterface::class);
     }
@@ -104,7 +106,7 @@ if (!function_exists('encrypt')) {
      * @param string $key 密钥
      * @return string 加密后的字符串
      */
-    function encrypt(string $string, $key = '')
+    function encrypt(string $string, $key = ''): string
     {
         $coded = '';
         $keyLength = strlen($key);
@@ -124,7 +126,7 @@ if (!function_exists('decrypt')) {
      * @param string $key 密钥
      * @return string 加密前的字符串
      */
-    function decrypt(string $string, $key = '')
+    function decrypt(string $string, $key = ''): string
     {
         $coded = '';
         $keyLength = strlen($key);
@@ -170,7 +172,7 @@ if (!function_exists('url')) {
      * @param array $param
      * @return mixed|string
      */
-    function url($url = '', $param = [])
+    function url($url = '', $param = []): string
     {
         $query = empty($param) ? '' : '?' . http_build_query($param, '', '&');
 
@@ -184,7 +186,7 @@ if (!function_exists('asset')) {
      * @param string $url
      * @return mixed
      */
-    function asset($url = '')
+    function asset($url = ''): string
     {
         // $request = app(\Hyperf\HttpServer\Contract\RequestInterface::class);
 
@@ -198,7 +200,7 @@ if (!function_exists('skin')) {
      * @param string $url
      * @return mixed
      */
-    function skin($url = '')
+    function skin($url = ''): string
     {
         $theme = env('TEMPLATE_THEME', 'default');
 
@@ -212,7 +214,7 @@ if (!function_exists('is_mobile')) {
      * @param string $mobile 手机号码
      * @return bool
      */
-    function is_mobile(string $mobile)
+    function is_mobile(string $mobile): bool
     {
         if (preg_match('/1[3-9]\d{9}$/', $mobile) || preg_match('/000\d{8}$/', $mobile)) {
             return true;

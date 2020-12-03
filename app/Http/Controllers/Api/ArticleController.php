@@ -20,7 +20,7 @@ class ArticleController extends AbstractController
      * @GetMapping(path="index")
      * @return ResponseInterface
      */
-    public function index()
+    public function index(): ResponseInterface
     {
         return $this->succeed([
             'message' => 'api article index',
@@ -31,7 +31,7 @@ class ArticleController extends AbstractController
      * @GetMapping(path="detail")
      * @return ResponseInterface
      */
-    public function detail()
+    public function detail(): ResponseInterface
     {
         return $this->succeed([
             'message' => 'api article detail',

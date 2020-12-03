@@ -17,10 +17,10 @@ use Psr\Http\Message\ResponseInterface;
 class IndexController extends AbstractController
 {
     /**
-     * @GetMapping(path="dashboard")
+     * @GetMapping(path="")
      * @return ResponseInterface
      */
-    public function index()
+    public function index(): ResponseInterface
     {
         return $this->succeed('admin dashboard');
     }

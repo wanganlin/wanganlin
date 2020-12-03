@@ -32,7 +32,7 @@ trait JsonResponse
      * @param int $errorCode
      * @return $this
      */
-    protected function setErrorCode(int $errorCode)
+    protected function setErrorCode(int $errorCode): JsonResponse
     {
         $this->errorCode = $errorCode;
 
@@ -46,7 +46,7 @@ trait JsonResponse
      * @param array $headers 发送的Header信息
      * @return ResponseInterface
      */
-    protected function succeed($data, array $headers = [])
+    protected function succeed($data, array $headers = []): ResponseInterface
     {
         $response = $this->response([
             'status' => 'success',
@@ -65,7 +65,7 @@ trait JsonResponse
      * @param $message
      * @return ResponseInterface
      */
-    protected function failed($message)
+    protected function failed($message): ResponseInterface
     {
         return $this->response([
             'status' => 'failed',
@@ -82,7 +82,7 @@ trait JsonResponse
      * @param $name
      * @return ResponseInterface
      */
-    protected function response($data, $name = 'X-Client-Id')
+    protected function response($data, $name = 'X-Client-Id'): ResponseInterface
     {
         $request = app(HttpRequest::class);
         $response = app(HttpResponse::class);

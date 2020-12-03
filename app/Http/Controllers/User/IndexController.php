@@ -11,16 +11,16 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * @Controller(prefix="api/user")
- * Class UserController
+ * Class IndexController
  * @package App\Http\Controllers\User
  */
 class IndexController extends AbstractController
 {
     /**
-     * @GetMapping(path="dashboard")
+     * @GetMapping(path="")
      * @return ResponseInterface
      */
-    public function index()
+    public function index(): ResponseInterface
     {
         return $this->succeed('user');
     }

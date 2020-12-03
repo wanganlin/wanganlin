@@ -28,7 +28,7 @@ class IndexController extends AbstractController
             $this->translator->setLocale(str_replace('-', '_', $locale));
         }
 
-        return $this->render('index', [
+        return $this->display('index', [
             'message' => trans('messages.welcome'),
             'path' => $path
         ]);
