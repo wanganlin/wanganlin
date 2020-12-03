@@ -39,13 +39,13 @@
         "hyperf/validation": "^2.0",
         "hyperf/view-engine": "^2.0",
         "hyperf/websocket-server": "^2.0",
-        "overtrue/easy-sms": "^1.1",
+        "overtrue/easy-sms": "^1.2",
         "overtrue/pinyin": "^4.0",
         "overtrue/wechat": "^4.3"
     },
     "require-dev": {
         "swoole/ide-helper": "^4.5",
-        "friendsofphp/php-cs-fixer": "^2.14",
+        "friendsofphp/php-cs-fixer": "^2.16",
         "mockery/mockery": "^1.0",
         "phpstan/phpstan": "^0.12",
         "hyperf/devtool": "^2.0",
