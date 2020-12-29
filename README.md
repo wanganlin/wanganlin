@@ -6,7 +6,7 @@
 
 Hyperman 对系统环境有一些要求，仅可运行于 Linux 和 Mac 环境下。当您不想采用 Docker 来作为运行的环境基础时，您需要确保您的运行环境达到了以下的要求：   
 
- - PHP >= 7.2
+ - PHP >= 7.4
  - Swoole PHP 扩展 >= 4.5，并关闭了 `Short Name`
  - OpenSSL PHP 扩展
  - JSON PHP 扩展
@@ -31,7 +31,7 @@ docker run --name hyperman -v d:\docker:/mnt -p 9501:9501 -it --entrypoint /bin/
 # 镜像容器运行后，在容器内安装 Composer 并启动启用
 wget https://mirrors.aliyun.com/composer/composer.phar
 chmod u+x composer.phar && mv composer.phar /usr/local/bin/composer
-composer config -g repo.packagist composer https://mirrors.aliyun.com/composer
+# composer config -g repo.packagist composer https://mirrors.aliyun.com/composer
 composer create-project daosoft/hyperman && cd hyperman && php artisan start
 ```
 
