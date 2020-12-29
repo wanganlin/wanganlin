@@ -2,7 +2,7 @@
 
 @section('content')
 <form class="form-signin">
-{!! csrf_field() !!}
+    {!! csrf_field() !!}
     <label for="inputEmail" class="sr-only">Email</label>
     <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
