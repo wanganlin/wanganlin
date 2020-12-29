@@ -38,6 +38,11 @@ class AuthMiddleware implements MiddlewareInterface
     protected $response;
 
     /**
+     * @var array
+     */
+    protected $guards = ['admin', 'user'];
+
+    /**
      * Auth constructor.
      * @param ContainerInterface $container
      * @param HttpRequest $request
@@ -57,15 +62,16 @@ class AuthMiddleware implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $r = explode('/', $this->request->path());
-        $guard = in_array('admin', $r) ? 'admin' : 'user';
+        $guard = array_pad(explode('/', $this->request->path()), 1, null)[0];
 
-        $session = $this->container->get(SessionInterface::class);
-        if (!$session->has($guard . '_auth')) {
-            if ($request->getMethod() === 'GET') {
-                return $this->response->redirect('/' . $guard . '/login?callback=' . urlencode($request->fullUrl()));
-            } else {
-                return $this->failed('No access');
+        if (in_array($guard, $this->guards)) {
+            $session = $this->container->get(SessionInterface::class);
+            if (!$session->has($guard . '_auth')) {
+                if ($request->getMethod() === 'GET') {
+                    return $this->response->redirect('/' . $guard . '/login?callback=' . urlencode($request->fullUrl()));
+                } else {
+                    return $this->failed('No access');
+                }
             }
         }
 
