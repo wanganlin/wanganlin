@@ -70,7 +70,7 @@ class AuthMiddleware implements MiddlewareInterface
                 if ($request->getMethod() === 'GET') {
                     return $this->response->redirect('/' . $guard . '/login?callback=' . urlencode($request->fullUrl()));
                 } else {
-                    return $this->failed('No access');
+                    return $this->failed('Forbidden');
                 }
             }
         }
