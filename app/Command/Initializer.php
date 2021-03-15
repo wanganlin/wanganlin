@@ -44,7 +44,7 @@ class Initializer extends BaseCommand
                 '\'seeders\'' => '\'database/seeders\'',
             ],
             'http-server/src/CoreMiddleware.php' => [
-                'withAddedHeader(\'Server\', \'Hyperf\')' => 'withAddedHeader(\'Server\', \'Hyperman\')',
+                'withAddedHeader(\'Server\', \'Hyperf\')' => 'withAddedHeader(\'Server\', \'DWS/1.0\')',
             ],
             'http-server/src/Router/DispatcherFactory.php' => [
                 'config/routes.php' => 'routes/route.php',
