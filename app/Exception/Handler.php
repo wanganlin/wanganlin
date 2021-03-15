@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Exception\Handler;
+namespace App\Exception;
 
 use Hyperf\Contract\StdoutLoggerInterface;
 use Hyperf\ExceptionHandler\ExceptionHandler;
