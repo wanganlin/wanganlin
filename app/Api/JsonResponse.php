@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Support;
+namespace App\Api;
 
 use Hyperf\Contract\SessionInterface;
 use Hyperf\HttpServer\Contract\RequestInterface;
@@ -10,7 +10,7 @@ use Hyperf\HttpServer\Contract\ResponseInterface;
 
 /**
  * Trait JsonResponse
- * @package App\Support
+ * @package App\Api
  */
 trait JsonResponse
 {
