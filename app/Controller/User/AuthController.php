@@ -5,32 +5,31 @@ declare(strict_types=1);
 namespace App\Controller\User;
 
 use App\Controller\AbstractController;
-use Hyperf\HttpServer\Annotation\Controller;
-use Hyperf\HttpServer\Annotation\GetMapping;
-use Hyperf\HttpServer\Annotation\PostMapping;
-use Psr\Http\Message\ResponseInterface;
+use Hyperf\HttpServer\Annotation\AutoController;
+use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\HttpServer\Contract\ResponseInterface;
+use Hyperf\ViewEngine\Contract\Renderable;
 
 /**
- * @Controller(prefix="user")
+ * @AutoController(prefix="user")
  * Class AuthController
  * @package App\Controller\User
  */
 class AuthController extends AbstractController
 {
     /**
-     * @GetMapping("login")
-     * @return ResponseInterface
+     * @return Renderable
      */
-    public function login(): ResponseInterface
+    public function login(): Renderable
     {
         return $this->display('login');
     }
 
     /**
-     * @PostMapping("login")
+     * @param RequestInterface $request
      * @return ResponseInterface
      */
-    public function loginHandler(): ResponseInterface
+    public function loginHandler(RequestInterface $request): ResponseInterface
     {
         return $this->succeed([
             'method' => 'handle',
@@ -39,19 +38,18 @@ class AuthController extends AbstractController
     }
 
     /**
-     * @GetMapping("register")
-     * @return ResponseInterface
+     * @return Renderable
      */
-    public function register(): ResponseInterface
+    public function register(): Renderable
     {
         return $this->display('register');
     }
 
     /**
-     * @PostMapping("register")
+     * @param RequestInterface $request
      * @return ResponseInterface
      */
-    public function registerHandler(): ResponseInterface
+    public function registerHandler(RequestInterface $request): ResponseInterface
     {
         return $this->succeed([
             'method' => 'handle',

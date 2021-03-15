@@ -5,32 +5,31 @@ declare(strict_types=1);
 namespace App\Controller\Console;
 
 use App\Controller\AbstractController;
-use Hyperf\HttpServer\Annotation\Controller;
-use Hyperf\HttpServer\Annotation\GetMapping;
-use Hyperf\HttpServer\Annotation\PostMapping;
-use Psr\Http\Message\ResponseInterface;
+use Hyperf\HttpServer\Annotation\AutoController;
+use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\HttpServer\Contract\ResponseInterface;
+use Hyperf\ViewEngine\Contract\Renderable;
 
 /**
- * @Controller(prefix="admin")
+ * @AutoController(prefix="admin")
  * Class AuthController
  * @package App\Controller\Console
  */
 class AuthController extends AbstractController
 {
     /**
-     * @GetMapping("login")
-     * @return ResponseInterface
+     * @return Renderable
      */
-    public function login(): ResponseInterface
+    public function login(): Renderable
     {
         return $this->render('auth.login');
     }
 
     /**
-     * @PostMapping("login")
+     * @param RequestInterface $request
      * @return ResponseInterface
      */
-    public function loginHandler(): ResponseInterface
+    public function loginHandler(RequestInterface $request): ResponseInterface
     {
         return $this->succeed(['admin auth login']);
     }

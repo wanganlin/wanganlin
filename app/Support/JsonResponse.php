@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace App\Support;
 
 use Hyperf\Contract\SessionInterface;
-use Hyperf\HttpServer\Contract\RequestInterface as HttpRequest;
-use Hyperf\HttpServer\Contract\ResponseInterface as HttpResponse;
-use Psr\Http\Message\ResponseInterface;
+use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\HttpServer\Contract\ResponseInterface;
 
 /**
  * Trait JsonResponse
@@ -18,7 +17,7 @@ trait JsonResponse
     /**
      * @var int
      */
-    protected $errorCode = 0;
+    protected int $errorCode = 0;
 
     /**
      * @return int
@@ -84,8 +83,8 @@ trait JsonResponse
      */
     protected function response($data, $name = 'X-Client-Id'): ResponseInterface
     {
-        $request = app(HttpRequest::class);
-        $response = app(HttpResponse::class);
+        $request = app(RequestInterface::class);
+        $response = app(ResponseInterface::class);
         $session = app(SessionInterface::class);
 
         $clientId = $request->header($name);

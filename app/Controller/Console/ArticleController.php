@@ -6,13 +6,12 @@ namespace App\Controller\Console;
 
 use App\Controller\AbstractController;
 use App\Middleware\AuthMiddleware;
-use Hyperf\HttpServer\Annotation\Controller;
-use Hyperf\HttpServer\Annotation\GetMapping;
+use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\HttpServer\Annotation\Middleware;
-use Psr\Http\Message\ResponseInterface;
+use Hyperf\ViewEngine\Contract\Renderable;
 
 /**
- * @Controller(prefix="admin/article")
+ * @AutoController(prefix="admin/article")
  * @Middleware(AuthMiddleware::class)
  * Class ArticleController
  * @package App\Controller\Console
@@ -20,10 +19,9 @@ use Psr\Http\Message\ResponseInterface;
 class ArticleController extends AbstractController
 {
     /**
-     * @GetMapping(path="")
-     * @return ResponseInterface
+     * @return Renderable
      */
-    public function index(): ResponseInterface
+    public function index(): Renderable
     {
         return $this->render('article.index');
     }

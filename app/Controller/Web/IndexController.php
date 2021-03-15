@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace App\Controller\Web;
 
 use App\Controller\AbstractController;
+use Hyperf\Contract\TranslatorInterface;
+use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\Controller;
 use Hyperf\HttpServer\Annotation\GetMapping;
+use Hyperf\ViewEngine\Contract\Renderable;
 
 /**
  * @Controller
@@ -16,11 +19,17 @@ use Hyperf\HttpServer\Annotation\GetMapping;
 class IndexController extends AbstractController
 {
     /**
+     * @Inject
+     * @var TranslatorInterface
+     */
+    protected TranslatorInterface $translator;
+
+    /**
      * @GetMapping("/")
      * @param string|null $path
-     * @return mixed
+     * @return Renderable
      */
-    public function index(string $path = null)
+    public function index(string $path = null): Renderable
     {
         $acceptLanguage = $this->request->header('Accept-Language', 'en');
         if ($acceptLanguage) {

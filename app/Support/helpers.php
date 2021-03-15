@@ -11,7 +11,7 @@ if (!function_exists('app')) {
      */
     function app($id = null)
     {
-        $container = \Hyperf\Utils\ApplicationContext::getContainer();
+        $container = Hyperf\Utils\ApplicationContext::getContainer();
 
         if (is_null($id)) {
             return $container;
@@ -27,13 +27,13 @@ if (!function_exists('csrf_token')) {
      */
     function csrf_token(): string
     {
-        $session = app(\Hyperf\Contract\SessionInterface::class);
+        $session = app(Hyperf\Contract\SessionInterface::class);
 
         if ($session->has('CSRF_TOKEN')) {
             return $session->get('CSRF_TOKEN');
         }
 
-        $csrfToken = \Hyperf\Utils\Str::random(40);
+        $csrfToken = Hyperf\Utils\Str::random(40);
         $session->set('CSRF_TOKEN', $csrfToken);
 
         return $csrfToken;
@@ -59,7 +59,7 @@ if (!function_exists('stdLog')) {
      */
     function stdLog(): ContainerInterface
     {
-        return app(\Hyperf\Contract\StdoutLoggerInterface::class);
+        return app(Hyperf\Contract\StdoutLoggerInterface::class);
     }
 }
 
@@ -70,9 +70,41 @@ if (!function_exists('logger')) {
      * @param string $group
      * @return mixed
      */
-    function logger($name = 'hyperf', $group = 'default')
+    function logger($name = 'app', $group = 'default')
     {
-        return app(\Hyperf\Logger\LoggerFactory::class)->get($name, $group);
+        return app(Hyperf\Logger\LoggerFactory::class)->get($name, $group);
+    }
+}
+
+if (!function_exists('session')) {
+    /**
+     * @param string $name
+     * @param string $value
+     * @return mixed
+     */
+    function session($name = '', $value = '')
+    {
+        $session = app(Hyperf\Contract\SessionInterface::class);
+
+        if (is_null($name)) {
+            // 清空当前 Session 数据
+            $session->clear();
+        } elseif ('' === $name) {
+            // 获取所有数据
+            return $session->all();
+        } elseif ('[ID]' === $name) {
+            // 获取当前的 Session ID
+            return $session->getId();
+        } elseif (is_null($value)) {
+            // 删除一条或多条数据
+            $session->forget($name);
+        } elseif ('' === $value) {
+            // 判断或获取
+            return 0 === strpos($name, '?') ? $session->has(substr($name, 1)) : $session->get($name);
+        } else {
+            // 储存数据
+            $session->set($name, $value);
+        }
     }
 }
 
@@ -94,7 +126,7 @@ if (!function_exists('cache')) {
      */
     function cache(): ContainerInterface
     {
-        return app(\Psr\SimpleCache\CacheInterface::class);
+        return app(Psr\SimpleCache\CacheInterface::class);
     }
 }
 
@@ -187,7 +219,7 @@ if (!function_exists('asset')) {
      */
     function asset($url = ''): string
     {
-        // $request = app(\Hyperf\HttpServer\Contract\RequestInterface::class);
+        // $request = app(Hyperf\HttpServer\Contract\RequestInterface::class);
 
         return '/' . ltrim($url);
     }

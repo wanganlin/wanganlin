@@ -6,13 +6,12 @@ namespace App\Controller\User;
 
 use App\Controller\AbstractController;
 use App\Middleware\AuthMiddleware;
-use Hyperf\HttpServer\Annotation\Controller;
-use Hyperf\HttpServer\Annotation\GetMapping;
+use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\HttpServer\Annotation\Middleware;
-use Psr\Http\Message\ResponseInterface;
+use Hyperf\ViewEngine\Contract\Renderable;
 
 /**
- * @Controller(prefix="user")
+ * @AutoController(prefix="user")
  * @Middleware(AuthMiddleware::class)
  * Class IndexController
  * @package App\Controller\User
@@ -20,10 +19,9 @@ use Psr\Http\Message\ResponseInterface;
 class IndexController extends AbstractController
 {
     /**
-     * @GetMapping(path="")
-     * @return ResponseInterface
+     * @return Renderable
      */
-    public function index(): ResponseInterface
+    public function index(): Renderable
     {
         return $this->display('user');
     }

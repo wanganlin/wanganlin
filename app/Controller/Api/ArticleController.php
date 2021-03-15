@@ -5,19 +5,17 @@ declare(strict_types=1);
 namespace App\Controller\Api;
 
 use App\Controller\AbstractController;
-use Hyperf\HttpServer\Annotation\Controller;
-use Hyperf\HttpServer\Annotation\GetMapping;
-use Psr\Http\Message\ResponseInterface;
+use Hyperf\HttpServer\Annotation\AutoController;
+use Hyperf\HttpServer\Contract\ResponseInterface;
 
 /**
- * @Controller(prefix="api/article")
+ * @AutoController(prefix="api/article")
  * Class ArticleController
  * @package App\Controller\Api
  */
 class ArticleController extends AbstractController
 {
     /**
-     * @GetMapping(path="")
      * @return ResponseInterface
      */
     public function index(): ResponseInterface
@@ -28,7 +26,6 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @GetMapping(path="detail")
      * @return ResponseInterface
      */
     public function detail(): ResponseInterface

@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Support\JsonResponse;
-use Hyperf\Contract\SessionInterface;
-use Hyperf\Contract\TranslatorInterface;
+use Hyperf\Contract\ContainerInterface;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
-use Hyperf\View\RenderInterface;
-use Psr\Container\ContainerInterface;
+use Hyperf\ViewEngine\Contract\Renderable;
+use function Hyperf\ViewEngine\view;
 
 /**
  * Class AbstractController
@@ -25,59 +24,41 @@ abstract class AbstractController
      * @Inject
      * @var ContainerInterface
      */
-    protected $container;
+    protected ContainerInterface $container;
 
     /**
      * @Inject
      * @var RequestInterface
      */
-    protected $request;
+    protected RequestInterface $request;
 
     /**
      * @Inject
      * @var ResponseInterface
      */
-    protected $response;
-
-    /**
-     * @Inject
-     * @var SessionInterface
-     */
-    protected $session;
-
-    /**
-     * @Inject
-     * @var TranslatorInterface
-     */
-    protected $translator;
-
-    /**
-     * @Inject
-     * @var RenderInterface
-     */
-    protected $view;
+    protected ResponseInterface $response;
 
     /**
      * The view to render
      * @param $template
      * @param array $data
      * @param string $namespace
-     * @return mixed
+     * @return Renderable
      */
-    protected function render($template, array $data = [], $namespace = '')
+    protected function render($template, array $data = [], $namespace = ''): Renderable
     {
         $template = empty($namespace) ? $template : $namespace . '::' . $template;
 
-        return $this->view->render($template, $data);
+        return view($template, $data);
     }
 
     /**
      * The view to render
      * @param $template
      * @param array $data
-     * @return mixed
+     * @return Renderable
      */
-    protected function display($template, array $data = [])
+    protected function display($template, array $data = []): Renderable
     {
         return $this->render($template, $data, 'frontend');
     }
