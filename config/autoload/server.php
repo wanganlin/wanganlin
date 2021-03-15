@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 use Hyperf\Server\Server;
 use Hyperf\Server\Event;
+use Swoole\Constant;
 
 return [
-    'mode' => SWOOLE_BASE,
+    'mode' => SWOOLE_PROCESS,
     'servers' => [
         [
             'name' => 'http',
@@ -20,20 +21,19 @@ return [
         ],
     ],
     'settings' => [
-        'enable_coroutine' => true,
-        'worker_num' => swoole_cpu_num(),
-        'pid_file' => BASE_PATH . '/runtime/hyperman.pid',
-        'open_tcp_nodelay' => true,
-        'max_coroutine' => 100000,
-        'open_http2_protocol' => true,
-        'max_request' => 100000,
-        'socket_buffer_size' => 2 * 1024 * 1024,
-        'buffer_output_size' => 2 * 1024 * 1024,
-        'document_root' => BASE_PATH . '/public',
-        'enable_static_handler' => true,
+        Constant::OPTION_ENABLE_COROUTINE => true,
+        Constant::OPTION_WORKER_NUM => swoole_cpu_num(),
+        Constant::OPTION_PID_FILE => BASE_PATH . '/runtime/hyperman.pid',
+        Constant::OPTION_OPEN_TCP_NODELAY => true,
+        Constant::OPTION_MAX_COROUTINE => 100000,
+        Constant::OPTION_OPEN_HTTP2_PROTOCOL => true,
+        Constant::OPTION_MAX_REQUEST => 100000,
+        Constant::OPTION_SOCKET_BUFFER_SIZE => 2 * 1024 * 1024,
+        Constant::OPTION_BUFFER_OUTPUT_SIZE => 2 * 1024 * 1024,
+        Constant::OPTION_DOCUMENT_ROOT => BASE_PATH . '/public',
+        Constant::OPTION_ENABLE_STATIC_HANDLER => true,
     ],
     'callbacks' => [
-        Event::ON_BEFORE_START => [Hyperf\Framework\Bootstrap\ServerStartCallback::class, 'beforeStart'],
         Event::ON_WORKER_START => [Hyperf\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
         Event::ON_PIPE_MESSAGE => [Hyperf\Framework\Bootstrap\PipeMessageCallback::class, 'onPipeMessage'],
         Event::ON_WORKER_EXIT => [Hyperf\Framework\Bootstrap\WorkerExitCallback::class, 'onWorkerExit'],

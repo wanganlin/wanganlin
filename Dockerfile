@@ -1,8 +1,6 @@
-# Default Dockerfile
 # exp：docker build -t daosoft/hyperman .
-
 FROM hyperf/hyperf:7.4-alpine-v3.11-swoole
-LABEL maintainer="Daosoft Developers <inbox@daosoft.cn>" version="1.0" license="MIT" app.name="Hyperman"
+LABEL maintainer="Hyperman Developers <hyperman@daosoft.cn>" version="1.0" license="MIT" app.name="Hyperman"
 
 ##
 # ---------- env settings ----------

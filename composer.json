@@ -3,12 +3,9 @@
     "type": "project",
     "description": "A coroutine framework that focuses on hyperspeed and flexible.",
     "keywords": [
-        "daosoft",
         "hyperman",
-        "php",
-        "framework",
         "swoole",
-        "hyperf"
+        "php"
     ],
     "license": "Apache-2.0",
     "support": {
@@ -16,40 +13,34 @@
         "source": "https://github.com/daosoft/hyperman"
     },
     "require": {
-        "php": ">=7.4",
-        "ext-swoole": ">=4.5",
-        "hyperf-ext/jwt": "^2.0",
-        "hyperf/async-queue": "^2.1",
-        "hyperf/cache": "^2.1",
-        "hyperf/config": "^2.1",
-        "hyperf/constants": "^2.1",
-        "hyperf/elasticsearch": "^2.1",
-        "hyperf/filesystem": "^2.1",
-        "hyperf/framework": "^2.1",
-        "hyperf/http-server": "^2.1",
-        "hyperf/json-rpc": "^2.1",
-        "hyperf/logger": "^2.1",
-        "hyperf/memory": "^2.1",
-        "hyperf/model-cache": "^2.1",
-        "hyperf/paginator": "^2.1",
-        "hyperf/process": "^2.1",
-        "hyperf/redis": "^2.1",
-        "hyperf/rpc-client": "^2.1",
-        "hyperf/rpc-server": "^2.1",
-        "hyperf/session": "^2.1",
-        "hyperf/validation": "^2.1",
-        "hyperf/view-engine": "^2.1",
-        "hyperf/websocket-server": "^2.1",
+        "php": "^7.4|^8.0",
+        "ext-swoole": ">=4.6",
+        "hyperf/cache": "~2.1.0",
+        "hyperf/command": "~2.1.0",
+        "hyperf/config": "~2.1.0",
+        "hyperf/filesystem": "~2.1.0",
+        "hyperf/framework": "~2.1.0",
+        "hyperf/guzzle": "~2.1.0",
+        "hyperf/http-server": "~2.1.0",
+        "hyperf/logger": "~2.1.0",
+        "hyperf/model-cache": "~2.1.0",
+        "hyperf/paginator": "~2.1.0",
+        "hyperf/process": "~2.1.0",
+        "hyperf/redis": "~2.1.0",
+        "hyperf/session": "~2.1.0",
+        "hyperf/validation": "~2.1.0",
+        "hyperf/view-engine": "~2.1.0",
+        "hyperf/websocket-server": "~2.1.0",
         "overtrue/easy-sms": "^1.2",
         "overtrue/pinyin": "^4.0",
         "overtrue/wechat": "^5.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.17",
-        "hyperf/devtool": "^2.1",
-        "hyperf/testing": "^2.1",
+        "hyperf/devtool": "~2.1.0",
+        "hyperf/testing": "~2.1.0",
         "mockery/mockery": "^1.4",
-        "phpstan/phpstan": "^0.12.64",
+        "phpstan/phpstan": "^0.12",
         "swoole/ide-helper": "^4.5"
     },
     "config": {
@@ -81,14 +72,19 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
         "post-autoload-dump": [
             "rm -rf runtime/container",
             "@php artisan init"
         ],
-        "start": "php artisan start",
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "php artisan start"
+        ],
+        "analyse": "phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./app ./config",
+        "cs-fix": "php-cs-fixer fix $1",
         "test": "co-phpunit -c phpunit.xml --colors=always"
     }
 }
