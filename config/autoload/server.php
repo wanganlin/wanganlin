@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Hyperf\Server\Server;
 use Hyperf\Server\Event;
+use Hyperf\Server\Server;
 use Swoole\Constant;
 
 return [

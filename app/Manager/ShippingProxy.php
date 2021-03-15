@@ -33,5 +33,4 @@ class ShippingProxy
         // $client 为协程化的 GuzzleHttp\Client 对象
         $client = $this->clientFactory->create($options);
     }
-
 }

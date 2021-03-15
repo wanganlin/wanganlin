@@ -15,9 +15,8 @@ if (!function_exists('app')) {
 
         if (is_null($id)) {
             return $container;
-        } else {
-            return $container->get($id);
         }
+        return $container->get($id);
     }
 }
 

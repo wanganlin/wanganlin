@@ -30,9 +30,7 @@ class IndexController extends AbstractController
 
         return $this->display('index', [
             'message' => trans('messages.welcome'),
-            'path' => $path
+            'path' => $path,
         ]);
     }
-
-
 }

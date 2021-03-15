@@ -1,5 +1,9 @@
 <?php
 
+$header = <<<'EOF'
+
+EOF;
+
 return PhpCsFixer\Config::create()
     ->setRiskyAllowed(true)
     ->setRules([
@@ -9,6 +13,7 @@ return PhpCsFixer\Config::create()
         '@PhpCsFixer' => true,
         'header_comment' => [
             'commentType' => 'PHPDoc',
+            'header' => $header,
             'separate' => 'none',
             'location' => 'after_declare_strict',
         ],
