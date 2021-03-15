@@ -3,6 +3,7 @@
     "type": "project",
     "description": "A coroutine framework that focuses on hyperspeed and flexible.",
     "keywords": [
+        "daosoft",
         "hyperman",
         "swoole",
         "php"
@@ -83,8 +84,6 @@
             "Composer\\Config::disableProcessTimeout",
             "php artisan start"
         ],
-        "analyse": "phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./app ./config",
-        "cs-fix": "php-cs-fixer fix $1",
         "test": "co-phpunit -c phpunit.xml --colors=always"
     }
 }
