@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Api;
 
-use Hyperf\Contract\SessionInterface;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 
@@ -85,11 +84,10 @@ trait JsonResponse
     {
         $request = app(RequestInterface::class);
         $response = app(ResponseInterface::class);
-        $session = app(SessionInterface::class);
 
         $clientId = $request->header($name);
         if (empty($clientId)) {
-            $clientId = $session->getId();
+            $clientId = session('[ID]');
         }
 
         return $response->json($data)->withHeader($name, $clientId);
