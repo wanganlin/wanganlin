@@ -7,3 +7,7 @@ use Hyperf\HttpServer\Router\Router;
 Router::get('/monitor', function () {
     return json_encode(['heartbeat' => time()]);
 });
+
+Router::get('/favicon.ico', function () {
+    return '';
+});
