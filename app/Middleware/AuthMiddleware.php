@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Middleware;
 
-use App\Support\JsonResponse;
+use App\Response\JsonResponse;
 use Hyperf\Contract\SessionInterface;
 use Hyperf\HttpServer\Contract\RequestInterface as HttpRequest;
 use Hyperf\HttpServer\Contract\ResponseInterface as HttpResponse;
@@ -25,22 +25,22 @@ class AuthMiddleware implements MiddlewareInterface
     /**
      * @var ContainerInterface
      */
-    protected $container;
+    protected ContainerInterface $container;
 
     /**
      * @var HttpRequest
      */
-    protected $request;
+    protected HttpRequest $request;
 
     /**
      * @var HttpResponse
      */
-    protected $response;
+    protected HttpResponse $response;
 
     /**
      * @var array
      */
-    protected $guards = ['admin', 'user'];
+    protected array $guards = ['admin', 'user'];
 
     /**
      * Auth constructor.

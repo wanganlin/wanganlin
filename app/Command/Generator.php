@@ -20,7 +20,7 @@ class Generator extends BaseCommand
     /**
      * @var ContainerInterface
      */
-    protected $container;
+    protected ContainerInterface $container;
 
     public function __construct(ContainerInterface $container)
     {
@@ -52,6 +52,10 @@ class Generator extends BaseCommand
         $this->line('Done', 'info');
     }
 
+    /**
+     * @param $table
+     * @return array
+     */
     private function tableInfo($table): array
     {
         $pk = null;

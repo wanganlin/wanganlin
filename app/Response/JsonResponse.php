@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Api;
+namespace App\Response;
 
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
+use Psr\Http\Message\ResponseInterface as Psr7ResponseInterface;
 
 /**
  * Trait JsonResponse
- * @package App\Api
+ * @package App\Response
  */
 trait JsonResponse
 {
@@ -42,9 +43,9 @@ trait JsonResponse
      * @access protected
      * @param mixed $data 要返回的数据
      * @param array $headers 发送的Header信息
-     * @return ResponseInterface
+     * @return Psr7ResponseInterface
      */
-    protected function succeed($data, array $headers = []): ResponseInterface
+    protected function succeed($data, array $headers = []): Psr7ResponseInterface
     {
         $response = $this->response([
             'status' => 'success',
@@ -61,9 +62,9 @@ trait JsonResponse
     /**
      * 返回异常数据到客户端
      * @param $message
-     * @return ResponseInterface
+     * @return Psr7ResponseInterface
      */
-    protected function failed($message): ResponseInterface
+    protected function failed($message): Psr7ResponseInterface
     {
         return $this->response([
             'status' => 'failed',
@@ -77,18 +78,18 @@ trait JsonResponse
     /**
      * 返回 Json 数据格式
      * @param $data
-     * @param $name
-     * @return ResponseInterface
+     * @param string $name
+     * @return Psr7ResponseInterface
      */
-    protected function response($data, $name = 'X-Client-Id'): ResponseInterface
+    protected function response($data, string $name = 'X-Client-Id'): Psr7ResponseInterface
     {
         $request = app(RequestInterface::class);
         $response = app(ResponseInterface::class);
 
         $clientId = $request->header($name);
-        if (empty($clientId)) {
-            $clientId = session('[ID]');
-        }
+        // if (empty($clientId)) {
+            // $clientId = session('[ID]');
+        // }
 
         return $response->json($data)->withHeader($name, $clientId);
     }
