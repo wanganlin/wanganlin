@@ -7,11 +7,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class IndexController {
+public class ConfigTestController {
 
-    @GetMapping("/")
-    public String index() {
-        return "hello imooc";
+    @Autowired
+    private WebConfiguration webConfiguration;
+
+    @GetMapping("/getConfig")
+    public Object getConfig() {
+        return webConfiguration;
+    }
+
+    @Value("${config.name}")
+    private String username;
+
+    @GetMapping("/getValueConfig")
+    public Object getValueConfig() {
+        return username;
     }
 
 }
