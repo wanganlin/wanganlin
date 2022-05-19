@@ -1,5 +1,6 @@
 package com.example.spring.controller;
 
+import com.example.spring.support.JSONResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,9 +38,9 @@ public class UserController {
     }
 
     @PostMapping("update")
-    public String update(@RequestBody Map<String, Object> body) {
+    public JSONResponse update(@RequestBody Map<String, Object> body) {
         log.info(body.toString());
-        return "user update";
+        return JSONResponse.success(body);
     }
 
     @GetMapping("delete")
