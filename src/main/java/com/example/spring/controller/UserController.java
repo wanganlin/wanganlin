@@ -1,7 +1,10 @@
 package com.example.spring.controller;
 
+import com.example.spring.model.User;
+import com.example.spring.service.UserService;
 import com.example.spring.support.JSONResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -11,9 +14,22 @@ import java.util.Map;
 @RequestMapping("user")
 public class UserController {
 
+    @Autowired
+    UserService userService;
+
     @GetMapping("list")
     public String index() {
         return "user list";
+    }
+
+    @GetMapping("save")
+    public String save() {
+        User user = new User();
+        user.setName("setName");
+        user.setAvatar("setAvatar");
+        userService.saveUser(user);
+
+        return "user save";
     }
 
     @PostMapping("create")
