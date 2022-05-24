@@ -1,10 +1,8 @@
 package com.example.spring.request;
 
 import lombok.Data;
-import org.aopalliance.intercept.Interceptor;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 /**
