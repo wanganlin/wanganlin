@@ -13,10 +13,36 @@ import java.io.IOException;
 @RestController
 public class UploadController {
 
+    /**
+     * http://127.0.0.1:8080/upload
+     * Body 类型 : multipart/form-data
+     * upload : 文件
+     * @param upload
+     * @return
+     * @throws IOException
+     */
     @PostMapping("upload")
     public JSONResponse index(MultipartFile upload) throws IOException {
         File file = new File("/tmp/" + upload.getOriginalFilename());
         upload.transferTo(file);
         return JSONResponse.success(file.toString());
+    }
+
+    /**
+     * http://127.0.0.1:8080/upload/multi
+     * Body 类型 : multipart/form-data
+     * upload : 文件1
+     * upload : 文件2
+     * @param upload
+     * @return
+     * @throws IOException
+     */
+    @PostMapping("upload/multi")
+    public JSONResponse multi(MultipartFile[] upload) throws IOException {
+        for (int i = 0; i < upload.length; i++) {
+            File file = new File("/tmp/" + upload[i].getOriginalFilename());
+            upload[i].transferTo(file);
+        }
+        return JSONResponse.success("ok");
     }
 }
