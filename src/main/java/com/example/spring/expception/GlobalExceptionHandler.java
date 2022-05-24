@@ -10,11 +10,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 针对控制统计异常拦截处理
  */
 @ControllerAdvice
-public class GraceExceptionHandler {
+public class GlobalExceptionHandler {
 
     @ExceptionHandler(FileSizeLimitExceededException.class)
     @ResponseBody
     public JSONResponse fileSizeException(FileSizeLimitExceededException e) {
+        return JSONResponse.fail(40001, e.getMessage());
+    }
+
+    @ExceptionHandler(HandlerException.class)
+    @ResponseBody
+    public JSONResponse fileSizeException(HandlerException e) {
         return JSONResponse.fail(40001, e.getMessage());
     }
 }

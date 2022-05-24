@@ -1,5 +1,6 @@
 package com.example.spring.interceptor;
 
+import com.example.spring.expception.GraceException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,6 +15,7 @@ public class UploadInterceptor implements HandlerInterceptor {
         // 请求访问之前
         if (request.getHeader("token") != "123") {
             log.error("用户认证失败");
+            GraceException.error("用户认证失败");
             return false;
         }
 
