@@ -7,8 +7,10 @@ import com.example.spring.support.JSONResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Map;
 
 @Slf4j
@@ -35,12 +37,17 @@ public class UserController {
     }
 
     @PostMapping("save2")
-    public String save2(@RequestBody UserRequest request) {
+    public JSONResponse save2(@Valid @RequestBody UserRequest request,
+                              BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return JSONResponse.fail(bindingResult);
+        }
+
         User user = new User();
         BeanUtils.copyProperties(request, user);
         userService.saveUser(user);
 
-        return "user save";
+        return JSONResponse.success("user save");
     }
 
     @PostMapping("create")
