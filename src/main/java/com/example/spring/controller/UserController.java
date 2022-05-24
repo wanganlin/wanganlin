@@ -1,9 +1,11 @@
 package com.example.spring.controller;
 
 import com.example.spring.model.User;
+import com.example.spring.request.UserRequest;
 import com.example.spring.service.UserService;
 import com.example.spring.support.JSONResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +29,15 @@ public class UserController {
         User user = new User();
         user.setName("setName");
         user.setAvatar("setAvatar");
+        userService.saveUser(user);
+
+        return "user save";
+    }
+
+    @PostMapping("save2")
+    public String save2(@RequestBody UserRequest request) {
+        User user = new User();
+        BeanUtils.copyProperties(request, user);
         userService.saveUser(user);
 
         return "user save";
