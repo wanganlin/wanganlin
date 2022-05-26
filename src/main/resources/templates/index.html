@@ -86,6 +86,12 @@
         <hr>
     </span>
 
+    <br>
+    <br>
+    request & session：
+    <div th:text="${#request.getAttribute('enName')}"></div>
+    <div th:text="${#session.getAttribute('token')}"></div>
+
 </div>
 
 </body>

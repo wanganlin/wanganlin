@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -22,7 +23,7 @@ public class IndexController {
     MyAsync myAsync;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, HttpServletRequest request) {
         myAsync.testLog();
         log.warn("同步执行时间：" + LocalDateTime.now());
 
@@ -59,6 +60,8 @@ public class IndexController {
         myMap.put("loves", myList);
         model.addAttribute("myMap", myMap);
 
+        request.setAttribute("enName", "john");
+        request.getSession().setAttribute("token", "1234455");
 
         return "index";
     }
