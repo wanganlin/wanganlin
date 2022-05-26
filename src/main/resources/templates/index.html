@@ -65,6 +65,20 @@
         none
     </span>
     </span>
+
+    <br>
+    <br>
+    循环：
+    <span th:each="str : ${myList}">
+        <div th:text="${str}"></div>
+    </span>
+
+    <span th:each="attr : ${myMap}">
+        <div th:text="${attr.key}"></div>
+        <div th:text="${attr.value}"></div>
+        <hr>
+    </span>
+
 </div>
 
 </body>
