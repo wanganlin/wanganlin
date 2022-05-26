@@ -42,6 +42,29 @@
     <span th:text="${date}"></span>
     <br>
     <span th:text="${#dates.format(date, 'yyyy-MM-dd hh:mm')}"></span>
+
+    <br>
+    <br>
+    判断：
+    <span th:if="${sex == 0}">
+        nv
+    </span>
+    <span th:if="${sex == 1}">
+        nan
+    </span>
+    <br>
+    switch
+    <span th:switch="${sex}">
+    <span th:case="0">
+        nv2
+    </span>
+    <span th:case="1">
+        nan2
+    </span>
+    <span th:case="*">
+        none
+    </span>
+    </span>
 </div>
 
 </body>

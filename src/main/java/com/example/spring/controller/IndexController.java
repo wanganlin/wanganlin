@@ -39,6 +39,9 @@ public class IndexController {
         Date date = new Date();
         model.addAttribute("date", date);
 
+        Integer sex = 0;
+        model.addAttribute("sex", sex);
+
         return "index";
     }
 
