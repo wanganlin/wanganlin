@@ -69,8 +69,15 @@
     <br>
     <br>
     循环：
-    <span th:each="str : ${myList}">
+    <span th:each="str, status : ${myList}">
         <div th:text="${str}"></div>
+        <div th:text="${status.count}"></div>
+        <div th:text="${status.index}"></div>
+        <div th:text="${status.first}"></div>
+        <div th:text="${status.odd}"></div>
+        <div th:text="${status.even}"></div>
+        <div th:text="${status.size}"></div>
+        <div th:text="${status.last}"></div>
     </span>
 
     <span th:each="attr : ${myMap}">
