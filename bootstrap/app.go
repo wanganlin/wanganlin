@@ -12,6 +12,7 @@ func init() {
 func Run() (err error) {
 	r := gin.Default()
 
+	provider.Database.Boot(r)
 	provider.Route.Boot(r)
 	provider.View.Boot(r)
 

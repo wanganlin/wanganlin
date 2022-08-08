@@ -14,5 +14,6 @@ func (a *cApi) Route(r *gin.Engine) {
 	route := r.Group("/api")
 	{
 		route.GET("/", api.IndexController.Index)
+		route.GET("/setting", api.SettingController.Index)
 	}
 }

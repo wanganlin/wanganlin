@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/gin-gonic/gin v1.8.1
 	github.com/gogf/gf/v2 v2.1.2
+	gorm.io/gorm v1.23.8
 )
 
 require (
@@ -32,5 +33,4 @@ require (
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gorm.io/driver/mysql v1.3.5 // indirect
-	gorm.io/gorm v1.23.8 // indirect
 )
