@@ -5,7 +5,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func ApiRoute(r *gin.Engine) {
+var Api = cApi{}
+
+type cApi struct {
+}
+
+func (a *cApi) Route(r *gin.Engine) {
 	route := r.Group("/api")
 	{
 		route.GET("/", api.IndexController.Index)

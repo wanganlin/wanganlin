@@ -5,14 +5,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var Route = route{}
+var Route = cRoute{}
 
-type route struct {
+type cRoute struct {
 }
 
-func (a *route) Boot(r *gin.Engine) {
-	routes.ApiRoute(r)
-	routes.ConsoleRoute(r)
-	routes.WebRoute(r)
-	routes.StaticRoute(r)
+func (a *cRoute) Boot(r *gin.Engine) {
+	routes.Api.Route(r)
+	routes.Console.Route(r)
+	routes.Web.Route(r)
+	routes.Web.Static(r)
 }

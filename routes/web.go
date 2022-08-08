@@ -6,11 +6,16 @@ import (
 	"net/http"
 )
 
-func WebRoute(route *gin.Engine) {
+var Web = cWeb{}
+
+type cWeb struct {
+}
+
+func (a *cWeb) Route(route *gin.Engine) {
 	route.GET("/", web.IndexController.Index)
 }
 
-func StaticRoute(route *gin.Engine) {
+func (a *cWeb) Static(route *gin.Engine) {
 	route.StaticFS("/assets", http.Dir("public/assets"))
 	route.StaticFS("/static", http.Dir("public/static"))
 	route.StaticFS("/themes", http.Dir("public/themes"))

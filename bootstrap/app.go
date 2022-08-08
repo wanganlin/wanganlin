@@ -13,6 +13,7 @@ func Run() (err error) {
 	r := gin.Default()
 
 	provider.Route.Boot(r)
+	provider.View.Boot(r)
 
 	return r.Run(":8080")
 }

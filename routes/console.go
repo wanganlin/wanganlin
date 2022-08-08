@@ -5,7 +5,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func ConsoleRoute(r *gin.Engine) {
+var Console = cConsole{}
+
+type cConsole struct {
+}
+
+func (a *cConsole) Route(r *gin.Engine) {
 	route := r.Group("/admin")
 	{
 		route.GET("/", console.IndexController.Index)

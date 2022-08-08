@@ -1,6 +1,10 @@
 package api
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/gogf/gf/v2/text/gstr"
+	"net/http"
+)
 
 var IndexController = indexController{}
 
@@ -8,8 +12,12 @@ type indexController struct {
 }
 
 func (a *indexController) Index(c *gin.Context) {
-	data := gin.H{
-		"AA": "BB",
+	kebab := gstr.CaseKebab("abcEdf")
+	data := map[string]interface{}{
+		"lang": "GO语言" + kebab,
+		"tag":  "<br>",
 	}
-	c.AsciiJSON(200, data)
+
+	// 输出 : {"lang":"GO\u8bed\u8a00","tag":"\u003cbr\u003e"}
+	c.AsciiJSON(http.StatusOK, data)
 }
