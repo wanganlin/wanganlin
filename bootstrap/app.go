@@ -1,7 +1,7 @@
 package bootstrap
 
 import (
-	"gincms/routes"
+	"gincms/app/provider"
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,10 +12,7 @@ func init() {
 func Run() (err error) {
 	r := gin.Default()
 
-	routes.ApiRoute(r)
-	routes.ConsoleRoute(r)
-	routes.WebRoute(r)
-	routes.StaticRoute(r)
+	provider.Route.Boot(r)
 
 	return r.Run(":8080")
 }
