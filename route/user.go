@@ -9,6 +9,7 @@ func User(s *ghttp.Server) {
 	s.Group("/user", func(group *ghttp.RouterGroup) {
 		group.Middleware(ghttp.MiddlewareHandlerResponse)
 		group.Bind(
+			user.Auth,
 			user.Index,
 		)
 	})
