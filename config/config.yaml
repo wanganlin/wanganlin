@@ -4,12 +4,22 @@ server:
   serverRoot: "public"
   serverAgent: "Go HTTP Server"
 
-  # 接口文档
-  openapiPath: "/api.json"
-  swaggerPath: "/swagger"
+  # Cookie配置
+  cookieMaxAge: "365d" # Cookie有效期。默认为365天
+  cookiePath: "/"      # Cookie有效路径。默认为"/"表示全站所有路径下有效
+  cookieDomain: ""     # Cookie有效域名。默认为当前配置Cookie时的域名
+
+  # Sessions配置
+  sessionMaxAge: "24h"      # Session有效期。默认为24小时
+  sessionIdName: "SESS_ID"  # SessionId的键名名称。默认为sessionid
+  sessionCookieOutput: true # Session特性开启时，是否将SessionId返回到Cookie中。默认true
 
   # 日志扩展配置(参数日志组件配置)
   logger:
-    # path: "runtime/logs/"   # 日志文件路径。默认为空，表示关闭，仅输出到终端
+    # path: "runtime/logs/" # 日志文件路径。默认为空，表示关闭，仅输出到终端
     level: "all"
     stdout: true
+
+  # 接口文档
+  openapiPath: "/api.json"
+  swaggerPath: "/swagger"
