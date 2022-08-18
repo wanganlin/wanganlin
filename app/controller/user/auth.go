@@ -14,6 +14,6 @@ var (
 type cAuth struct{}
 
 func (a *cAuth) Login(ctx context.Context, req *user.LoginReq) (res *user.LoginRes, err error) {
-	g.RequestFromCtx(ctx).Response.WriteJson(g.Map{"login": "auth"})
+	g.RequestFromCtx(ctx).Response.WriteTpl("user/auth_login.html")
 	return
 }
