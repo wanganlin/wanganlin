@@ -4,10 +4,9 @@ import (
 	"context"
 
 	"github.com/gogf/gf/v2/frame/g"
-	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
 
-	"github.com/wanganlin/goframe/app/controller"
+	"github.com/wanganlin/goframe/app/provider"
 )
 
 var (
@@ -17,12 +16,7 @@ var (
 		Brief: "start http server",
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
 			s := g.Server()
-			s.Group("/", func(group *ghttp.RouterGroup) {
-				group.Middleware(ghttp.MiddlewareHandlerResponse)
-				group.Bind(
-					controller.Hello,
-				)
-			})
+			provider.Route.Boot(s)
 			s.Run()
 			return nil
 		},
