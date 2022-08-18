@@ -15,6 +15,6 @@ var (
 type cIndex struct{}
 
 func (a *cIndex) Index(ctx context.Context, req *console.HelloReq) (res *console.HelloRes, err error) {
-	g.RequestFromCtx(ctx).Response.WriteTpl("admin/index.html")
+	g.RequestFromCtx(ctx).Response.WriteTpl("console/index.html")
 	return
 }
