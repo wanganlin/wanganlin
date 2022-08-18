@@ -13,5 +13,6 @@ type cRoute struct {
 func (a *cRoute) Boot(s *ghttp.Server) {
 	route.Api(s)
 	route.Console(s)
+	route.User(s)
 	route.Web(s)
 }
