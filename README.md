@@ -7,3 +7,9 @@ Project Makefile Commands:
 - `make image TAG=xxx`: Run `docker build` to build image according `manifest/docker`.
 - `make image.push TAG=xxx`: Run `docker build` and `docker push` to build and push image according `manifest/docker`.
 - `make deploy TAG=xxx`: Run `kustomize build` to build and deploy deployment to kubernetes server group according `manifest/deploy`.
+
+### DAO 生成器
+
+```
+gf gen dao -l "mysql:root:root@tcp(127.0.0.1:3306)/db" -p "app"
+```
