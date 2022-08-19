@@ -11,7 +11,6 @@ func Console(s *ghttp.Server) {
 		group.Bind(console.Auth)
 		group.Middleware(middleware.Auth("admin"))
 		group.Bind(
-			console.Index,
 			console.User,
 		)
 	})
