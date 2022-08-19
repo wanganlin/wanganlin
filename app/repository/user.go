@@ -5,7 +5,7 @@
 package dao
 
 import (
-	"github.com/wanganlin/goframe/internal/dao/internal"
+	"github.com/wanganlin/goframe/app/repository/internal"
 )
 
 // internalUserDao is internal type for wrapping internal DAO implements.
