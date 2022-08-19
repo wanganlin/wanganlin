@@ -15,6 +15,13 @@ server:
   sessionCookieOutput: true       # Session特性开启时，是否将SessionId返回到Cookie中
   sessionPath: "runtime/sessions" # Session存储的文件目录路径
 
+  # Database配置
+  database:
+    default:
+      link: "mysql:root:12345678@tcp(127.0.0.1:3306)/db_name"
+      charset: "utf8"
+      debug: "true"
+
   # 日志扩展配置(参数日志组件配置)
   logger:
     # path: "runtime/logs/" # 日志文件路径。默认为空，表示关闭，仅输出到终端
