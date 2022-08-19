@@ -6,11 +6,9 @@ import (
 	"github.com/wanganlin/goframe/app/request/console"
 )
 
-var (
-	User = cUser{}
-)
-
 type cUser struct{}
+
+var User = cUser{}
 
 func (a *cUser) Index(ctx context.Context, req *console.UserListReq) (res *console.UserListRes, err error) {
 	g.RequestFromCtx(ctx).Response.WriteJson(g.Map{"a": "b"})

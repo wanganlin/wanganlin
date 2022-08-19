@@ -5,10 +5,9 @@ import (
 	"github.com/wanganlin/goframe/route"
 )
 
-var Route = cRoute{}
+type cRoute struct{}
 
-type cRoute struct {
-}
+var Route = cRoute{}
 
 func (a *cRoute) Boot(s *ghttp.Server) {
 	route.Api(s)

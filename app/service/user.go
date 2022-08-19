@@ -4,8 +4,14 @@
 
 package service
 
+import (
+	"context"
+
+	"github.com/wanganlin/goframe/app/model"
+)
+
 type IUser interface {
-	Name(id int) int
+	FindById(ctx context.Context, id int) (out *model.UserGetProfileOutput, err error)
 }
 
 var localUser IUser

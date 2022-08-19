@@ -1,21 +1,17 @@
 package console
 
 import (
-	"context"
-
-	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gfile"
-	"github.com/wanganlin/goframe/app/request/console"
-)
-
-var (
-	Index = cIndex{}
 )
 
 type cIndex struct{}
 
-func (a *cIndex) Index(ctx context.Context, req *console.HelloReq) (res *console.HelloRes, err error) {
+var Index = cIndex{}
+
+func (a *cIndex) Index(r *ghttp.Request) {
 	content := gfile.GetContents("public/static/admin/index.html")
-	g.RequestFromCtx(ctx).Response.WriteTplContent(content)
-	return
+	if err := r.Response.WriteTplContent(content); err != nil {
+		panic(err)
+	}
 }
