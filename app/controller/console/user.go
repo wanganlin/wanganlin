@@ -2,18 +2,17 @@ package console
 
 import (
 	"context"
-
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/wanganlin/goframe/app/request/console"
 )
 
 var (
-	Auth = cAuth{}
+	User = cUser{}
 )
 
-type cAuth struct{}
+type cUser struct{}
 
-func (a *cAuth) Login(ctx context.Context, req *console.LoginReq) (res *console.LoginRes, err error) {
+func (a *cUser) Index(ctx context.Context, req *console.UserListReq) (res *console.UserListRes, err error) {
 	g.RequestFromCtx(ctx).Response.WriteJson(g.Map{"a": "b"})
 	return
 }

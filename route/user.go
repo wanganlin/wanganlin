@@ -9,10 +9,10 @@ import (
 func User(s *ghttp.Server) {
 	s.Group("/user", func(group *ghttp.RouterGroup) {
 		group.Middleware(ghttp.MiddlewareHandlerResponse, middleware.CORS)
-		group.Bind(user.Auth)
+		group.Bind(user.Auth, user.Index)
 		group.Middleware(middleware.Auth("user"))
 		group.Bind(
-			user.Index,
+			user.Profile,
 		)
 	})
 }

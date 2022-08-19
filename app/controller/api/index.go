@@ -4,7 +4,6 @@ import (
 	"context"
 
 	"github.com/gogf/gf/v2/frame/g"
-
 	"github.com/wanganlin/goframe/app/request/api"
 )
 
