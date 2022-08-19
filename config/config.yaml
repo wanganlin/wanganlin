@@ -10,9 +10,10 @@ server:
   cookieDomain: ""     # Cookie有效域名。默认为当前配置Cookie时的域名
 
   # Sessions配置
-  sessionMaxAge: "24h"      # Session有效期。默认为24小时
-  sessionIdName: "SESS_ID"  # SessionId的键名名称。默认为sessionid
-  sessionCookieOutput: true # Session特性开启时，是否将SessionId返回到Cookie中。默认true
+  sessionMaxAge: "24h"            # Session有效期
+  sessionIdName: "SESS_ID"        # SessionId的键名名称
+  sessionCookieOutput: true       # Session特性开启时，是否将SessionId返回到Cookie中
+  sessionPath: "runtime/sessions" # Session存储的文件目录路径
 
   # 日志扩展配置(参数日志组件配置)
   logger:
