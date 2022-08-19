@@ -5,12 +5,11 @@ import (
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gcmd"
-
 	"github.com/wanganlin/goframe/app/provider"
 )
 
 var (
-	Main = gcmd.Command{
+	App = gcmd.Command{
 		Name:  "main",
 		Usage: "main",
 		Brief: "start http server",
