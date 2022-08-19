@@ -8,7 +8,7 @@ import (
 
 func Web(s *ghttp.Server) {
 	s.Group("/", func(group *ghttp.RouterGroup) {
-		group.Middleware(ghttp.MiddlewareHandlerResponse, middleware.CSRF())
+		group.Middleware(middleware.CSRF())
 		group.Bind(
 			web.Index,
 		)

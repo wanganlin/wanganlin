@@ -8,7 +8,6 @@ import (
 
 func User(s *ghttp.Server) {
 	s.Group("/user", func(group *ghttp.RouterGroup) {
-		group.Middleware(ghttp.MiddlewareHandlerResponse, middleware.CORS)
 		group.Bind(user.Auth)
 		group.Middleware(middleware.Auth("user"))
 		group.Bind(
