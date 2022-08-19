@@ -1,19 +1,16 @@
 package user
 
 import (
-	"context"
-
-	"github.com/wanganlin/goframe/app/request/user"
-	"github.com/wanganlin/goframe/app/service"
+	"github.com/gogf/gf/v2/net/ghttp"
 )
 
 type cProfile struct{}
 
 var Profile = cProfile{}
 
-func (a *cProfile) Index(ctx context.Context, req *user.ProfileReq) (res *user.ProfileRes, err error) {
-	if _, err := service.User().FindById(ctx, 1); err != nil {
-		return nil, err
+func (a *cProfile) Index(r *ghttp.Request) {
+	err := r.Response.WriteTpl("user/profile.html")
+	if err != nil {
+		return
 	}
-	return
 }

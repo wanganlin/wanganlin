@@ -8,6 +8,7 @@ import (
 
 func Console(s *ghttp.Server) {
 	s.Group("/admin", func(group *ghttp.RouterGroup) {
+		group.Middleware(middleware.CSRF())
 		group.Bind(console.Auth)
 		group.Middleware(middleware.Auth("admin"))
 		group.Bind(
