@@ -3,8 +3,8 @@ package console
 import (
 	"context"
 
-	"github.com/gogf/gf/v2/os/gfile"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/os/gfile"
 	"github.com/wanganlin/goframe/app/request/console"
 )
 
