@@ -12,6 +12,7 @@ func User(s *ghttp.Server) {
 		group.Bind(user.Auth)
 		group.Middleware(middleware.Auth("user"))
 		group.Bind(
+			user.Index,
 			user.Profile,
 		)
 	})

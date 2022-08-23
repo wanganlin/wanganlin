@@ -1,16 +1,21 @@
 package user
 
 import (
-	"github.com/gogf/gf/v2/net/ghttp"
+	"context"
+
+	"github.com/gogf/gf/v2/frame/g"
 )
 
 type cIndex struct{}
 
 var Index = cIndex{}
 
-func (a *cIndex) Index(r *ghttp.Request) {
-	err := r.Response.WriteTpl("user/index.html")
-	if err != nil {
-		return
-	}
+type IndexReq struct {
+	g.Meta `path:"/" method:"get"`
+}
+type IndexRes struct{}
+
+func (a *cIndex) Index(ctx context.Context, r *IndexReq) (res *IndexRes, err error) {
+	err = g.RequestFromCtx(ctx).Response.WriteTpl("user/index.html")
+	return
 }

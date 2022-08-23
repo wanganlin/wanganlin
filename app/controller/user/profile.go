@@ -1,16 +1,21 @@
 package user
 
 import (
-	"github.com/gogf/gf/v2/net/ghttp"
+	"context"
+
+	"github.com/gogf/gf/v2/frame/g"
 )
 
 type cProfile struct{}
 
 var Profile = cProfile{}
 
-func (a *cProfile) Index(r *ghttp.Request) {
-	err := r.Response.WriteTpl("user/profile.html")
-	if err != nil {
-		return
-	}
+type ProfileIndexReq struct {
+	g.Meta `path:"/profile" method:"get"`
+}
+type ProfileIndexRes struct{}
+
+func (a *cProfile) Index(ctx context.Context, r *ProfileIndexReq) (res *ProfileIndexRes, err error) {
+	err = g.RequestFromCtx(ctx).Response.WriteTpl("user/profile.html")
+	return
 }

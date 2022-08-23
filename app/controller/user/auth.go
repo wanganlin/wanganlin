@@ -1,41 +1,55 @@
 package user
 
 import (
-	"github.com/gogf/gf/v2/net/ghttp"
+	"context"
+
+	"github.com/gogf/gf/v2/frame/g"
 )
 
 type cAuth struct{}
 
 var Auth = cAuth{}
 
-// Login 登录
-func (a *cAuth) Login(r *ghttp.Request) {
-	err := r.Response.WriteTpl("user/auth_login.html")
-	if err != nil {
-		return
-	}
+type LoginReq struct {
+	g.Meta `path:"/login" method:"get"`
 }
+type LoginRes struct{}
+
+// Login 登录
+func (a *cAuth) Login(ctx context.Context, r *LoginReq) (res *LoginRes, err error) {
+	err = g.RequestFromCtx(ctx).Response.WriteTpl("user/auth_login.html")
+	return
+}
+
+type RegisterReq struct {
+	g.Meta `path:"/register" method:"get"`
+}
+type RegisterRes struct{}
 
 // Register 注册
-func (a *cAuth) Register(r *ghttp.Request) {
-	err := r.Response.WriteTpl("user/auth_register.html")
-	if err != nil {
-		return
-	}
+func (a *cAuth) Register(ctx context.Context, r *RegisterReq) (res *RegisterRes, err error) {
+	err = g.RequestFromCtx(ctx).Response.WriteTpl("user/auth_register.html")
+	return
 }
+
+type ForgotReq struct {
+	g.Meta `path:"/forgot" method:"get"`
+}
+type ForgotRes struct{}
 
 // Forgot 忘记密码
-func (a *cAuth) Forgot(r *ghttp.Request) {
-	err := r.Response.WriteTpl("user/auth_forgot.html")
-	if err != nil {
-		return
-	}
+func (a *cAuth) Forgot(ctx context.Context, r *ForgotReq) (res *ForgotRes, err error) {
+	err = g.RequestFromCtx(ctx).Response.WriteTpl("user/auth_forgot.html")
+	return
 }
 
+type ResetReq struct {
+	g.Meta `path:"/reset" method:"get"`
+}
+type ResetRes struct{}
+
 // Reset 重置密码
-func (a *cAuth) Reset(r *ghttp.Request) {
-	err := r.Response.WriteTpl("user/auth_reset.html")
-	if err != nil {
-		return
-	}
+func (a *cAuth) Reset(ctx context.Context, r *ResetReq) (res *ResetRes, err error) {
+	err = g.RequestFromCtx(ctx).Response.WriteTpl("user/auth_reset.html")
+	return
 }
