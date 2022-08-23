@@ -1,6 +1,7 @@
 package route
 
 import (
+	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/wanganlin/goframe/app/controller/user"
 	"github.com/wanganlin/goframe/app/middleware"
@@ -11,9 +12,9 @@ func User(s *ghttp.Server) {
 		group.Middleware(middleware.CSRF())
 		group.Bind(user.Auth)
 		group.Middleware(middleware.Auth("user"))
-		group.Bind(
-			user.Index,
-			user.Profile,
-		)
+		group.ALLMap(g.Map{
+			"/":        user.Index,
+			"/profile": user.Profile,
+		})
 	})
 }

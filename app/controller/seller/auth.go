@@ -1,4 +1,4 @@
-package user
+package seller
 
 import (
 	"github.com/gogf/gf/v2/frame/g"
@@ -15,7 +15,7 @@ func (a *cAuth) Login(r *ghttp.Request) {
 		r.Response.WriteJson(g.Map{"aa": "bb"})
 	}
 
-	err := r.Response.WriteTpl("user/auth_login.html")
+	err := r.Response.WriteTpl("seller/auth_login.html")
 	if err != nil {
 		return
 	}
@@ -23,7 +23,7 @@ func (a *cAuth) Login(r *ghttp.Request) {
 
 // Register 注册
 func (a *cAuth) Register(r *ghttp.Request) {
-	err := r.Response.WriteTpl("user/auth_register.html")
+	err := r.Response.WriteTpl("seller/auth_register.html")
 	if err != nil {
 		return
 	}
@@ -31,7 +31,7 @@ func (a *cAuth) Register(r *ghttp.Request) {
 
 // Forgot 忘记密码
 func (a *cAuth) Forgot(r *ghttp.Request) {
-	err := r.Response.WriteTpl("user/auth_forgot.html")
+	err := r.Response.WriteTpl("seller/auth_forgot.html")
 	if err != nil {
 		return
 	}
@@ -39,7 +39,7 @@ func (a *cAuth) Forgot(r *ghttp.Request) {
 
 // Reset 重置密码
 func (a *cAuth) Reset(r *ghttp.Request) {
-	err := r.Response.WriteTpl("user/auth_reset.html")
+	err := r.Response.WriteTpl("seller/auth_reset.html")
 	if err != nil {
 		return
 	}

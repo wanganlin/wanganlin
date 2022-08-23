@@ -1,21 +1,16 @@
 package web
 
 import (
-	"context"
-
-	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/net/ghttp"
 )
 
 type cIndex struct{}
 
 var Index = cIndex{}
 
-type IndexReq struct {
-	g.Meta `path:"/" method:"get"`
-}
-type IndexRes struct{}
-
-func (a *cIndex) Index(ctx context.Context, r *IndexReq) (res *IndexRes, err error) {
-	err = g.RequestFromCtx(ctx).Response.WriteTpl("index.html")
-	return
+func (a *cIndex) Index(r *ghttp.Request) {
+	err := r.Response.WriteTpl("index.html")
+	if err != nil {
+		return
+	}
 }

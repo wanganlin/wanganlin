@@ -28,6 +28,6 @@ server:
 # Database配置
 database:
   default:
-    link: "mysql:root:root@tcp(127.0.0.1:3306)/db"
+    link: "mysql:root:root@tcp(127.0.0.1:3306)/lims2"
     charset: "utf8"
     debug: "true"
