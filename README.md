@@ -15,3 +15,10 @@ gf gen dao -l "mysql:root:root@tcp(127.0.0.1:3306)/db" -p "app"
 
 gf gen service -s "app/service/logic" -d "app/service"
 ```
+
+
+### 收单
+
+思想：传统联单，如三联单：买家，卖家，供货商
+
+数字化之后：按照不同角色划分不同纬度的数据库，数据状态通过内部通知更新其他数据库的数据。
