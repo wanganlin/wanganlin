@@ -10,8 +10,14 @@ type cRoute struct{}
 var Route = cRoute{}
 
 func (a *cRoute) Boot(s *ghttp.Server) {
-	route.Api(s)
+	route.Auth(s)
 	route.Console(s)
+	route.Driver(s)
+	route.Market(s)
+	route.Portal(s)
+	route.Seller(s)
+	route.Shop(s)
+	route.Store(s)
+	route.Supplier(s)
 	route.User(s)
-	route.Web(s)
 }

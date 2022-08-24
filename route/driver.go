@@ -3,16 +3,16 @@ package route
 import (
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
-	"github.com/wanganlin/goframe/app/controller/seller"
+	"github.com/wanganlin/goframe/app/controller/driver"
 	"github.com/wanganlin/goframe/app/middleware"
 )
 
-func Seller(s *ghttp.Server) {
-	s.Group("/seller", func(group *ghttp.RouterGroup) {
+func Driver(s *ghttp.Server) {
+	s.Group("/driver", func(group *ghttp.RouterGroup) {
 		group.Middleware(middleware.CSRF())
-		group.Middleware(middleware.Auth("seller"))
+		group.Middleware(middleware.Auth("driver"))
 		group.ALLMap(g.Map{
-			"/": seller.Index,
+			"/": driver.Index,
 		})
 	})
 }

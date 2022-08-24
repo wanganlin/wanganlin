@@ -8,10 +8,9 @@ import (
 )
 
 func Console(s *ghttp.Server) {
-	s.Group("/admin", func(group *ghttp.RouterGroup) {
+	s.Group("/console", func(group *ghttp.RouterGroup) {
 		group.Middleware(middleware.CSRF())
-		group.Bind(console.Auth)
-		group.Middleware(middleware.Auth("admin"))
+		group.Middleware(middleware.Auth("console"))
 		group.ALLMap(g.Map{
 			"/":     console.Index,
 			"/user": console.User,

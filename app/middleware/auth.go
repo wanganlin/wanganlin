@@ -17,7 +17,7 @@ func Auth(guard string) func(r *ghttp.Request) {
 			if r.IsAjaxRequest() {
 				r.Response.WriteJsonExit(g.Map{"code": 401, "message": "Unauthorized", "data": nil})
 			} else {
-				r.Response.RedirectTo("/" + guard + "/login" + callback)
+				r.Response.RedirectTo("/auth/login" + callback)
 			}
 		}
 		r.Middleware.Next()
