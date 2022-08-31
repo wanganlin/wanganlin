@@ -4,38 +4,20 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Response\JsonResponse;
-use Hyperf\Contract\ContainerInterface;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
-use Hyperf\ViewEngine\Contract\Renderable;
-use function Hyperf\ViewEngine\view;
+use Psr\Container\ContainerInterface;
 
-/**
- * Class AbstractController
- * @package App\Controller
- */
 abstract class AbstractController
 {
-    use JsonResponse;
-
-    /**
-     * @Inject
-     * @var ContainerInterface
-     */
+    #[Inject]
     protected ContainerInterface $container;
 
-    /**
-     * @Inject
-     * @var RequestInterface
-     */
+    #[Inject]
     protected RequestInterface $request;
 
-    /**
-     * @Inject
-     * @var ResponseInterface
-     */
+    #[Inject]
     protected ResponseInterface $response;
 
     /**
