@@ -163,4 +163,4 @@ API 网关 -> index.php -> 启动核心框架
 
 ## License
 
-The PHPEIMS is open-sourced software licensed under the [Apache-2.0 license](https://opensource.org/licenses/Apache-2.0).
+The PHPIMS is open-sourced software licensed under the [Apache-2.0 license](https://opensource.org/licenses/Apache-2.0).
