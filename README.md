@@ -1,66 +1,166 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PHPIMS
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> 运行环境要求 PHP8.1。
 
-## About Laravel
+### 项目安装
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```
+composer create-project phpims/phpims
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 创建数据库
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```
+CREATE DATABASE `phpims` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_bin';
+```
 
-## Learning Laravel
+### 配置 `.env` 数据库连接
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=phpims
+DB_USERNAME=root
+DB_PASSWORD=secret
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 执行数据库迁移
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```
+php artisan migrate
+```
 
-## Laravel Sponsors
+### 配置伪静态
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+打开生成的 nginx 配置文件，替换 Laravel 推荐的伪静态规则：
 
-### Premium Partners
+```
+server {
+    listen 80;
+    server_name example.com;
+    root /srv/example.com/public;
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
 
-## Contributing
+    index index.php;
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    charset utf-8;
 
-## Code of Conduct
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
 
-## Security Vulnerabilities
+    error_page 404 /index.php;
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+```
+
+### 开启调试模式
+
+应用默认是部署模式，在开发阶段，可以修改环境变量`APP_DEBUG`开启调试模式，上线部署后切换到部署模式。
+
+本地开发的时候可以在应用根目录下面定义.env文件。
+
+### 测试运行
+
+现在只需要做最后一步来验证是否正常运行。
+
+进入命令行下面，执行下面指令
+
+```
+php artisan serve
+```
+
+在浏览器中输入地址：
+
+http://localhost:8000/
+
+### 推荐开发环境
+
+- 安装 laragon 集成环境 https://laragon.org/download/
+- 下载 PHP8 https://windows.php.net/download/#php-8.1-ts-vs16-x64 ，并解压到 laragon 的 bin/php 目录下
+- 启动 laragon，选择 PHP 版本
+- 安装 sourcetree https://www.sourcetreeapp.com/
+
+### 实体对象
+
+```
+# 用户 User
+# 角色 Role 用户组
+# 菜单 Rule 规则表
+# 授权 RoleAccess
+# 配置 Setting
+- 基本参数 （多语言，主题）
+- 公司信息
+- 网站信息
+# 模型 Pattern
+# 内容 Content 栏目|内容
+# 评论 Comment
+# 导航 Nav
+# 广告 Ad
+# 友情链接 Link
+# 表单 Form
+# 自定义标签 Fragment
+# 统计 Stat
+# 日志 Log
+```
+
+### 项目目录介绍
+
+```
+app                   核心应用文件
+  Console             命令行文件
+  Exceptions          异常文件
+  Http
+    Controllers       控制器文件
+      Api             API接口
+      Console         管理平台接口
+      User            用户接口
+      Web             前端接口
+    Middleware        中间件
+    Requests          请求类
+    Responses         响应类
+  Models              数据库表模型
+  Plugins             插件文件
+  Providers           服务提供者
+  Services            核心业务服务
+    Article           文章服务
+    User              用户服务
+    Wechat            微信公众平台服务
+      Message         微信公众平台消息处理类
+  Support             支持文件
+bootstrap             核心框架启动文件
+```
+
+开发实行分层调用：
+
+```
+API 网关 -> index.php -> 启动核心框架
+	-> request 请求验证层（表单验证）
+	-> controller 按照MCA路由分发处理请求（M：模块，C：控制器，A：处理方法）
+	-> service 调用业务逻辑服务层
+	-> manager 通用逻辑层（如外部短信服务等）
+	-> model 调用数据表关系模型层
+	-> DB 底层查询数据库
+```
+
+返回的数据按照逆向数据流响应给客户端的API.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The PHPEIMS is open-sourced software licensed under the [Apache-2.0 license](https://opensource.org/licenses/Apache-2.0).
