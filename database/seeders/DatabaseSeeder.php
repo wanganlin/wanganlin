@@ -20,5 +20,51 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call([
+            RuleSeeder::class,
+            RoleSeeder::class,
+            RoleAccessSeeder::class,
+            UserSeeder::class,
+            SettingSeeder::class,
+        ]);
+
+        $this->batchInsert('{{%user_rule}}',
+            ['parent_id', 'name', 'title', 'icon', 'menu', 'type', 'status', 'condition', 'sort'],
+            [
+                [0, 'setting', '全局设置', 'layui-icon-slider', 1, 0, 1, '', 0],
+                [0, 'content', '内容管理', 'layui-icon-form', 1, 0, 1, '', 0],
+                [0, 'extension', '扩展模块', 'layui-icon-app', 1, 0, 1, '', 0],
+                [0, 'permission', '权限管理', 'layui-icon-user', 1, 0, 1, '', 0],
+                [0, 'system', '系统管理', 'layui-icon-set', 1, 0, 1, '', 0],
+            ]
+        );
+
+        $this->insert('{{%user_role}}', [
+            'id' => 1,
+            'name' => '超级管理员',
+            'description' => '系统管理员',
+            'rules' => '1,2,3,4,5',
+            'status' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $this->insert('{{%user_role_access}}', [
+            'id' => 1,
+            'user_id' => 1,
+            'user_role_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $this->batchInsert('{{%setting}}',
+            ['parent_id', 'code', 'type', 'store_range', 'value', 'sort_order', 'created_at', 'updated_at'],
+            [
+                [0, 'site', 'hidden', '', '', 0, date('Y-m-d H:i:s'), date('Y-m-d H:i:s')],
+                [0, 'company', 'hidden', '', '', 0, date('Y-m-d H:i:s'), date('Y-m-d H:i:s')],
+                [0, 'setting', 'hidden', '', '', 0, date('Y-m-d H:i:s'), date('Y-m-d H:i:s')],
+            ]
+        );
     }
 }
