@@ -18,7 +18,7 @@ class LoginController extends BaseController
      * @return Renderable
      */
     #[Route(fullUri: 'login')]
-    public function index(): Renderable
+    public function showLoginForm(): Renderable
     {
         return view('auth.login', [
             'page_title' => '登录',
@@ -37,9 +37,8 @@ class LoginController extends BaseController
         $data = $request->validated();
 
         $loginService = new LoginService();
-        $handler = $this->getLoginType($data['username']);
-
-        if (call_user_func_array([$loginService, $handler], [$data['username'], $data['password']])) {
+        $loginType = $this->getLoginType($data['username']);
+        if (call_user_func_array([$loginService, $loginType], [$data['username'], $data['password']])) {
             return $this->success('ok');
         }
 

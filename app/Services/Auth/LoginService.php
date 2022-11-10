@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services\Auth;
 
+use App\Models\User;
+use App\Services\User\UserService;
 use Illuminate\Support\Facades\Auth;
 
 class LoginService
@@ -17,8 +19,15 @@ class LoginService
      */
     public function username(string $username, string $password): bool
     {
-        Auth::login(1);
-        return true;
+        $userService = new UserService();
+        $user = $userService->getUserByColumn('username', $username);
+        if ($this->validatePassword($user, $password)) {
+            if (Auth::loginUsingId(($user->id))) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -30,7 +39,7 @@ class LoginService
      */
     public function email(string $email, string $password): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -42,7 +51,7 @@ class LoginService
      */
     public function mobile(string $mobile, string $password): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -54,6 +63,22 @@ class LoginService
      */
     public function sms(string $mobile, string $code): bool
     {
-        return true;
+        return false;
+    }
+
+    /**
+     * 验证登录密码
+     *
+     * @param ?User $user
+     * @param string $password
+     * @return bool
+     */
+    private function validatePassword(?User $user, string $password): bool
+    {
+        if ($user) {
+            return password_verify($user->password, $password);
+        }
+
+        return false;
     }
 }
