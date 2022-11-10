@@ -14,10 +14,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-/**
- * Class AuthMiddleware
- * @package App\Middleware
- */
 class AuthMiddleware implements MiddlewareInterface
 {
     use JsonResponse;
@@ -70,7 +66,7 @@ class AuthMiddleware implements MiddlewareInterface
                 if ($request->getMethod() === 'GET') {
                     return $this->response->redirect('/' . $guard . '/login?callback=' . urlencode($request->fullUrl()));
                 } else {
-                    return $this->failed('Forbidden');
+                    return $this->error('Forbidden');
                 }
             }
         }

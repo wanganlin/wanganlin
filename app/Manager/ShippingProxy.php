@@ -6,10 +6,6 @@ namespace App\Manager;
 
 use Hyperf\Guzzle\ClientFactory;
 
-/**
- * Class ShippingProxy
- * @package App\Manager
- */
 class ShippingProxy
 {
     /**

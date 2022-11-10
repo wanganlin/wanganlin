@@ -4,14 +4,10 @@ declare(strict_types=1);
 
 namespace App\Model;
 
-/**
- * Class User
- * @package App\Model
- */
 class User extends Model
 {
     /**
-     * @var string
+     * @var string|null
      */
     protected ?string $table = 'users';
 

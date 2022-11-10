@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace App\Support;
 
-/**
- * Class Transformer
- * @package App\Support
- */
 abstract class Transformer
 {
     /**

@@ -4,25 +4,12 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use App\Models\User;
+use App\Model\User;
+use Hyperf\Di\Annotation\Inject;
 
-/**
- * Class UserService
- * @package App\Service
- */
 class UserService
 {
-    /**
-     * @var User
-     */
-    private $user;
+    #[Inject]
+    private User $user;
 
-    /**
-     * UserService constructor.
-     * @param User $user
-     */
-    public function __construct(User $user)
-    {
-        $this->user = $user;
-    }
 }

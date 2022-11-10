@@ -10,10 +10,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-/**
- * Class VerifyCsrfTokenMiddleware
- * @package App\Middleware
- */
 class VerifyCsrfTokenMiddleware implements MiddlewareInterface
 {
     /**

@@ -4,12 +4,23 @@ declare(strict_types=1);
 
 namespace App\Support;
 
+use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
+use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 
 trait JsonResponse
 {
+    #[Inject]
+    protected ContainerInterface $container;
+
+    #[Inject]
+    protected RequestInterface $request;
+
+    #[Inject]
+    protected ResponseInterface $response;
+
     /**
      * 返回封装后的API数据到客户端
      * @access protected
@@ -51,15 +62,13 @@ trait JsonResponse
      */
     protected function response($data, array $headers = [], string $name = 'X-Client-Id'): PsrResponseInterface
     {
-        $request = app(RequestInterface::class);
-        $response = app(ResponseInterface::class);
+        $response = $this->response->json($data);
 
-        $response = $response->json($data);
         foreach ($headers as $header) {
             $response = $response->withHeader(key($header), value($header));
         }
 
-        $clientId = $request->header($name, $this->createSessionId());
+        $clientId = $this->request->header($name, $this->createSessionId());
 
         return $response->withHeader($name, $clientId);
     }
