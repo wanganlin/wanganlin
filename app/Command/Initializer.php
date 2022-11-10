@@ -6,27 +6,13 @@ namespace App\Command;
 
 use Hyperf\Command\Annotation\Command;
 use Hyperf\Command\Command as BaseCommand;
-use Psr\Container\ContainerInterface;
 
 #[Command]
 class Initializer extends BaseCommand
 {
-    /**
-     * @var ContainerInterface
-     */
-    protected ContainerInterface $container;
+    protected ?string $name = 'init';
 
-    public function __construct(ContainerInterface $container)
-    {
-        $this->container = $container;
-
-        parent::__construct('init');
-    }
-
-    public function configure()
-    {
-        $this->setDescription('Composer Project Init Command');
-    }
+    protected string $description = 'Composer Project Init Command';
 
     public function handle()
     {
@@ -41,6 +27,7 @@ class Initializer extends BaseCommand
             ],
             'http-server/src/CoreMiddleware.php' => [
                 'withAddedHeader(\'Server\', \'Hyperf\')' => 'withAddedHeader(\'Server\', \'DWS/1.0\')',
+                '->withAddedHeader(\'content-type\', \'text/plain\')->withBody(new SwooleStream((string) $response));' => '->withBody(new SwooleStream((string) $response));',
             ],
             'http-server/src/Router/DispatcherFactory.php' => [
                 'config/routes.php' => 'routes/route.php',

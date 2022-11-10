@@ -1,11 +1,11 @@
 {
-    "name": "wanganlin/hyperman",
+    "name": "shincite/hyperman",
     "type": "project",
     "description": "A coroutine framework that focuses on hyperspeed and flexible.",
     "keywords": [
         "framework",
         "hyperman",
-        "daosoft",
+        "shincite",
         "swoole",
         "php"
     ],
@@ -31,15 +31,15 @@
         "hyperf/websocket-server": "~3.0.0",
         "overtrue/easy-sms": "^2.2",
         "overtrue/pinyin": "^5.0",
-        "w7corp/easywechat": "^6.7",
+        "w7corp/easywechat": "^6.9",
         "yansongda/hyperf-pay": "~1.1.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.0",
+        "friendsofphp/php-cs-fixer": "^3.13",
         "hyperf/devtool": "~3.0.0",
         "hyperf/testing": "~3.0.0",
-        "mockery/mockery": "^1.0",
-        "phpstan/phpstan": "^1.0",
+        "mockery/mockery": "^1.5",
+        "phpstan/phpstan": "^1.9",
         "swoole/ide-helper": "^5.0"
     },
     "autoload": {
@@ -56,11 +56,12 @@
         }
     },
     "scripts": {
+        "post-autoload-dump": [
+            "rm -rf runtime/container",
+            "@php artisan init"
+        ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-autoload-dump": [
-            "rm -rf runtime/container"
         ],
         "test": "co-phpunit --prepend tests/bootstrap.php -c phpunit.xml --colors=always",
         "cs-fix": "php-cs-fixer fix $1",

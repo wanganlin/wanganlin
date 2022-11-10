@@ -18,7 +18,7 @@ class AuthController extends AbstractController
      */
     public function login(): Renderable
     {
-        return $this->display('login');
+        return $this->render('login');
     }
 
     /**
@@ -38,7 +38,7 @@ class AuthController extends AbstractController
      */
     public function register(): Renderable
     {
-        return $this->display('register');
+        return $this->render('register');
     }
 
     /**

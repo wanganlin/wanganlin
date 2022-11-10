@@ -8,28 +8,13 @@ use Hyperf\Command\Annotation\Command;
 use Hyperf\Command\Command as BaseCommand;
 use Hyperf\DbConnection\Db;
 use Hyperf\Utils\Str;
-use Psr\Container\ContainerInterface;
 
 #[Command]
 class Generator extends BaseCommand
 {
-    /**
-     * @var ContainerInterface
-     */
-    protected ContainerInterface $container;
+    protected ?string $name = 'gen:model:all';
 
-    public function __construct(ContainerInterface $container)
-    {
-        $this->container = $container;
-
-        parent::__construct('gen:model:all');
-    }
-
-    public function configure()
-    {
-        parent::configure();
-        $this->setDescription('Generate Model Command');
-    }
+    protected string $description = 'Generate Model Command';
 
     public function handle()
     {

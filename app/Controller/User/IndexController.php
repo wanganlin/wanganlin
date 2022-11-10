@@ -19,6 +19,6 @@ class IndexController extends AbstractController
      */
     public function index(): Renderable
     {
-        return $this->display('user');
+        return $this->render('user');
     }
 }
