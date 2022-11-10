@@ -11,24 +11,17 @@ use Hyperf\HttpServer\Annotation\Controller;
 use Hyperf\HttpServer\Annotation\GetMapping;
 use Hyperf\ViewEngine\Contract\Renderable;
 
-/**
- * @Controller
- * Class IndexController
- * @package App\Controller\Web
- */
+#[Controller]
 class IndexController extends AbstractController
 {
-    /**
-     * @Inject
-     * @var TranslatorInterface
-     */
+    #[Inject]
     protected TranslatorInterface $translator;
 
     /**
-     * @GetMapping("/")
      * @param string|null $path
      * @return Renderable
      */
+    #[GetMapping(path: '/')]
     public function index(string $path = null): Renderable
     {
         $acceptLanguage = $this->request->header('Accept-Language', 'en');

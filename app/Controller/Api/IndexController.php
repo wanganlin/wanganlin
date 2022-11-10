@@ -6,22 +6,17 @@ namespace App\Controller\Api;
 
 use App\Controller\AbstractController;
 use Hyperf\HttpServer\Annotation\AutoController;
-use Hyperf\HttpServer\Contract\ResponseInterface;
-use Psr\Http\Message\ResponseInterface as Psr7ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 
-/**
- * @AutoController(prefix="api")
- * Class IndexController
- * @package App\Controller\Api
- */
+#[AutoController(prefix: 'api')]
 class IndexController extends AbstractController
 {
     /**
      * @return ResponseInterface
      */
-    public function index(): Psr7ResponseInterface
+    public function index(): ResponseInterface
     {
-        return $this->succeed([
+        return $this->success([
             'message' => 'Hello API',
         ]);
     }

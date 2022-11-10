@@ -8,11 +8,7 @@ use Hyperf\Command\Annotation\Command;
 use Hyperf\Command\Command as BaseCommand;
 use Psr\Container\ContainerInterface;
 
-/**
- * @Command
- * Class Initializer
- * @package App\Command
- */
+#[Command]
 class Initializer extends BaseCommand
 {
     /**

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Middleware;
 
-use App\Response\JsonResponse;
+use App\Support\JsonResponse;
 use Hyperf\Contract\SessionInterface;
 use Hyperf\HttpServer\Contract\RequestInterface as HttpRequest;
 use Hyperf\HttpServer\Contract\ResponseInterface as HttpResponse;

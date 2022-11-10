@@ -6,13 +6,9 @@ namespace App\Controller\Api;
 
 use App\Controller\AbstractController;
 use Hyperf\HttpServer\Annotation\AutoController;
-use Hyperf\HttpServer\Contract\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 
-/**
- * @AutoController(prefix="api")
- * Class AuthController
- * @package App\Controller\Api
- */
+#[AutoController(prefix: 'api')]
 class AuthController extends AbstractController
 {
     /**
@@ -20,7 +16,7 @@ class AuthController extends AbstractController
      */
     public function login(): ResponseInterface
     {
-        return $this->succeed([
+        return $this->success([
             'method' => 'handle',
             'message' => 'Login',
         ]);
@@ -31,7 +27,7 @@ class AuthController extends AbstractController
      */
     public function register(): ResponseInterface
     {
-        return $this->succeed([
+        return $this->success([
             'method' => 'handle',
             'message' => 'Register',
         ]);

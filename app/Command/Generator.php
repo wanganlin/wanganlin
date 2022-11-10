@@ -10,11 +10,7 @@ use Hyperf\DbConnection\Db;
 use Hyperf\Utils\Str;
 use Psr\Container\ContainerInterface;
 
-/**
- * @Command
- * Class Generator
- * @package App\Command
- */
+#[Command]
 class Generator extends BaseCommand
 {
     /**

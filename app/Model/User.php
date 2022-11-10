@@ -13,17 +13,17 @@ class User extends Model
     /**
      * @var string
      */
-    protected $table = 'users';
+    protected ?string $table = 'users';
 
     /**
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected string $primaryKey = 'id';
 
     /**
      * @var array
      */
-    protected $hidden = [
+    protected array $hidden = [
         'password',
     ];
 }

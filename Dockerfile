@@ -1,8 +1,8 @@
 # Default Dockerfile
-# exp：docker build -t daosoft/hyperman .
+# exp：docker build -t shincite/hyperman .
 
-FROM hyperf/hyperf:8.0-alpine-v3.12-swoole
-LABEL maintainer="Hyperman Developers <hyperman@daosoft.cn>" version="1.0" license="MIT" app.name="Hyperman"
+FROM hyperf/hyperf:8.1-alpine-v3.16-swoole
+LABEL maintainer="Hyperman Developers <hyperman@shincite.com>" version="1.0" license="Apache-2.0" app.name="Hyperman"
 
 ##
 # ---------- env settings ----------

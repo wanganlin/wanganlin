@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Response;
+namespace App\Support;
 
 /**
  * Class Transformer
- * @package App\Response
+ * @package App\Support
  */
 abstract class Transformer
 {

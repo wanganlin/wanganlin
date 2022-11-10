@@ -10,12 +10,8 @@ use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\HttpServer\Annotation\Middleware;
 use Hyperf\ViewEngine\Contract\Renderable;
 
-/**
- * @AutoController(prefix="admin/article")
- * @Middleware(AuthMiddleware::class)
- * Class ArticleController
- * @package App\Controller\Console
- */
+#[AutoController(prefix: 'admin/article')]
+#[Middleware(AuthMiddleware::class)]
 class ArticleController extends AbstractController
 {
     /**

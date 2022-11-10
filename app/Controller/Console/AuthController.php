@@ -7,14 +7,10 @@ namespace App\Controller\Console;
 use App\Controller\AbstractController;
 use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\HttpServer\Contract\RequestInterface;
-use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\ViewEngine\Contract\Renderable;
+use Psr\Http\Message\ResponseInterface;
 
-/**
- * @AutoController(prefix="admin")
- * Class AuthController
- * @package App\Controller\Console
- */
+#[AutoController(prefix: 'admin')]
 class AuthController extends AbstractController
 {
     /**
@@ -31,6 +27,6 @@ class AuthController extends AbstractController
      */
     public function loginHandler(RequestInterface $request): ResponseInterface
     {
-        return $this->succeed(['admin auth login']);
+        return $this->success(['admin auth login']);
     }
 }

@@ -192,7 +192,7 @@ if (!function_exists('page')) {
         }
 
         $startCount = ($currPage - 1) * $pageSize;
-        return array($totalPage, $startCount);
+        return [$totalPage, $startCount];
     }
 }
 

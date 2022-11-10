@@ -6,13 +6,9 @@ namespace App\Controller\Api;
 
 use App\Controller\AbstractController;
 use Hyperf\HttpServer\Annotation\AutoController;
-use Hyperf\HttpServer\Contract\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 
-/**
- * @AutoController(prefix="api/article")
- * Class ArticleController
- * @package App\Controller\Api
- */
+#[AutoController(prefix: 'api/article')]
 class ArticleController extends AbstractController
 {
     /**
@@ -20,7 +16,7 @@ class ArticleController extends AbstractController
      */
     public function index(): ResponseInterface
     {
-        return $this->succeed([
+        return $this->success([
             'message' => 'api article index',
         ]);
     }
@@ -30,7 +26,7 @@ class ArticleController extends AbstractController
      */
     public function detail(): ResponseInterface
     {
-        return $this->succeed([
+        return $this->success([
             'message' => 'api article detail',
         ]);
     }
