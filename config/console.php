@@ -4,15 +4,19 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic-console',
-    'basePath' => dirname(__DIR__),
+    'id' => 'console',
+    'basePath' => '@app',
+    'runtimePath' => '@runtime',
+    'vendorPath' => '@vendor',
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
         '@tests' => '@app/tests',
     ],
+    'language' => 'zh-CN',
+    'timeZone' => 'Asia/Shanghai',
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -22,6 +26,7 @@ $config = [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+                    'logFile' => '@storage/logs/app.log'
                 ],
             ],
         ],

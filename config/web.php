@@ -2,19 +2,26 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$route = require __DIR__ . '/../routes/route.php';
 
 $config = [
-    'id' => 'basic',
-    'basePath' => dirname(__DIR__),
+    'id' => 'yiicms',
+    'basePath' => '@app',
+    'viewPath' => '@view',
+    'runtimePath' => '@runtime',
+    'vendorPath' => '@vendor',
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
+    'defaultRoute' => 'index',
+    'language' => 'zh-CN',
+    'timeZone' => 'Asia/Shanghai',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '',
+            'cookieValidationKey' => md5(__DIR__),
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -24,7 +31,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'index/error',
         ],
         'mailer' => [
             'class' => \yii\symfonymailer\Mailer::class,
@@ -38,18 +45,21 @@ $config = [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+                    'logFile' => '@storage/logs/app.log'
                 ],
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-            ],
+            'rules' => $route,
         ],
-        */
+    ],
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+        ],
     ],
     'params' => $params,
 ];
