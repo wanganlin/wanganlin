@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Auth;
+namespace App\Packages\Auth\Http\Controllers;
 
 use App\Http\Requests\Auth\ForgetRequest;
 use App\Services\Auth\ForgetService;
