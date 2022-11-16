@@ -60,11 +60,8 @@ $config = [
         'auth' => [
             'class' => 'app\modules\auth\Module',
         ],
-        'admin' => [
-            'class' => 'app\modules\admin\Module',
-        ],
-        'user' => [
-            'class' => 'app\modules\user\Module',
+        'console' => [
+            'class' => 'app\modules\console\Module',
         ],
     ],
     'params' => $params,
