@@ -26,7 +26,7 @@ return new class extends Migration
             $table->dateTime('start_time')->comment('开始时间');
             $table->dateTime('end_time')->comment('开始时间');
             $table->unsignedInteger('click_count')->default(0)->comment('点击量');
-            $table->unsignedTinyInteger('enabled')->default(1)->comment('状态：1正常，0禁用');
+            $table->unsignedTinyInteger('status')->default(1)->comment('状态：1正常，0禁用');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name')->comment('角色名');
             $table->string('description')->comment('角色描述');
-            $table->text('rules')->comment('角色拥有的规则id，多个规则","隔开');
+            $table->text('permissions')->comment('角色拥有的规则id，多个规则","隔开');
             $table->unsignedTinyInteger('status')->comment('状态：1正常，0禁用');
         });
     }

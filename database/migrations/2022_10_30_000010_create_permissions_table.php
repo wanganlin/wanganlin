@@ -13,7 +13,7 @@ return new class extends Migration {
     public function up()
     {
         // 权限表
-        Schema::create('rules', function (Blueprint $table) {
+        Schema::create('permissions', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('parent_id')->comment('父级ID');
             $table->string('name')->comment('规则名称');
@@ -34,6 +34,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('rules');
+        Schema::dropIfExists('permissions');
     }
 };

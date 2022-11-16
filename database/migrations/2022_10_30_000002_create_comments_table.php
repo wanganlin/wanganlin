@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('comment', 1000)->comment('评论内容');
             $table->unsignedTinyInteger('rank')->comment('评论等级');
             $table->string('ip')->comment('IP地址');
-            $table->unsignedTinyInteger('enabled')->default(1)->comment('状态：1正常，0禁用');
+            $table->unsignedTinyInteger('status')->default(1)->comment('状态：1正常，0禁用');
             $table->timestamps();
             $table->softDeletes();
         });

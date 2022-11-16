@@ -16,8 +16,8 @@ return new class extends Migration {
         Schema::create('role_access', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->comment('用户id');
-            $table->integer('user_role_id')->comment('用户组id');
-            $table->unique(['user_id', 'user_role_id']);
+            $table->integer('role_id')->comment('用户组id');
+            $table->unique(['user_id', 'role_id']);
         });
     }
 

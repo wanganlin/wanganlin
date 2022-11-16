@@ -25,10 +25,10 @@ return new class extends Migration
             $table->timestamp('mobile_verified_at')->nullable()->comment('手机号认证时间');
             $table->string('email')->comment('邮箱');
             $table->timestamp('email_verified_at')->nullable()->comment('邮箱认证时间');
+            $table->string('last_login_at')->comment('最后登录时间');
             $table->string('last_login_ip')->comment('最后登录IP');
-            $table->string('last_login_time')->comment('最后登录时间');
             $table->rememberToken();
-            $table->unsignedTinyInteger('enabled')->default(1)->comment('登录状态：1正常，0禁用');
+            $table->unsignedTinyInteger('status')->default(1)->comment('登录状态：1正常，0禁用');
             $table->timestamps();
             $table->softDeletes();
         });

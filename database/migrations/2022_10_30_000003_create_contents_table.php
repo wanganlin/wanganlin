@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->string('description')->comment('描述');
             $table->string('intro')->comment('简介');
             $table->text('content')->comment('内容');
-            $table->unsignedTinyInteger('enabled')->default(1)->comment('状态：1正常，0禁用');
+            $table->unsignedTinyInteger('status')->default(1)->comment('状态：1正常，0禁用');
             $table->timestamps();
             $table->softDeletes();
         });
