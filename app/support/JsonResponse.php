@@ -35,7 +35,6 @@ trait JsonResponse
             'code' => $code,
             'message' => $message,
             'data' => null,
-            'time' => date('Y-m-d H:i:s'),
         ], $headers);
     }
 

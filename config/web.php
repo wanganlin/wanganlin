@@ -5,7 +5,7 @@ $db = require __DIR__ . '/db.php';
 $route = require __DIR__ . '/../routes/route.php';
 
 $config = [
-    'id' => 'yiicms',
+    'id' => 'YiiCMS',
     'basePath' => '@app',
     'viewPath' => '@view',
     'runtimePath' => '@runtime',

@@ -9,8 +9,14 @@ nbproject
 .project
 .settings
 
+# vscode project files
+.vscode
+
 # windows thumbnail cache
 Thumbs.db
+
+# node_modules folder
+/node_modules
 
 # composer vendor dir
 /vendor
@@ -19,7 +25,7 @@ Thumbs.db
 composer.phar
 
 # composer lock
-composer.lock
+*.lock
 
 # Mac DS_Store Files
 .DS_Store
@@ -34,3 +40,6 @@ tests/_support/_generated
 
 #vagrant folder
 /.vagrant
+
+# log files
+*.log

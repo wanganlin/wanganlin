@@ -1,76 +1,76 @@
 {
-    "name": "yiidev/yiicms",
-    "type": "project",
-    "description": "一款开源的PHP内容管理系统",
-    "keywords": ["yiicms", "php", "cms", "yii2"],
-    "license": "Apache-2.0",
-    "require": {
-        "php": "^8.1",
-        "nesbot/carbon": "^2.58",
-        "yiisoft/yii2": "~2.0.45",
-        "yiisoft/yii2-bootstrap5": "~2.0.2",
-        "yiisoft/yii2-symfonymailer": "~2.0.3"
-    },
-    "require-dev": {
-        "yiisoft/yii2-debug": "~2.1.0",
-        "yiisoft/yii2-gii": "~2.2.0",
-        "yiisoft/yii2-faker": "~2.0.0",
-        "codeception/codeception": "^5.0.0 || ^4.0",
-        "codeception/lib-innerbrowser": "^3.0 || ^1.1",
-        "codeception/module-asserts": "^3.0 || ^1.1",
-        "codeception/module-yii2": "^1.1",
-        "codeception/module-filesystem": "^2.0 || ^1.1",
-        "codeception/verify": "^2.2",
-        "symfony/browser-kit": "^6.0 || >=2.7 <=4.2.4"
-    },
-    "autoload": {
-        "files": [
-            "app/support/helpers.php"
-        ]
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "yii\\composer\\Installer::postInstall"
-        ],
-        "post-create-project-cmd": [
-            "yii\\composer\\Installer::postCreateProject",
-            "yii\\composer\\Installer::postInstall"
-        ]
-    },
-    "extra": {
-        "yii\\composer\\Installer::postCreateProject": {
-            "setPermission": [
-                {
-                    "storage": "0777",
-                    "public/assets": "0777",
-                    "artisan": "0755"
-                }
-            ]
-        },
-        "yii\\composer\\Installer::postInstall": {
-            "generateCookieValidationKey": [
-                "config/web.php"
-            ]
-        }
-    },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true,
-        "allow-plugins": {
-            "yiisoft/yii2-composer" : true
-        },
-        "process-timeout": 1800,
-        "fxp-asset": {
-            "enabled": false
-        }
-    },
-    "minimum-stability": "stable",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
+  "name": "yiidev/yiicms",
+  "type": "project",
+  "description": "一款开源的PHP内容管理系统",
+  "keywords": ["yiicms", "php", "cms", "yii2"],
+  "license": "Apache-2.0",
+  "require": {
+    "php": "^8.1",
+    "nesbot/carbon": "^2.63",
+    "yiisoft/yii2": "~2.0.45",
+    "yiisoft/yii2-bootstrap5": "~2.0.2",
+    "yiisoft/yii2-symfonymailer": "~2.0.3"
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "~2.1.0",
+    "yiisoft/yii2-gii": "~2.2.0",
+    "yiisoft/yii2-faker": "~2.0.0",
+    "codeception/codeception": "^5.0.0 || ^4.0",
+    "codeception/lib-innerbrowser": "^3.0 || ^1.1",
+    "codeception/module-asserts": "^3.0 || ^1.1",
+    "codeception/module-yii2": "^1.1",
+    "codeception/module-filesystem": "^2.0 || ^1.1",
+    "codeception/verify": "^2.2",
+    "symfony/browser-kit": "^6.0 || >=2.7 <=4.2.4"
+  },
+  "autoload": {
+    "files": [
+      "app/support/helpers.php"
     ]
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "yii\\composer\\Installer::postInstall"
+    ],
+    "post-create-project-cmd": [
+      "yii\\composer\\Installer::postCreateProject",
+      "yii\\composer\\Installer::postInstall"
+    ]
+  },
+  "extra": {
+    "yii\\composer\\Installer::postCreateProject": {
+      "setPermission": [
+        {
+          "storage": "0777",
+          "public/assets": "0777",
+          "artisan": "0755"
+        }
+      ]
+    },
+    "yii\\composer\\Installer::postInstall": {
+      "generateCookieValidationKey": [
+        "config/web.php"
+      ]
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true
+    },
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "enabled": false
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
 }
