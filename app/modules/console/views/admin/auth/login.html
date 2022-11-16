@@ -1,0 +1,51 @@
+{layout name="admin/layout/auth" /}
+
+<form class="layui-form" action="javascript:void(0);">
+    <div class="layui-form-item">
+        <img class="logo" src="{:asset('static/admin/images/logo.png')}"/>
+        <div class="title">CMS Admin</div>
+        <div class="desc">
+            企业内容管理系统
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <input placeholder="请输入登录用户名" name="username" lay-verify="required" class="layui-input"/>
+    </div>
+    <div class="layui-form-item">
+        <input placeholder="请输入登录用户密码" name="password" type="password" lay-verify="required" class="layui-input"/>
+    </div>
+    <div class="layui-form-item">
+        <input placeholder="请输入图片验证码" name="captcha" lay-verify="required" class="code layui-input layui-input-inline"/>
+        <img src="{:url('common/captcha')}" class="codeImage"/>
+    </div>
+    <div class="layui-form-item">
+        <button type="button" class="pear-btn pear-btn-success login" lay-submit lay-filter="login">
+            登 入
+        </button>
+    </div>
+</form>
+
+<script type="text/javascript">
+    layui.define(function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            form = layui.form;
+
+        $.ajaxSetup({contentType: 'application/json'});
+
+        form.on('submit(login)', function (data) {
+            $.post('{:url("/admin/auth/login")}', JSON.stringify(data.field), function (res) {
+                if (res.code !== 200) {
+                    layer.msg(res.message);
+                    return false;
+                }
+                window.location.href = '{$callback}';
+            })
+            return false;
+        });
+
+        $('.codeImage').on('click', function () {
+            $(this).attr('src', '{:url("common/captcha")}?' + Math.random());
+        })
+    })
+</script>

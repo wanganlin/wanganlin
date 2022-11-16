@@ -4,5 +4,6 @@
 
 $this->title = 'Welcome';
 ?>
-
-welcome
+<div>
+    welcome
+</div>

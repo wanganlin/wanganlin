@@ -11,17 +11,22 @@ class LoginForm extends Model
     /**
      * @var string
      */
-    public string $username;
+    public $username;
 
     /**
      * @var string
      */
-    public string $password;
+    public $password;
+
+    /**
+     * @var string
+     */
+    public $captcha;
 
     /**
      * @var bool
      */
-    public bool $rememberMe = true;
+    public $rememberMe = true;
 
     /**
      * @var User

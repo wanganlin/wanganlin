@@ -1,13 +1,13 @@
 <?php
 
-namespace app\modules\user;
+namespace app\modules\console;
 
 class Module extends \yii\base\Module
 {
     /**
      * @var string
      */
-    public $controllerNamespace = 'app\modules\user\controllers';
+    public $controllerNamespace = 'app\modules\console\controllers';
 
     /**
      * @return void
