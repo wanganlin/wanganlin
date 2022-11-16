@@ -5,17 +5,13 @@ namespace app\requests;
 use Yii;
 use yii\base\Model;
 
-/**
- * ContactForm is the model behind the contact form.
- */
 class ContactForm extends Model
 {
-    public $name;
-    public $email;
-    public $subject;
-    public $body;
-    public $verifyCode;
-
+    public string $name;
+    public string $email;
+    public string $subject;
+    public string $body;
+    public string $verifyCode;
 
     /**
      * @return array the validation rules.
@@ -38,7 +34,7 @@ class ContactForm extends Model
     public function attributeLabels(): array
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'verifyCode' => '图片验证码',
         ];
     }
 
@@ -60,6 +56,7 @@ class ContactForm extends Model
 
             return true;
         }
+
         return false;
     }
 }
