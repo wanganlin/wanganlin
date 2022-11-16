@@ -18,9 +18,9 @@ class m221115_112451_create_content_table extends Migration
             'description' => $this->string()->comment('描述'),
             'intro' => $this->string()->comment('简介'),
             'content' => $this->text()->comment(''),
-            'created_at' => $this->dateTime()->notNull(),
-            'updated_at' => $this->dateTime()->notNull(),
-            'deleted_at' => $this->dateTime(),
+            'created_time' => $this->dateTime()->notNull(),
+            'updated_time' => $this->dateTime()->notNull(),
+            'deleted_time' => $this->dateTime(),
         ], $tableOptions);
     }
 

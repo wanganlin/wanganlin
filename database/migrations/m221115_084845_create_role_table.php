@@ -18,9 +18,9 @@ class m221115_084845_create_role_table extends Migration
             'description' => $this->string()->comment('角色描述'),
             'rules' => $this->text()->comment('角色拥有的规则id，多个规则","隔开'),
             'status' => $this->tinyInteger()->comment('状态：1正常，0禁用'),
-            'created_at' => $this->dateTime()->notNull(),
-            'updated_at' => $this->dateTime()->notNull(),
-            'deleted_at' => $this->dateTime(),
+            'created_time' => $this->dateTime()->notNull(),
+            'updated_time' => $this->dateTime()->notNull(),
+            'deleted_time' => $this->dateTime(),
         ], $tableOptions);
 
         $this->insert('{{%role}}', [
@@ -29,8 +29,8 @@ class m221115_084845_create_role_table extends Migration
             'description' => '系统管理员',
             'rules' => '1,2,3,4,5',
             'status' => 1,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
+            'created_time' => date('Y-m-d H:i:s'),
+            'updated_time' => date('Y-m-d H:i:s'),
         ]);
     }
 

@@ -16,9 +16,9 @@ class m221115_093413_create_user_log_table extends Migration
             'user_id' => $this->integer()->comment('用户ID'),
             'level' => $this->string()->comment('日志级别'),
             'message' => $this->string()->comment('日志内容'),
-            'created_at' => $this->dateTime()->notNull(),
-            'updated_at' => $this->dateTime()->notNull(),
-            'deleted_at' => $this->dateTime(),
+            'created_time' => $this->dateTime()->notNull(),
+            'updated_time' => $this->dateTime()->notNull(),
+            'deleted_time' => $this->dateTime(),
         ], $tableOptions);
     }
 

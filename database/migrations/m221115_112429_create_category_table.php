@@ -18,9 +18,9 @@ class m221115_112429_create_category_table extends Migration
             'fields' => $this->text()->comment('模型附加字段'),
             'system' => $this->tinyInteger()->comment('系统模型:1是，0否'),
             'status' => $this->tinyInteger()->comment('状态:1正常，0不正常'),
-            'created_at' => $this->dateTime()->notNull(),
-            'updated_at' => $this->dateTime()->notNull(),
-            'deleted_at' => $this->dateTime(),
+            'created_time' => $this->dateTime()->notNull(),
+            'updated_time' => $this->dateTime()->notNull(),
+            'deleted_time' => $this->dateTime(),
         ], $tableOptions);
     }
 

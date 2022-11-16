@@ -13,9 +13,9 @@ class m221115_112524_create_comment_table extends Migration
 
         $this->createTable('{{%comment}}', [
             'id' => $this->primaryKey(),
-            'created_at' => $this->dateTime()->notNull(),
-            'updated_at' => $this->dateTime()->notNull(),
-            'deleted_at' => $this->dateTime(),
+            'created_time' => $this->dateTime()->notNull(),
+            'updated_time' => $this->dateTime()->notNull(),
+            'deleted_time' => $this->dateTime(),
         ], $tableOptions);
     }
 

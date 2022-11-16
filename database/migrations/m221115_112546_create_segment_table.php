@@ -13,9 +13,9 @@ class m221115_112546_create_segment_table extends Migration
 
         $this->createTable('{{%segment}}', [
             'id' => $this->primaryKey(),
-            'created_at' => $this->dateTime()->notNull(),
-            'updated_at' => $this->dateTime()->notNull(),
-            'deleted_at' => $this->dateTime(),
+            'created_time' => $this->dateTime()->notNull(),
+            'updated_time' => $this->dateTime()->notNull(),
+            'deleted_time' => $this->dateTime(),
         ], $tableOptions);
     }
 
