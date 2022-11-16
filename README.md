@@ -8,10 +8,18 @@
 composer create-project phpims/phpims
 ```
 
+## 依赖安装
+
+```
+npm i -g npm
+npm i -g bower
+bower install
+```
+
 ### 创建数据库
 
 ```
-CREATE DATABASE `phpims` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_bin';
+CREATE DATABASE `phpims` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';
 ```
 
 ### 配置 `.env` 数据库连接
