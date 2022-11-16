@@ -1,24 +1,32 @@
 <?php
 
-namespace app\requests;
+namespace app\modules\auth\requests;
 
+use app\models\User;
 use Yii;
 use yii\base\Model;
 
-/**
- * LoginForm is the model behind the login form.
- *
- * @property-read User|null $user
- *
- */
 class LoginForm extends Model
 {
+    /**
+     * @var string
+     */
     public $username;
+
+    /**
+     * @var string
+     */
     public $password;
+
+    /**
+     * @var string
+     */
     public $rememberMe = true;
 
-    private $_user = false;
-
+    /**
+     * @var User
+     */
+    private $_user;
 
     /**
      * @return array the validation rules.
@@ -55,13 +63,15 @@ class LoginForm extends Model
 
     /**
      * Logs in a user using the provided username and password.
+     *
      * @return bool whether the user is logged in successfully
      */
-    public function login()
+    public function login(): bool
     {
         if ($this->validate()) {
-            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
+            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
+
         return false;
     }
 
@@ -70,9 +80,10 @@ class LoginForm extends Model
      *
      * @return User|null
      */
-    public function getUser()
+    protected function getUser(): ?User
     {
-        if ($this->_user === false) {
+        if ($this->_user === null) {
+
             $this->_user = User::findByUsername($this->username);
         }
 
