@@ -29,9 +29,7 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
         ]);
 
-        $this->batchInsert('{{%user_rule}}',
-            ['parent_id', 'name', 'title', 'icon', 'menu', 'type', 'status', 'condition', 'sort'],
-            [
+        UserRule::factory()->create([
                 [0, 'setting', '全局设置', 'layui-icon-slider', 1, 0, 1, '', 0],
                 [0, 'content', '内容管理', 'layui-icon-form', 1, 0, 1, '', 0],
                 [0, 'extension', '扩展模块', 'layui-icon-app', 1, 0, 1, '', 0],
@@ -40,7 +38,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        $this->insert('{{%user_role}}', [
+        UserRole::factory()->create([
             'id' => 1,
             'name' => '超级管理员',
             'description' => '系统管理员',
@@ -50,7 +48,7 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        $this->insert('{{%user_role_access}}', [
+        UserRoleAccess::factory()->create([
             'id' => 1,
             'user_id' => 1,
             'user_role_id' => 1,
@@ -58,7 +56,7 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        $this->batchInsert('{{%setting}}',
+        Setting::factory()->create([
             ['parent_id', 'code', 'type', 'store_range', 'value', 'sort_order', 'created_at', 'updated_at'],
             [
                 [0, 'site', 'hidden', '', '', 0, date('Y-m-d H:i:s'), date('Y-m-d H:i:s')],
