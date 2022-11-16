@@ -2,11 +2,23 @@
 
 namespace app\modules\auth\controllers;
 
-use yii\web\Controller;
 use yii\web\Response;
 
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
+    /**
+     * @return array
+     */
+    public function actions(): array
+    {
+        return [
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
+        ];
+    }
+
     /**
      * @return Response
      */

@@ -10,6 +10,11 @@ class Module extends \yii\base\Module
     public $controllerNamespace = 'app\modules\auth\controllers';
 
     /**
+     * @var string
+     */
+    public const RedirectTo = '/console';
+
+    /**
      * @return void
      */
     public function init(): void

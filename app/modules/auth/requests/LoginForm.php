@@ -11,17 +11,17 @@ class LoginForm extends Model
     /**
      * @var string
      */
-    public $username;
+    public string $username;
 
     /**
      * @var string
      */
-    public $password;
+    public string $password;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $rememberMe = true;
+    public bool $rememberMe = true;
 
     /**
      * @var User
@@ -78,9 +78,9 @@ class LoginForm extends Model
     /**
      * Finds user by [[username]]
      *
-     * @return User|null
+     * @return User
      */
-    protected function getUser(): ?User
+    protected function getUser(): User
     {
         if ($this->_user === null) {
 
