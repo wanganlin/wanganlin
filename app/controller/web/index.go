@@ -1,12 +1,16 @@
 package web
 
-import "github.com/flamego/flamego"
+import (
+	"github.com/flamego/template"
+	"net/http"
+)
 
 type cIndex struct {
 }
 
 var Index = cIndex{}
 
-func (a *cIndex) Index(f flamego.Context) string {
-	return "web res..."
+func (a *cIndex) Index(t template.Template, data template.Data) {
+	data["Name"] = "Joe"
+	t.HTML(http.StatusOK, "index")
 }
