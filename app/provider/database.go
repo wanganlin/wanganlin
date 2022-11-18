@@ -2,6 +2,6 @@ package provider
 
 import "github.com/flamego/flamego"
 
-func database(f *flamego.Flame) {
+func Database(f *flamego.Flame) {
 
 }

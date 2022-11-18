@@ -7,6 +7,12 @@ import (
 
 func Run() {
 	f := flamego.Classic()
-	provider.Boot(f)
+	provider.View(f)
+	provider.Session(f)
+	provider.Cache(f)
+	provider.Captcha(f)
+	provider.Database(f)
+	provider.Route(f)
+	// provider.Auth(f)
 	f.Run()
 }

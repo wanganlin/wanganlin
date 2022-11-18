@@ -5,8 +5,9 @@ import (
 	"github.com/flamego/flamego"
 )
 
-func route(f *flamego.Flame) {
+func Route(f *flamego.Flame) {
 	routes.Api(f)
+	routes.Auth(f)
 	routes.Console(f)
 	routes.User(f)
 	routes.Web(f)
