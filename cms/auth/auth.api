@@ -1,0 +1,38 @@
+type (
+	Request {
+	}
+
+	Response {
+		Message string `json:"message"`
+	}
+
+	LoginReq {
+		Username string `json:"username"`
+		Password string `json:"password"`
+		Captcha  string `json:"captcha"`
+	}
+
+	LoginRes {
+	}
+)
+
+@server(
+	prefix: /admin
+	group: admin
+	middleware: Auth
+)
+service cms {
+	@handler Console
+	get / (Request) returns (Response)
+}
+
+service cms {
+	@handler Index
+	get / (Request) returns (Response)
+	
+	@handler Login
+	get /login (Request) returns (Response)
+	
+	@handler LoginAction
+	post /login (LoginReq) returns (LoginRes)
+}

@@ -1,0 +1,17 @@
+type (
+    ArticleReq struct {
+        Id string `path:"id"`
+    }
+    ArticleRes struct {
+        Id string `json:"id"`
+        Title string `json:"title"`
+    }
+)
+
+@server(
+    prefix: /api/article
+)
+service article {
+    @handler getArticle
+    get /get/:id (ArticleReq) returns (ArticleRes)
+}
