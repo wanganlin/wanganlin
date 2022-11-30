@@ -1,8 +1,26 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { useRouter } from 'next/router'
+import useSwr from 'swr'
+
+type User = {
+    id: number
+    title?: string
+}
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 export default function Home() {
+    const router = useRouter()
+    const {data, error} = useSwr<User>(
+        router.query.id ? `http://127.0.0.1:8888/get/${router.query.id}` : null,
+        fetcher
+    )
+
+    if (error) return <div>Failed to load user</div>
+    if (!data) return <div>Loading...</div>
+
   return (
     <div className={styles.container}>
       <Head>
@@ -12,7 +30,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        Welcome to
+        Welcome to {data.title}
       </main>
 
     </div>
