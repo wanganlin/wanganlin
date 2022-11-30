@@ -1,0 +1,28 @@
+DROP TABLE IF EXISTS `customer`;
+CREATE TABLE `customer`
+(
+    `id`             bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `passport`       varchar(32)   NOT NULL COMMENT '登录用户名',
+    `password`       varchar(255)  NOT NULL COMMENT '登录密码',
+    `name`           varchar(64)   NOT NULL COMMENT '客户名称',
+    `address`        varchar(255)  NOT NULL COMMENT '客户地址',
+    `postcode`       varchar(8)    NOT NULL COMMENT '客户邮编',
+    `type`           varchar(1000) NOT NULL COMMENT '客户类型',
+    `industry`       varchar(1000) NOT NULL COMMENT '客户行业',
+    `opening_bank`   varchar(64)   NOT NULL COMMENT '银行开户行',
+    `bank_account`   varchar(64)   NOT NULL COMMENT '银行账号',
+    `sales_rep_id`   int(11) unsigned NOT NULL COMMENT '业务对接人',
+    `platform_id`    int(11) unsigned NOT NULL COMMENT '监管平台ID',
+    `contacts`       varchar(255)  NOT NULL COMMENT '联系人(JSON)',
+    `remark`         varchar(255)  NOT NULL COMMENT '备注',
+    `attachment`     varchar(1000) NOT NULL COMMENT '附件',
+    `status`         tinyint(1) unsigned NOT NULL COMMENT '状态：1正常，2锁定',
+    `create_user_id` int(11) unsigned NOT NULL,
+    `create_time`    datetime      NOT NULL,
+    `update_user_id` int(11) unsigned NOT NULL,
+    `update_time`    datetime      NOT NULL,
+    `delete_user_id` int(11) unsigned NOT NULL,
+    `delete_time`    datetime NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `name` (`name`),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

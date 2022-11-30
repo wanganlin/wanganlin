@@ -1,0 +1,29 @@
+type (
+	LoginRequest {
+		Username string `json:"username"`
+		Password string `json:"password"`
+		Captcha  string `json:"captcha"`
+	}
+)
+
+type LoginResponse {
+	AccessToken  string `json:"accessToken"`
+	AccessExpire int64  `json:"accessExpire"`
+	RefreshAfter int64  `json:"refreshAfter"`
+}
+
+type Response {
+	Code    int         `json:"code"`
+	Message string      `json:"message"`
+	Data    interface{} `json:"data"`
+}
+
+service auth-api {
+	@handler LoginHandler
+	post /login (LoginRequest) returns (Response)
+}
+
+	// Login 登录
+	// Forget 忘记密码
+	// Reset 重置密码
+	// RefreshToken 刷新Token
