@@ -1,17 +1,14 @@
 type (
-    ArticleReq struct {
-        Id string `path:"id"`
-    }
-    ArticleRes struct {
-        Id string `json:"id"`
-        Title string `json:"title"`
-    }
+	ContentReq {
+		Id string `path:"id"`
+	}
+	ContentRes {
+		Id    string `json:"id"`
+		Title string `json:"title"`
+	}
 )
 
-@server(
-    prefix: /api/article
-)
-service article {
-    @handler getArticle
-    get /get/:id (ArticleReq) returns (ArticleRes)
+service content-api {
+	@handler getContent
+	get /get/:id (ContentReq) returns (ContentRes)
 }
