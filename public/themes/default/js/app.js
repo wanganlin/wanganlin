@@ -17,6 +17,6 @@ layui.define(function () {
     });
 
     $('.codeImage').on('click', function () {
-        $(this).attr('src', '/index/captcha?' + Math.random());
+        $(this).attr('src', '/site/captcha?' + Math.random());
     })
 })
