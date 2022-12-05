@@ -5,16 +5,12 @@ namespace app\assets;
 use yii\web\AssetBundle;
 use yii\web\View;
 
-class LayUIAsset extends AssetBundle
+class VueAsset extends AssetBundle
 {
-    public $sourcePath = '@npm/layui/dist';
-
-    public $css = [
-        'css/layui.css',
-    ];
+    public $sourcePath = '@npm/vue/dist';
 
     public $js = [
-        'layui.js',
+        'vue.min.js',
     ];
 
     public $jsOptions = [

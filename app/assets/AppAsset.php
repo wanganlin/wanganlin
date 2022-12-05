@@ -20,5 +20,6 @@ class AppAsset extends AssetBundle
 
     public $depends = [
         LayUIAsset::class,
+        VueAsset::class,
     ];
 }

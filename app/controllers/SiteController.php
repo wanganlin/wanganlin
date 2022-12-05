@@ -6,7 +6,7 @@ use yii\web\Request;
 use yii\web\Response;
 use app\requests\ContactForm;
 
-class IndexController extends BaseController
+class SiteController extends BaseController
 {
     /**
      * @return array
