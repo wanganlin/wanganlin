@@ -15,7 +15,6 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
     ],
-    'defaultRoute' => 'index',
     'language' => 'zh-CN',
     'timeZone' => 'Asia/Shanghai',
     'components' => [
@@ -31,7 +30,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'index/error',
+            'errorAction' => 'site/error',
         ],
         'mailer' => [
             'class' => \yii\symfonymailer\Mailer::class,

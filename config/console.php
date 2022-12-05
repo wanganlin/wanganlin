@@ -13,7 +13,6 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
-        '@tests' => '@app/tests',
     ],
     'language' => 'zh-CN',
     'timeZone' => 'Asia/Shanghai',
