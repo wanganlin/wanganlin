@@ -13,3 +13,22 @@ float32, float64, complex64, complex128
 - byte：字节，8位
 - rune：同char，32位
 - complex：复数（实数&虚数）
+
+### 复数
+
+```go
+package main
+
+import (
+    "fmt"
+    "math"
+    "math/cmplx"
+)
+
+func main() {
+    c := 3 + 4i
+    fmt.Println(cmplx.Abs(c))
+    fmt.Println(cmplx.Pow(math.E, 1i*math.Pi))
+    fmt.Println(cmplx.Exp(1i * math.Pi))
+}
+```
