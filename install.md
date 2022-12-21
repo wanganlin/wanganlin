@@ -1,4 +1,4 @@
-# 安装
+# 环境安装
 
 ## 下载软件包
 
@@ -31,13 +31,3 @@ go env -w GO111MODULE=on
 ```
 go get -v golang.org/x/tools/cmd/goimports
 ```
-
-## 配置 IDE
-
-IntelliJ idea 编辑器推荐安装以下插件：
-
-- Go
-- File Watchers
-
-打开编辑器设置（setting），搜索"File Watchers"后添加"goimports"命令。
-
