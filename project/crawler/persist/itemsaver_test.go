@@ -6,6 +6,8 @@ import (
 	"crawler/model"
 	"encoding/json"
 	"testing"
+
+	"github.com/olivere/elastic/v7"
 )
 
 func Test_save(t *testing.T) {
