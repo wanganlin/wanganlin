@@ -12,7 +12,7 @@
 - 2-1 [变量定义](section/02/variable.md)
 - 2-2 [内建变量类型](section/02/variable-type.md)
 - 2-3 [常量与枚举](section/02/const-enum.md)
-- 2-4 [条件](section/02/if.md)
+- 2-4 [条件](section/02/branch.md)
 - 2-5 [循环](section/02/loop.md)
 - 2-6 [函数](section/02/func.md)
 - 2-7 [指针](section/02/pointer.md)
