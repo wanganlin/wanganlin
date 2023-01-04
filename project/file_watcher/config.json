@@ -1,7 +1,0 @@
-{
-  "companyCode": "lims",
-  "deviceType": "OIL-460",
-  "deviceNumber": "0",
-  "storageApi": "https://lims.51hjfw.com/api/reportParser",
-  "storageApiKey": "demo_key_string_123"
-}
