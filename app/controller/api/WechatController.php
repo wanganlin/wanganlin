@@ -6,5 +6,4 @@ use app\controller\Controller;
 
 class WechatController extends Controller
 {
-
 }

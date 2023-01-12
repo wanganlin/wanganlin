@@ -31,7 +31,7 @@ class AuthController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return Json|View
      */
     public function login(Request $request): Json|View

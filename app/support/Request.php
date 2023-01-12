@@ -8,5 +8,4 @@ use think\Request as BaseRequest;
 
 class Request extends BaseRequest
 {
-
 }

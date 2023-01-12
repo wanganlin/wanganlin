@@ -15,5 +15,4 @@ abstract class BaseController extends Controller
     protected array $middleware = [
         [Authenticate::class, ['user']],
     ];
-
 }

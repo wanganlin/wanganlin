@@ -31,7 +31,7 @@ class AuthController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return Json|View
      */
     public function login(Request $request): Json|View
@@ -53,7 +53,6 @@ class AuthController extends Controller
     public function register(Request $request): Json|View
     {
         if ($request->isPost()) {
-
         }
 
         return view('register');
@@ -65,7 +64,6 @@ class AuthController extends Controller
     public function forgot(Request $request): Json|View
     {
         if ($request->isPost()) {
-
         }
 
         return view('forgot');
@@ -77,27 +75,24 @@ class AuthController extends Controller
     public function reset(Request $request): Json|View
     {
         if ($request->isPost()) {
-
         }
 
         return view('reset');
     }
 
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return Redirect
      */
     public function socialite(Request $request): Redirect
     {
-
     }
 
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return Redirect
      */
     public function callback(Request $request): Redirect
     {
-
     }
 }
