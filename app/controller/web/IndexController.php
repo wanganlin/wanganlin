@@ -1,8 +1,8 @@
 <?php
 
-namespace app\controller;
+declare (strict_types=1);
 
-use app\BaseController;
+namespace app\controller\web;
 
 class IndexController extends BaseController
 {

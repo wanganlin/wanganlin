@@ -1,9 +1,6 @@
 <?php
 
-use app\ExceptionHandle;
-use app\Request;
-
 return [
-    'think\Request'          => Request::class,
-    'think\exception\Handle' => ExceptionHandle::class,
+    'think\exception\Handle' => \app\exception\Handler::class,
+    'think\Request' => \app\support\Request::class,
 ];

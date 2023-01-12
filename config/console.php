@@ -3,6 +3,6 @@
 return [
     // 指令定义
     'commands' => [
-        app\command\Generate::class,
+        \app\command\GenerateCommand::class,
     ],
 ];

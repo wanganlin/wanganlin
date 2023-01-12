@@ -1,6 +1,6 @@
 <?php
 
-namespace app;
+namespace app\exception;
 
 use think\db\exception\DataNotFoundException;
 use think\db\exception\ModelNotFoundException;
@@ -11,10 +11,7 @@ use think\exception\ValidateException;
 use think\Response;
 use Throwable;
 
-/**
- * 应用异常处理类
- */
-class ExceptionHandle extends Handle
+class Handler extends Handle
 {
     /**
      * 不需要记录信息（日志）的异常类列表
