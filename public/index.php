@@ -1,14 +1,11 @@
 <?php
 
-namespace think;
+require __DIR__.'/../vendor/autoload.php';
 
-require __DIR__ . '/../vendor/autoload.php';
+$app = require_once __DIR__.'/../bootstrap/app.php';
 
-// 执行HTTP应用并响应
-$http = (new App())->http;
-
-$response = $http->run();
+$response = $app->http->run();
 
 $response->send();
 
-$http->end($response);
+$app->http->end($response);
