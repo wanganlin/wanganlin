@@ -6,23 +6,21 @@ namespace app\request\user\auth;
 
 use think\Validate;
 
-class LoginRequest extends Validate
+class ResetRequest extends Validate
 {
     /**
      * @var array
      */
     protected $rule = [
-        'passport' => 'require',
+        'token' => 'require',
         'password' => 'require',
-        'captcha|验证码' => 'require|captcha',
     ];
 
     /**
      * @var array
      */
     protected $message = [
-        'passport.require' => '登录用户名必须',
+        'token.require' => '密码重置令牌必须',
         'password.require' => '登录密码必须',
-        'captcha.require' => '图片验证码必须',
     ];
 }

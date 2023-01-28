@@ -6,7 +6,7 @@ namespace app\request\user\auth;
 
 use think\Validate;
 
-class LoginRequest extends Validate
+class RegisterRequest extends Validate
 {
     /**
      * @var array
@@ -14,7 +14,7 @@ class LoginRequest extends Validate
     protected $rule = [
         'passport' => 'require',
         'password' => 'require',
-        'captcha|验证码' => 'require|captcha',
+        'captcha|验证码' => 'require|captcha'
     ];
 
     /**
