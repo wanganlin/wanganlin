@@ -5,6 +5,7 @@ return [
     'app_name' => env('APP_NAME', 'PHPCMS'),
     // 应用地址
     'app_host' => env('APP_URL', 'http://localhost'),
+    'asset_url' => env('ASSET_URL', ''),
     // 应用的命名空间
     'app_namespace' => '',
     // 是否启用路由

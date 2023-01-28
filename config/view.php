@@ -1,7 +1,7 @@
 <?php
 
 return [
-    // 模板引擎类型使用Think
+    // 模板引擎类型
     'type' => 'Think',
     // 默认模板渲染规则 1 解析为小写+下划线 2 全部转换小写 3 保持操作方法
     'auto_rule' => 1,
@@ -20,5 +20,5 @@ return [
     // 标签库标签结束标记
     'taglib_end' => '}',
     // 是否开启模板编译缓存,设为false则每次都会重新编译
-    'tpl_cache' => !env('APP_DEBUG', true),
+    'tpl_cache' => !env('APP_DEBUG', false),
 ];
