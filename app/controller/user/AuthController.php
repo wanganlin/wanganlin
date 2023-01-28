@@ -6,12 +6,13 @@ namespace app\controller\user;
 
 use app\controller\Controller;
 use app\middleware\RedirectIfAuthenticated;
+use app\request\user\auth\ForgetRequest;
 use app\request\user\auth\LoginRequest;
+use app\request\user\auth\RegisterRequest;
+use app\request\user\auth\ResetRequest;
 use think\exception\ValidateException;
 use think\Request;
 use think\response\Json;
-use think\response\Redirect;
-use think\response\View;
 
 class AuthController extends Controller
 {
@@ -23,76 +24,80 @@ class AuthController extends Controller
     ];
 
     /**
-     * @return Redirect
+     * @param Request $request
+     * @return Json
      */
-    public function index(): Redirect
+    public function login(Request $request): Json
     {
-        return redirect('auth/login');
-    }
-
-    /**
-     * @param  Request  $request
-     * @return Json|View
-     */
-    public function login(Request $request): Json|View
-    {
-        if ($request->isPost()) {
-            try {
-                validate(LoginRequest::class)->check($request->post());
-            } catch (ValidateException $e) {
-                return json(['error' => $e->getError()]);
-            }
+        try {
+            validate(LoginRequest::class)->check($request->post());
+        } catch (ValidateException $e) {
+            return $this->error($e->getError());
         }
 
-        return view('login');
+        return $this->success('data');
     }
 
     /**
-     * @return Json|View
+     * @param Request $request
+     * @return Json
      */
-    public function register(Request $request): Json|View
+    public function register(Request $request): Json
     {
-        if ($request->isPost()) {
+        try {
+            validate(RegisterRequest::class)->check($request->post());
+        } catch (ValidateException $e) {
+            return $this->error($e->getError());
         }
 
-        return view('register');
+        return $this->success('data');
     }
 
     /**
-     * @return Json|View
+     * @param Request $request
+     * @return Json
      */
-    public function forgot(Request $request): Json|View
+    public function forgot(Request $request): Json
     {
-        if ($request->isPost()) {
+        try {
+            validate(ForgetRequest::class)->check($request->post());
+        } catch (ValidateException $e) {
+            return $this->error($e->getError());
         }
 
-        return view('forgot');
+        return $this->success('data');
     }
 
     /**
-     * @return Json|View
+     * @param Request $request
+     * @return Json
      */
-    public function reset(Request $request): Json|View
+    public function reset(Request $request): Json
     {
-        if ($request->isPost()) {
+        try {
+            validate(ResetRequest::class)->check($request->post());
+        } catch (ValidateException $e) {
+            return $this->error($e->getError());
         }
 
-        return view('reset');
+        return $this->success('data');
     }
 
     /**
-     * @param  Request  $request
-     * @return Redirect
+     * @param Request $request
+     * @return Json
      */
-    public function socialite(Request $request): Redirect
+    public function connect(Request $request): Json
     {
+        return $this->success('data');
     }
 
     /**
-     * @param  Request  $request
-     * @return Redirect
+     * @param Request $request
+     * @return Json
      */
-    public function callback(Request $request): Redirect
+    public function callback(Request $request): Json
     {
+        return $this->success('data');
     }
 }

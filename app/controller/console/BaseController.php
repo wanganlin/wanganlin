@@ -6,6 +6,7 @@ namespace app\controller\console;
 
 use app\controller\Controller;
 use app\middleware\Authenticate;
+use app\middleware\Privilege;
 
 abstract class BaseController extends Controller
 {
@@ -14,5 +15,6 @@ abstract class BaseController extends Controller
      */
     protected array $middleware = [
         [Authenticate::class, ['console']],
+        Privilege::class,
     ];
 }

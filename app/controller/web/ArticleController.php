@@ -15,4 +15,20 @@ class ArticleController extends BaseController
     {
         return view('/article');
     }
+
+    /**
+     * @return View
+     */
+    public function category(): View
+    {
+        return $this->display('article.list');
+    }
+
+    /**
+     * @return View
+     */
+    public function detail(): View
+    {
+        return $this->display('article.detail');
+    }
 }

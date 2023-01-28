@@ -6,12 +6,12 @@ namespace app\controller\console;
 
 use app\controller\Controller;
 use app\middleware\RedirectIfAuthenticated;
+use app\request\console\auth\ForgetRequest;
 use app\request\console\auth\LoginRequest;
+use app\request\console\auth\ResetRequest;
 use think\exception\ValidateException;
 use think\Request;
 use think\response\Json;
-use think\response\Redirect;
-use think\response\View;
 
 class AuthController extends Controller
 {
@@ -23,43 +23,47 @@ class AuthController extends Controller
     ];
 
     /**
-     * @return Redirect
+     * @param Request $request
+     * @return Json
      */
-    public function index(): Redirect
+    public function login(Request $request): Json
     {
-        return redirect('auth/login');
-    }
-
-    /**
-     * @param  Request  $request
-     * @return Json|View
-     */
-    public function login(Request $request): Json|View
-    {
-        if ($request->isPost()) {
-            try {
-                validate(LoginRequest::class)->check($request->post());
-            } catch (ValidateException $e) {
-                return json(['error' => $e->getError()]);
-            }
+        try {
+            validate(LoginRequest::class)->check($request->post());
+        } catch (ValidateException $e) {
+            return $this->error($e->getError());
         }
 
-        return view('login');
+        return $this->success('');
     }
 
     /**
-     * @return Json|View
+     * @param Request $request
+     * @return Json
      */
-    public function forgot(): Json|View
+    public function forgot(Request $request): Json
     {
-        return view('forgot');
+        try {
+            validate(ForgetRequest::class)->check($request->post());
+        } catch (ValidateException $e) {
+            return $this->error($e->getError());
+        }
+
+        return $this->success('');
     }
 
     /**
-     * @return Json|View
+     * @param Request $request
+     * @return Json
      */
-    public function reset(): Json|View
+    public function reset(Request $request): Json
     {
-        return view('reset');
+        try {
+            validate(ResetRequest::class)->check($request->post());
+        } catch (ValidateException $e) {
+            return $this->error($e->getError());
+        }
+
+        return $this->success('');
     }
 }

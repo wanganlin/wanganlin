@@ -10,12 +10,13 @@ class IndexController extends BaseController
 {
     /**
      * @OA\Info(title="PHPCMS API", version="1.0")
-     * @package app\controller\api
+     *
      * @return string
      */
     public function index(): string
     {
         $openapi = Generator::scan([app_path('controller')]);
+
         return $openapi->toYaml();
     }
 }

@@ -13,6 +13,7 @@ class ArticleController extends BaseController
      *     path="/api/article",
      *     @OA\Response(response="200", description="An example resource")
      * )
+     *
      * @return Json
      */
     public function index(): Json

@@ -13,6 +13,7 @@ class CategoryController extends BaseController
      *     path="/api/category",
      *     @OA\Response(response="200", description="An example resource")
      * )
+     *
      * @return Json
      */
     public function index(): Json
