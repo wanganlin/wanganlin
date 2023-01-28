@@ -13,7 +13,7 @@ class ForgetRequest extends Validate
      */
     protected $rule = [
         'email' => 'require|email',
-        'captcha|验证码' => 'require|captcha'
+        'captcha|验证码' => 'require|captcha',
     ];
 
     /**

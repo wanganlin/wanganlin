@@ -14,7 +14,7 @@ class RegisterRequest extends Validate
     protected $rule = [
         'passport' => 'require',
         'password' => 'require',
-        'captcha|验证码' => 'require|captcha'
+        'captcha|验证码' => 'require|captcha',
     ];
 
     /**
