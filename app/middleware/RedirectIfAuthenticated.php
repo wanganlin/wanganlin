@@ -21,7 +21,15 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next, string $guard): Response
     {
         if (session('?auth_'.$guard)) {
-            return redirect('/'.$guard);
+            if ($request->isAjax()) {
+                return json([
+                    'code' => 40001,
+                    'message' => 'Forbidden',
+                    'data' => null,
+                ]);
+            } else {
+                return redirect('/'.$guard);
+            }
         }
 
         return $next($request);

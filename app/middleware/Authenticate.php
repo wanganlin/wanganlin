@@ -21,10 +21,17 @@ class Authenticate
     public function handle(Request $request, Closure $next, string $guard): Response
     {
         if (! session('?auth_'.$guard)) {
-            $url = $guard.'/auth/login?callback=';
-            $callback = urlencode($request->url(true));
+            if ($request->isAjax()) {
+                return json([
+                    'code' => 40001,
+                    'message' => 'Unauthorized',
+                    'data' => null,
+                ]);
+            } else {
+                $callback = urlencode($request->url(true));
 
-            return redirect($url.$callback);
+                return redirect($guard.'/auth/login?callback='.$callback);
+            }
         }
 
         return $next($request);
