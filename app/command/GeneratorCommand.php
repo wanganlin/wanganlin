@@ -8,7 +8,7 @@ use think\console\Command;
 use think\console\Input;
 use think\console\Output;
 
-class GenerateCommand extends Command
+class GeneratorCommand extends Command
 {
     protected function configure()
     {
