@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'official-account' => [
-        'app_id' => '',
-        'secret' => '',
-        'token' => '',
-        'aes_key' => '', // 明文模式请勿填写 EncodingAESKey
+    'official_account' => [
+        'app_id' => env('WECHAT_OFFICIAL_ACCOUNT_APPID', ''),
+        'secret' => env('WECHAT_OFFICIAL_ACCOUNT_SECRET', ''),
+        'token' => env('WECHAT_OFFICIAL_ACCOUNT_TOKEN', ''),
+        'aes_key' => env('WECHAT_OFFICIAL_ACCOUNT_AES_KEY', ''), // 明文模式请勿填写 EncodingAESKey
 
         /**
          * OAuth 配置
