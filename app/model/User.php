@@ -6,9 +6,6 @@ namespace app\model;
 
 use think\Model;
 
-/**
- * Class User
- */
 class User extends Model
 {
     /**
@@ -20,4 +17,12 @@ class User extends Model
      * @var string
      */
     protected $pk = 'id';
+
+    /**
+     * @return BelongsToMany
+     */
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(AuthGroup::class, AuthGroupAccess::class);
+    }
 }
