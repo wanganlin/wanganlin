@@ -1,5 +1,5 @@
 {
-    "name": "wanganlin/phpcms",
+    "name": "phpcms/phpcms",
     "type": "project",
     "description": "the new thinkphp content management system.",
     "keywords": ["phpcms", "php",  "mysql", "cms"],
