@@ -9,7 +9,7 @@ use OpenApi\Generator;
 class IndexController extends BaseController
 {
     /**
-     * @OA\Info(title="PHPCMS API", version="1.0")
+     * @OA\Info(title="JBCMS API", version="1.0")
      *
      * @return string
      */

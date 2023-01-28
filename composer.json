@@ -1,8 +1,8 @@
 {
-    "name": "phpcms/phpcms",
+    "name": "jbcms/jbcms",
     "type": "project",
-    "description": "the new thinkphp content management system.",
-    "keywords": ["phpcms", "php",  "mysql", "cms"],
+    "description": "JB Content Management System.",
+    "keywords": ["jbcms", "php",  "mysql", "cms"],
     "license": "Apache-2.0",
     "require": {
         "php": "^8.1",

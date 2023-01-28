@@ -2,7 +2,7 @@
 
 return [
     // 应用名称
-    'app_name' => env('APP_NAME', 'PHPCMS'),
+    'app_name' => env('APP_NAME', 'JBCMS'),
     // 应用地址
     'app_host' => env('APP_URL', 'http://localhost'),
     'asset_url' => env('ASSET_URL', ''),

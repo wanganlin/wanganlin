@@ -1,11 +1,11 @@
-# PHPCMS
+# 京博内容管理系统
 
 > 运行环境要求PHP8.1
 
 ## 安装
 
 ```
-composer create-project phpcms/phpcms
+composer create-project jbcms/jbcms
 ```
 
 ## 目录结构
@@ -87,7 +87,7 @@ http://localhost:8000/
 
 ## 在线文档
 
-[浏览文档](https://www.shincite.com/phpcms/docs)
+[浏览文档](https://www.shincite.com/jbcms/docs)
 
 ## 版权信息
 
