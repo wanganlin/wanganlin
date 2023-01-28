@@ -4,15 +4,18 @@ declare(strict_types=1);
 
 namespace app\controller\api;
 
-use think\response\Json;
+use OpenApi\Generator;
 
 class IndexController extends BaseController
 {
     /**
-     * @return Json
+     * @OA\Info(title="PHPCMS API", version="1.0")
+     * @package app\controller\api
+     * @return string
      */
-    public function index(): Json
+    public function index(): string
     {
-        return $this->success(['a']);
+        $openapi = Generator::scan([app_path('controller')]);
+        return $openapi->toYaml();
     }
 }
