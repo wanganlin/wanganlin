@@ -4,15 +4,16 @@ declare(strict_types=1);
 
 namespace app\controller\user;
 
-use app\controller\Controller;
 use app\middleware\RedirectIfAuthenticated;
 use app\request\user\auth\ForgetRequest;
 use app\request\user\auth\LoginRequest;
 use app\request\user\auth\RegisterRequest;
 use app\request\user\auth\ResetRequest;
+use app\controller\web\BaseController as Controller;
 use think\exception\ValidateException;
 use think\Request;
 use think\response\Json;
+use think\response\View;
 
 class AuthController extends Controller
 {
@@ -23,11 +24,16 @@ class AuthController extends Controller
         [RedirectIfAuthenticated::class, ['user']],
     ];
 
+    public function login(Request $request): View
+    {
+        return view('login');
+    }
+
     /**
      * @param Request $request
      * @return Json
      */
-    public function login(Request $request): Json
+    public function loginHandle(Request $request): Json
     {
         try {
             validate(LoginRequest::class)->check($request->post());
