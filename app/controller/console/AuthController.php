@@ -12,6 +12,7 @@ use app\request\console\auth\ResetRequest;
 use think\exception\ValidateException;
 use think\Request;
 use think\response\Json;
+use think\response\View;
 
 class AuthController extends Controller
 {
@@ -23,10 +24,18 @@ class AuthController extends Controller
     ];
 
     /**
+     * @return View
+     */
+    public function login(): View
+    {
+        return view('login');
+    }
+
+    /**
      * @param Request $request
      * @return Json
      */
-    public function login(Request $request): Json
+    public function loginHandle(Request $request): Json
     {
         try {
             validate(LoginRequest::class)->check($request->post());
