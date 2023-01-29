@@ -26,7 +26,7 @@
 			</div>
 			<div class="layui-form-item">
 				<input placeholder="验证码 : "  hover  lay-verify="required" class="code layui-input layui-input-inline"  />
-				<img src="{:url('/captcha')}" class="codeImage" />
+				<img src="{:url('/captcha')}" class="codeImage" width="124" />
 			</div>
 			<div class="layui-form-item">
 				<input type="checkbox" name="" title="记住密码" lay-skin="primary" checked>
