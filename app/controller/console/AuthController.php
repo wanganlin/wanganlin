@@ -24,14 +24,20 @@ class AuthController extends Controller
     ];
 
     /**
+     * 显示登录页面
+     *
+     * @param Request $request
      * @return View
      */
-    public function login(): View
+    public function login(Request $request): View
     {
-        return view('login');
+        $callback = $request->get('callback', '/');
+        return view('login', ['callback' => urldecode($callback)]);
     }
 
     /**
+     * 登录操作
+     *
      * @param Request $request
      * @return Json
      */
@@ -48,9 +54,18 @@ class AuthController extends Controller
 
     /**
      * @param Request $request
+     * @return View
+     */
+    public function forgot(Request $request): View
+    {
+        return view('forgot');
+    }
+
+    /**
+     * @param Request $request
      * @return Json
      */
-    public function forgot(Request $request): Json
+    public function forgotHandle(Request $request): Json
     {
         try {
             validate(ForgetRequest::class)->check($request->post());
@@ -63,9 +78,22 @@ class AuthController extends Controller
 
     /**
      * @param Request $request
+     * @return View
+     */
+    public function reset(Request $request): View
+    {
+        $token = $request->get('token');
+
+        // todo check
+
+        return view('reset');
+    }
+
+    /**
+     * @param Request $request
      * @return Json
      */
-    public function reset(Request $request): Json
+    public function resetHandle(Request $request): Json
     {
         try {
             validate(ResetRequest::class)->check($request->post());
