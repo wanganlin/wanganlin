@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
+{layout name="layout/app" /}
+
 login page.
 <form class="layui-form" lay-filter="loginForm" action="" method="post">
-
+    {:token_field()}
 <div class="layui-form-item">
     <label class="layui-form-label">输入框</label>
     <div class="layui-input-block">
@@ -37,5 +32,3 @@ login page.
 </div>
 
 </form>
-</body>
-</html>

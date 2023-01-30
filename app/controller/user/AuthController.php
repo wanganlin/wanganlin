@@ -13,6 +13,7 @@ use app\controller\web\BaseController as Controller;
 use think\exception\ValidateException;
 use think\Request;
 use think\response\Json;
+use think\response\Redirect;
 use think\response\View;
 
 class AuthController extends Controller
@@ -46,9 +47,18 @@ class AuthController extends Controller
 
     /**
      * @param Request $request
+     * @return View
+     */
+    public function register(Request $request): View
+    {
+        return view('register');
+    }
+
+    /**
+     * @param Request $request
      * @return Json
      */
-    public function register(Request $request): Json
+    public function registerHandle(Request $request): Json
     {
         try {
             validate(RegisterRequest::class)->check($request->post());
@@ -61,9 +71,18 @@ class AuthController extends Controller
 
     /**
      * @param Request $request
+     * @return View
+     */
+    public function forgot(Request $request): View
+    {
+        return view('forgot');
+    }
+
+    /**
+     * @param Request $request
      * @return Json
      */
-    public function forgot(Request $request): Json
+    public function forgotHandle(Request $request): Json
     {
         try {
             validate(ForgetRequest::class)->check($request->post());
@@ -76,9 +95,18 @@ class AuthController extends Controller
 
     /**
      * @param Request $request
+     * @return View
+     */
+    public function reset(Request $request): View
+    {
+        return view('reset');
+    }
+
+    /**
+     * @param Request $request
      * @return Json
      */
-    public function reset(Request $request): Json
+    public function resetHandle(Request $request): Json
     {
         try {
             validate(ResetRequest::class)->check($request->post());
@@ -91,18 +119,36 @@ class AuthController extends Controller
 
     /**
      * @param Request $request
-     * @return Json
+     * @return Redirect
      */
-    public function connect(Request $request): Json
+    public function connect(Request $request): Redirect
     {
-        return $this->success('data');
+        return redirect('/');
+    }
+
+    /**
+     * @param Request $request
+     * @return Redirect
+     */
+    public function callback(Request $request): Redirect
+    {
+        return redirect('/');
+    }
+
+    /**
+     * @param Request $request
+     * @return View
+     */
+    public function bind(Request $request): View
+    {
+        return view('bind');
     }
 
     /**
      * @param Request $request
      * @return Json
      */
-    public function callback(Request $request): Json
+    public function bindHandle(Request $request): Json
     {
         return $this->success('data');
     }
