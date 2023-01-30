@@ -15,7 +15,7 @@ class IndexController extends BaseController
      */
     public function index(): string
     {
-        $openapi = Generator::scan([app_path('controller')]);
+        $openapi = Generator::scan([app_path('controller/api')]);
 
         return $openapi->toYaml();
     }

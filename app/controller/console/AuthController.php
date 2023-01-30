@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\controller\console;
 
 use app\controller\Controller;
+use app\enums\GlobalConst;
 use app\middleware\RedirectIfAuthenticated;
 use app\request\console\auth\ForgetRequest;
 use app\request\console\auth\LoginRequest;
@@ -12,6 +13,7 @@ use app\request\console\auth\ResetRequest;
 use think\exception\ValidateException;
 use think\Request;
 use think\response\Json;
+use think\response\Redirect;
 use think\response\View;
 
 class AuthController extends Controller
@@ -27,11 +29,16 @@ class AuthController extends Controller
      * 显示登录页面
      *
      * @param Request $request
-     * @return View
+     * @return Redirect|View
      */
-    public function login(Request $request): View
+    public function login(Request $request): Redirect|View
     {
         $callback = $request->get('callback', '/');
+
+        if (! session('?'.GlobalConst::SYSTEM_TOKEN)) {
+            return redirect('/');
+        }
+
         return view('login', ['callback' => urldecode($callback)]);
     }
 
