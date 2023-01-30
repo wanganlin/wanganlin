@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Forgot</title>
-</head>
-<body>
+{layout name="layout/auth" /}
+
 forgot page.
-</body>
-</html>

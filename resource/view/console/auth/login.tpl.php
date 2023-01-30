@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-Hans">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>管理平台 - Powered by JbCMS</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanganlin/layui-admin@master/component/pear/css/pear.css"/>
-    <link rel="stylesheet" href="{:asset('static/admin/css/other/login.css')}" />
-</head>
-<body>
+{layout name="layout/auth" /}
+
 <form class="layui-form" action="javascript:void(0);">
     <div class="layui-form-item">
         <img class="logo" src="{:asset('static/admin/images/logo.png')}"/>
@@ -65,5 +57,3 @@
         });
     })
 </script>
-</body>
-</html>

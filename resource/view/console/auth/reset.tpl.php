@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Reset</title>
-</head>
-<body>
+{layout name="layout/auth" /}
+
 reset page.
-</body>
-</html>
