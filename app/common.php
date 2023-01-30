@@ -1,5 +1,22 @@
 <?php
 
+use app\support\Str;
+
+if (! function_exists('asset')) {
+    /**
+     * 生成资源文件链接
+     *
+     * @param  string  $path
+     * @return string
+     */
+    function asset(string $path = ''): string
+    {
+        $root = request()->root(true);
+
+        return $root.'/'.ltrim($path, '/').'?v='.RELEASE;
+    }
+}
+
 if (! function_exists('is_email')) {
     /**
      * 验证邮箱地址格式
@@ -28,18 +45,30 @@ if (! function_exists('is_mobile')) {
     }
 }
 
-if (! function_exists('asset')) {
+if (! function_exists('route')) {
     /**
-     * 生成资源文件链接
+     * 路由链接url
      *
      * @param  string  $path
+     * @param  array   $vars
      * @return string
      */
-    function asset(string $path = ''): string
+    function route(string $path = '', array $vars = []): string
     {
-        $root = request()->root(true);
+        if (Str::substr($path, 0, 1) !== '/') {
+            $pathInfo = request()->pathinfo();
+            $pathList = array_pad(explode('/', $pathInfo), 3, 'index');
 
-        return $root.'/'.ltrim($path, '/').'?v='.RELEASE;
+            [$m, $c, $a] = array_pad(explode('/', $path), 3, null);
+            if (is_null($c)) {
+                $path = $pathList[0] . '/' . $pathList[1] . '/' . $m;
+            } elseif (is_null($a)) {
+                $path = $pathList[0] . '/' . $c . '/' . $m;
+            }
+            $path = '/' . $path;
+        }
+
+        return url($path, $vars);
     }
 }
 
