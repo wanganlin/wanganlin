@@ -21,7 +21,7 @@
     </div>
     <div class="layui-form-item">
         <a href="{:route('forgot')}" style="float: right; margin-top: 10px;">忘记密码</a>
-        <input type="checkbox" name="" title="记住密码" lay-skin="primary" checked>
+        <input type="checkbox" name="remember" title="记住密码" lay-skin="primary" checked>
     </div>
     <div class="layui-form-item">
         <button type="button" class="pear-btn pear-btn-success login" lay-submit lay-filter="login">

@@ -10,6 +10,8 @@ use app\middleware\RedirectIfAuthenticated;
 use app\request\console\auth\ForgetRequest;
 use app\request\console\auth\LoginRequest;
 use app\request\console\auth\ResetRequest;
+use app\service\auth\input\LoginInput;
+use app\service\auth\LoginService;
 use think\exception\ValidateException;
 use think\Request;
 use think\response\Json;
@@ -60,7 +62,18 @@ class AuthController extends Controller
             return $this->error($e->getError());
         }
 
-        return $this->success('');
+        $loginInput = new LoginInput();
+        $loginInput->setUsername($request->post('username'));
+        $loginInput->setPassword($request->post('password'));
+        $loginInput->setRememberMe($request->post('remember') === 'on');
+
+        try {
+            $loginService = new LoginService();
+            $loginService->login($loginInput, GlobalConst::CONSOLE_MODULE);
+            return $this->success('ok');
+        } catch (\Exception $e) {
+            return $this->error($e->getMessage());
+        }
     }
 
     /**

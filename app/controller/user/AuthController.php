@@ -11,6 +11,8 @@ use app\request\user\auth\LoginRequest;
 use app\request\user\auth\RegisterRequest;
 use app\request\user\auth\ResetRequest;
 use app\controller\web\BaseController as Controller;
+use app\service\auth\input\LoginInput;
+use app\service\auth\LoginService;
 use think\exception\ValidateException;
 use think\Request;
 use think\response\Json;
@@ -43,7 +45,18 @@ class AuthController extends Controller
             return $this->error($e->getError());
         }
 
-        return $this->success('data');
+        $loginInput = new LoginInput();
+        $loginInput->setUsername($request->post('username'));
+        $loginInput->setPassword($request->post('password'));
+        $loginInput->setRememberMe($request->post('remember') === 'on');
+
+        try {
+            $loginService = new LoginService();
+            $loginService->login($loginInput, GlobalConst::USER_MODULE);
+            return $this->success('ok');
+        } catch (\Exception $e) {
+            return $this->error($e->getMessage());
+        }
     }
 
     /**
