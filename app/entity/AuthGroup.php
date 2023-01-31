@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace app\model;
+namespace app\entity;
 
+use app\model\BelongsToMany;
 use think\Model;
 
 class AuthGroup extends Model

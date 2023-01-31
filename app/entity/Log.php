@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace app\model;
+namespace app\entity;
 
 use think\Model;
 
-class Content extends Model
+class Log extends Model
 {
     /**
      * @var string
      */
-    protected $table = 'contents';
+    protected $table = 'logs';
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\model;
+namespace app\entity;
 
 use think\Model;
 

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace app\model;
+namespace app\entity;
 
 use think\Model;
 
-class Comment extends Model
+class Setting extends Model
 {
     /**
      * @var string
      */
-    protected $table = 'comments';
+    protected $table = 'settings';
 }

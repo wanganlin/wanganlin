@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace app\model;
+namespace app\entity;
 
 use think\Model;
 
-class AuthRule extends Model
+class Comment extends Model
 {
     /**
      * @var string
      */
-    protected $table = 'auth_rules';
+    protected $table = 'comments';
 }

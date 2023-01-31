@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace app\model;
+namespace app\entity;
 
 use think\Model;
 
-class Type extends Model
+class Article extends Model
 {
     /**
      * @var string
      */
-    protected $table = 'types';
+    protected $table = 'articles';
 }

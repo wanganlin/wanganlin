@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace app\model;
+namespace app\entity;
+
+use app\model\Pivot;
 
 class AuthGroupAccess extends Pivot
 {
