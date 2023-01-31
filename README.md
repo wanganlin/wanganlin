@@ -13,7 +13,7 @@ Shanghai, China・🕹Web developer
 - 熟悉 Linux 系统下 LNMP 的部署、运维、配置等基本操作；
 - 热衷分析和解决问题，对待工作积极负责，能够承担压力；
 - 有过高并发，高访问量系统开发经验；
-- 自研基于 Workerman 的 [ColaPHP](https://github.com/colaphp/colaphp) 框架；
+- 自研基于 Workerman 的 [ColaPHP](https://github.com/colaphp) 框架；
 
 如果你喜欢我, 可以访问我的 [Github主页](https://github.com/wanganlin) 浏览更多的项目。
 
