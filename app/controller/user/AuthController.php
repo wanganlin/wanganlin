@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\controller\user;
 
+use app\enums\GlobalConst;
 use app\middleware\RedirectIfAuthenticated;
 use app\request\user\auth\ForgetRequest;
 use app\request\user\auth\LoginRequest;
@@ -22,7 +23,7 @@ class AuthController extends Controller
      * @var array
      */
     protected array $middleware = [
-        [RedirectIfAuthenticated::class, ['user']],
+        [RedirectIfAuthenticated::class, [GlobalConst::USER_MODULE]],
     ];
 
     public function login(Request $request): View

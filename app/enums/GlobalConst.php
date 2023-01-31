@@ -4,7 +4,10 @@ namespace app\enums;
 
 enum GlobalConst
 {
-    const SYSTEM_TOKEN = 'system_token';
+    const SYSTEM_TOKEN = 'token';
 
+    const CONSOLE_MODULE = 'console';
+
+    const USER_MODULE = 'user';
 
 }
