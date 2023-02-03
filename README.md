@@ -1,11 +1,11 @@
-# 京博内容管理系统
+# ThinkPHP
 
 > 运行环境要求PHP8.1
 
 ## 安装
 
 ```
-composer create-project jbcms/jbcms
+composer create-project wanganlin/thinkphp
 ```
 
 ## 目录结构
@@ -84,10 +84,6 @@ php artisan run
 在浏览器中输入地址：
 
 http://localhost:8000/
-
-## 在线文档
-
-[浏览文档](https://www.shincite.com/jbcms/docs)
 
 ## 版权信息
 
