@@ -1,0 +1,21 @@
+type (
+    ProfileRequest {
+        Id       uint   `json:"id"`
+        Name     string `json:"name"`
+        Avatar   string `json:"avatar"`
+        Gender   string `json:"gender"`
+        Birthday string `json:"birthday"`
+        Intro    string `json:"intro"`
+    }
+)
+
+type Response {
+    Code    int         `json:"code"`
+    Message string      `json:"message"`
+    Data    interface{} `json:"data"`
+}
+
+service auth-api {
+    @handler ProfileHandler
+    post /profile (ProfileRequest) returns (Response)
+}

@@ -1,0 +1,14 @@
+type (
+	ContentReq {
+		Id string `path:"id"`
+	}
+	ContentRes {
+		Id    string `json:"id"`
+		Title string `json:"title"`
+	}
+)
+
+service content-api {
+	@handler getContent
+	get /get/:id (ContentReq) returns (ContentRes)
+}

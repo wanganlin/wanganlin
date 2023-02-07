@@ -1,0 +1,890 @@
+# API 接口概览
+
+## App\HttpController\Api\Analysis
+- analysisTaskList: 分析任务安排列表
+- receiveAnalysis: 领取分析
+- allocationAnalysis: 分配分析样品
+- analysisSummaryList: 分析单汇总列表
+- projectAnalysisDetail: 项目分析详情
+- removeLabResult: 移除实验室导入的分析结果
+- projectAnalysisEdit: 项目分析编辑
+- geneAnalSampleNumber: 生成分析样品编号
+- addAnalysisSample: 添加分析样品
+- editAnalysisSample: 编辑分析样品
+- delResource: 删除分析单附件
+- saveExcelOriginalRecord: 保存原始分析记录表
+- saveAnalysisResults: 分析样品保存分析结果
+- releaseAndDelete: 释放及删除
+- qualityControlEvaluation: 质量控制评价列表
+- equipmentUsageRecord: 设备使用记录
+- analyzeOriginalRecordDetail: 分析原始记录详情
+- submitCheck: 提交校核
+- analysisCheckList: 分析校核列表
+- startCheckList: 开始校核列表
+- excelSaveAnalysisResults: 保存表里的分析结果
+- checkAction: 校核操作
+- analysisAuditList: 分析审核列表
+- analysisAuditDetails: 分析审核详情
+- auditAction: 审核操作
+- analysisSummaryLog: 分析单样品修改记录
+- subpackageAnalTaskList: 分包分析任务安排列表
+- goToSubcontract: 分析任务安排转到分包
+- backAnalysis: 转回分析
+- subcontractorList: 分包商列表
+- generateSubcontract: 生成分包单
+- subcontractSummaryList: 分包单汇总列表
+- uploadSubcontractFile: 上传分包单附件报告
+- analysisSumResourceList: 分包单附件列表
+- delAnalysisSumResource: 删除分包单附件
+- dataInputDetail: 数据录入详情
+- parseImportFile: 解析分包报告文件
+- saveSubcontractResult: 保存分包单
+- subcontractRelease: 分包单释放
+- subConfirmSubmit: 分包确认提交
+- subRecall: 分包单撤回操作
+- analysisEnterViewList: 分析进度查看列表
+- speedProgressDetail: 分析进度详情
+- projectReferQCSampleList: 当前分析汇总单下可引用的现场质控样列表
+- referenceQcSample: 引用质控样操作
+- dereference: 取消现场质控样引用
+- labAnalysisSummaryLog: 
+- aStandardLowerPretreatment: 分析方法下的前处理过程
+- voidAndRecoveryApply: 作废和恢复申请
+- voidAndRecoveryAudit: 作废和恢复审核
+- analysisApplyLog: 分析样品作废申请记录
+- index: 
+
+## App\HttpController\Api\Base
+- index: 
+
+## App\HttpController\Api\BusinessInvolved
+- add: 新增涉及业务
+- index: 涉及业务列表下拉
+- index2: 涉及业务合同审核配置列表
+- businessList: 业务管理列表
+- detail: 业务详情
+- delResource: 删除业务附件资源
+- index3: 涉及业务分配人配置列表
+- bindBusinessAssigner: 绑定业务分配人
+- delBindBusinessAssigner: 
+- edit: 修改业务名称
+- addIcon: 添加修改大分类图标大分类才可以添加图标
+- delOrDisableOrRecoveryBusiness: 删除或禁用或恢复业务
+- supplementAndAssign: 业务信息补充和指派
+- executorReceiveAction: 业务执行者接收不接收业务
+- businessSuspend: 业务暂停执行中的业务才可以暂停
+- businessRestart: 业务重启暂停中的业务才可以重启
+- businessAcceptanceSubmit: 业务提交待验收业务状态是执行中才可以提交待验收
+- businessAcceptanceCheck: 业务验收待验收状态的业务才可以验收
+- businessWithdraw: 
+- processLog: 业务进度日志
+- changeSort: 拖拽改变业务的排序
+- getNextOperator: 业务审核流程获取下一步操作人
+
+## App\HttpController\Api\CalibrationRecord
+- type: 获取校准单类型
+- create: 根据校准单类型生成相应记录
+- getEqCalibration: 根据采样任务单或分析任务单得到采样单所选仪器的校准记录表
+- all: 分析仪器校准记录列表
+- save: 保存分析仪器校准记录
+- delete: 根据删除分析仪器校准记录
+- destroy: 根据采样单或分析单删除分析仪器校准记录
+- index: 
+
+## App\HttpController\Api\Common
+- weChat: 
+- login: 用户登录
+- checkUserToken: 
+- customerDetail: 客户详情通过客户密码
+- customerEvaluateList: 
+- customerEvaluateDetail: 
+- customerMIndexList: 
+- customerReportList: 
+- customerReportDetail: 
+- customerReportEvaluate: 客户报告评价操作通过密码查看
+- showReport: 
+- ossSignUrl: 获取资源的访问地址
+- index: 
+
+## App\HttpController\Api\Contract
+- addAndEdit: 新增合同或者修改
+- addAndEdit2: 
+- subpackageList: 获取分包列表信息
+- submitForReview: 
+- index: 合同列表
+- detail: 
+- delResource: 删除合同附件
+- del: 
+- processLog: 审核进度日志
+- personInChargeAudit: 合同负责人审核
+- contractWithdraw: 合同撤回合同废止和合同删除状态不能撤回
+- annulment: 合同废止已删除的合同不能废止废止后进入合同进度日志但是不删除之前的进度日志
+- addContractPayment: 增加合同回款
+- contractPaymentList: 合同回款记录列表
+- delPaymentRecord: 删除合同回款记录
+- checkContractConfig: 
+- delBusinessOrSubcontractOrDeduction: 删除业务与金额或者分包信息或者减项信息三合一
+- getNextOperator: 
+- contractAudit: 合同审核
+- contractAuditLogList: 合同审核日志列表
+
+## App\HttpController\Api\ContractReview
+- bindBusinessReviewer: 业务设置审核人
+- generalManagerDetail: 
+- bindManagerOrArchiveReviewer: 
+- departmentAuditList: 
+- departmentBindReviewer: 
+- delDepartmentBindReviewer: 
+- delBindBusinessReviewer: 删除业务绑定的审核人
+- delBindManagerOrArchiveReviewer: 删除总经理或者归档绑定审核人
+- index: 
+
+## App\HttpController\Api\Curve
+- generatingEquation: 生成的方程式
+- addCurve: 新增曲线
+- delCurve: 删除曲线
+- editCurve: 修改曲线
+- detailCurve: 曲线详情
+- curveList: 曲线列表
+- copyCurve: 复制曲线
+- curveAudit: 曲线审核
+- reportAttachment: 获取曲线附件文件列表支持搜索
+- curveSubmitReview: 曲线提交审核
+- index: 
+
+## App\HttpController\Api\Customer
+- add: 
+- index: 客户列表
+- index2: 下拉列表
+- index3: 
+- del: 
+- edit: 
+- delResource: 
+- detail: 
+- customerMIndexList: 分包商因子列表
+- disableAndDelete: 禁用和删除指标
+- delAddress: 删除地址
+- delContactPerson: 删除联系人
+- entrustingPartyList: 监管平台委托方列表
+
+## App\HttpController\Api\CustomerEvaluate
+- index: 客户评价列表
+- store: 新增客户评价
+- show: 获取客户评价详情
+- update: 更新客户评价详情
+- destroy: 删除客户评价
+
+## App\HttpController\Api\DataStatistics
+- projectTotal: 获取项目统计
+- totalData: 平台总数据
+- customerAndContract: 新增客户与合同日周月统计图
+- salesAmount: 销售金额数据统计日周月
+- salesType: 销售类型数据统计
+- topCustomer: 客户排行前十名
+- topPersonnel: 销售员排行前十名
+- topProjectSubcontractRate: 项目分包率及排行前三名
+- departmentSalesStatistics: 部门销售统计日周月
+- departmentPersonalSalesStatistics: 部门下个人销售统计昨日上周上月
+- submitShowUserSalesData: 点击用户显示销售数据
+- workloadList: 工作量统计列表
+- index: 
+
+## App\HttpController\Api\Department
+- add: 
+- del: 删除部门
+- edit: 
+- index: 树状列表图接口
+- jobList: 职位列表
+- delUserPosition: 删除用户的职位信息
+- index2: 
+- dragChangeSort: 拖拽改变排序
+- checkDepartmentPermission: 检查部门管理相关的权限
+
+## App\HttpController\Api\Distributor
+- add: 
+- del: 
+- edit: 
+- delContactPerson: 删除经销商联系人
+- delResource: 
+- detail: 
+- index: 经销商列表
+- index2: 下拉列表
+
+## App\HttpController\Api\Finance
+- contractPullDown: 
+- addInvoiceApplication: 发票申请
+- submitDepartment: 提交给部门发票审核
+- detail: 申请的发票详情
+- delResource: 删除申请发票的附件资源
+- applicationList: 
+- toAuditInvoice: 部门审核开票审核取票审核
+- processLog: 申请发票进度日志
+- revoke: 发票申请撤销额度恢复
+- contractPullDown2: 
+- addPayApplication: 
+- paySubmitDepartment: 申请的支付提交给部门审核第二步
+- haveDeduction: 检查是否有减项
+- payApplicationList: 
+- delPayResource: 删除支付的附件资源
+- payDetail: 申请的支付详情
+- toAuditPay: 部门审核总经理审核待支付审核待收票审核
+- revokePay: 支付申请撤销额度恢复
+- payProcessLog: 申请支付进度日志
+- getSubcontractAndDeductionQuota: 获取分包和减项的配额
+- checkInvoiceConfig: 
+- checkPayConfig: 
+- getNextPayOperator: 
+- getNextInvoiceOperator: 
+- index: 
+
+## App\HttpController\Api\Index
+- index: 
+
+## App\HttpController\Api\InvoiceReview
+- departmentAuditList: 
+- invoiceAndReceiptDetail: 
+- departmentBindReviewer: 
+- bindInvoiceAndReceiptReviewer: 
+- delDepartmentBindReviewer: 
+- delBindInvoiceAndReceiptReviewer: 删除开票或者取票绑定的发票审核人
+- index: 
+
+## App\HttpController\Api\MonitoringIndex
+- add: 新增监测指标
+- del: 删除监测指标
+- delContainer: 删除容器
+- edit: 修改监测指标
+- detail: 监测指标详情
+- delResource: 删除监测指标附件
+- operateLog: 监测指标操作记录
+- bindEquipment: 绑定监测指标设备
+- equipmentOperateLog: 仪器设备操作记录
+- unbindEquipment: 解绑设备
+- bindEquipmentList: 指标绑定的设备仪器列表
+- index: 监测指标列表
+- index2: 指标组监测指标列表
+- addGroup: 新增指标组
+- delGroup: 删除监测指标组
+- delIndexForGroup: 删除指标组里的指标
+- groupDetail: 监测指标组详情
+- editGroup: 修改监测指标组
+- groupOperateLog: 指标组操作记录
+- groupList: 指标组列表
+- delDetectionLimit: 删除检出限信息
+- setMonIndexSort: 设置指标因子的排序值
+
+## App\HttpController\Api\OriginalRecord
+- spectrophotometryOriginalRecord: 分光光度法分析原始记录
+- index: 
+
+## App\HttpController\Api\PaymentReview
+- departmentAuditList: 
+- otherAuditList: 
+- departmentBindReviewer: 
+- bindOtherPaymentReviewer: 
+- delDepartmentBindReviewer: 
+- delBindOtherPaymentReviewer: 删除其它支付审核人总经理待支付待收票
+- index: 
+
+## App\HttpController\Api\Project
+- addProject: 新增项目信息
+- projectDetail: 项目详情
+- editProject: 编辑项目信息
+- operateLog: 操作日志
+- monitoringIndex: 根据评价标准获取是否匹配的指标列表
+- addEvaluateStandard: 方法因子里面添加评价标准
+- evaluationStandardList: 方法因子添加的评价标准列表
+- delEvaluationStandard: 删除方法因子里面的评价标准
+- addMonitoringIndex: 方法因子添加监测指标
+- monitoringIndexList: 方法因子添加的监测指标列表
+- delMonitoringIndex: 删除方法因子里面的监测指标
+- saveMethodFactor: 保存方法因子
+- addSamplingPoint: 承检方采样时增加采样点位
+- samplingPointList: 采样点位列表
+- batchDelSamplingPoint: 删除采样点位
+- samplingPointDetail: 采样点位详情
+- editSamplingPoint: 编辑采样点位信息
+- addSamplingPointMonitoringIndex: 给采样点位添加指标
+- sPointMIndexList: 点位下的监测指标列表
+- batchDelSPointMIndex: 批量删除采样点位里面的指标信息
+- batchEditSPointMIndex: 批量修改采样点位里面的指标信息
+- sPointMIndexChangeSort: 采样点位监测指标拖拽排序
+- sPointResourceList: 
+- delSPointResource: 删除采样点位附件
+- addSampleDelivery: 添加送样信息
+- sampleDeliveryList: 送样信息列表
+- copySample: 复制送样样品
+- sampleDeliveryDetail: 送样详情
+- sampleDeliMonitorList: 送样详情里面的指标列表
+- delSampleDeliMonitor: 删除送样样品里面的指标
+- batchEditSampleDeli: 批量修改送样样品信息
+- batchDelSampleDeli: 批量删除送样样品信息
+- copySamplingPoint: 批量复制采样点位信息
+- saveSamplingPoint: 保存了采样点位下一步操作
+- saveSampleDelivery: 保存了送样样品下一步操作
+- evaluateLimitList: 采样评价限值列表
+- batchEditEvaluateLimit: 批量修改评价限值
+- editEvaluateLimit: 修改评价限值
+- mIGetEvaluateList: 修改评价标准时的列表
+- editEvaluate: 评价限值里面修改评价标准
+- projectList: 项目列表
+- copyProject: 复制项目
+- projectSubmit: 项目提交
+- projectAudit: 项目审核
+- applyEditProject: 申请修改项目限已完成的项目
+- applyProjectStop: 申请项目终止限已完成的项目
+- projectWithdrawal: 项目撤回
+- processLog: 项目审核进度日志列表
+- mergeSamplingPoint: 合并采样点位信息合并条件同点位同周期同频次同采样方法同容器同保存剂不合并条件勾选单独采样其他条件同容器超出容量上限需增加个样
+- delProject: 删除项目
+- setLimitDetail: 设定限值详情
+- getOneEvalLimit: 通过得到评价限值的详情
+- arrangeSubcontractor: 方法因子分配分包商
+- methodFactorySubList: 方法因子下分包列表
+- evaluationLimitSameValue: 评价限值同值
+- clearProject: 清除项目
+- batchSetReportShow: 批量设置报告中是否显示自采样送样二合一
+- index: 
+
+## App\HttpController\Api\ProjectFollowUpEdit
+- addProjectToEdit: 项目添加到待修改
+- projectList: 待修改项目列表
+- projectDetail: 待修改项目详情
+- evaluationStandardList: 方法因子添加的评价标准列表
+- monitoringIndexList: 方法因子添加的监测指标列表
+- samplingPointList: 采样点位列表
+- sPointMIndexList: 点位下的监测指标列表
+- evaluateLimitList: 采样评价限值列表
+- editProject: 编辑项目信息
+- delSourceSamplingPoint: 删除原采样点位
+- editSourceSamplingPoint: 编辑原采样点位信息
+- addNewSamplingPoint: 承检方采样时增加新的采样点位
+- addNewSamplingPointMonitoringIndex: 给新的采样点位添加指标
+- editNewSPointMIndex: 修改新的采样点位里面的指标信息
+- delNewSamplingPoint: 删除新的采样点位
+- projectEditSubmit: 修改项目提交
+- projectEditAudit: 待修改项目审核
+- delEvaluationStandard: 删除方法因子里面的评价标准
+- addEvaluateStandard: 方法因子里面添加评价标准
+- saveMethodFactor: 保存方法因子
+- mIGetEvaluateList: 修改评价标准时的列表
+- editNewSamplingPoint: 编辑新建的采样点位信息
+- batchDelNewSPointMIndex: 批量删除采样点位里面的指标信息
+- batchEditNewSPointMIndex: 批量修改新的采样点位里面的指标信息
+- saveSamplingPoint: 保存了采样点位下一步操作
+- processLog: 待修改项目审核进度日志列表
+- delProjectEdit: 删除项目修改
+- addMonitoringIndex: 方法因子添加监测指标
+- delMonitoringIndex: 删除方法因子里面的监测指标
+- arrangeSubcontractor: 方法因子分配分包商
+- index: 
+
+## App\HttpController\Api\QualityControl
+- qualityControlList: 质控列表
+- sampleList: 样品信息列表采样送样共用
+- getMonitorListForSample: 通过样品得到指标列表
+- addQualityControl: 样品添加质控
+- qCSampleList: 质控样品列表
+- delQCSample: 删除质控样品
+- qCSubmit: 质控提交审核
+- qCAudit: 
+- qCWithdrawal: 质控撤回
+- processLog: 质控审核进度日志列表
+- monitoringProgramme: 监测方案信息
+- delGeneSamplesAndFallback: 删除生成的样品和回退
+- editSNeedContainer: 修改样品所需容器数量
+- index: 
+
+## App\HttpController\Api\Reagent
+- addName: 添加试剂品名
+- delName: 
+- editName: 
+- nameDetail: 
+- nameList: 试剂品名列表
+- index2: 下拉列表
+- addReagent: 添加试剂
+- delReagent: 删除试剂
+- editReagent: 编辑试剂
+- reagentDetail: 
+- reagentList: 试剂列表
+- depositoryList: 试剂仓库列表
+- addStock: 入库操作添加库存
+- stockList: 入库列表
+- stockDetail: 查看试剂仓库货品详情
+- stockDetailUpdate: 更新试剂仓库货品详情
+- allocation: 入库后分配操作
+- uploadStandardCert: 上传标准证书
+- delStandardCert: 删除标准证书附件
+- abolishReagent: 作废仓库里面的试剂
+- delWarehouseReagent: 删除仓库里面的试剂
+- personalReagentList: 个人试剂列表
+- configReagentFluid: 配置试剂液
+- configStandardReagentFluid: 一般试剂耗材配置标准液体专用接口
+- configMultiReagentFluid: 多项试剂配置成标液
+- reagentLog: 配置和使用记录
+- reagentShare: 试剂共享
+- unShare: 取消试剂共享
+- qualityControl: 试剂质量控制图
+- generateCfNumber: 生成配置液编号
+- shareList: 试剂共享的列表
+- personalFluidList: 个人配置液列表
+- personalFluidCancel: 个人配制液作废
+- reagentQuery: 试剂扫码查询
+- reagentPrint: 试剂打印
+- index: 
+
+## App\HttpController\Api\Report
+- projectReportList: 项目报告列表
+- reportProcessDetail: 报告进度详情
+- pointAndQualityControlList: 测点和质控列表
+- projectSampleList: 报告添加样品列表
+- addReport: 新增报告
+- reportDetail: 报告详情
+- delReportSample: 删除报告里面的样品
+- uploadFile: 上传附件
+- delReportResource: 删除报告上传的附件
+- submitCheck: 提交校核
+- reportList: 报告列表
+- reportProcessLog: 报告审核进度日志
+- showReport: 
+- samplingReport: 
+- sampleDeliveryReport: 送样报告
+- checkAction: 校核操作
+- delReport: 删除报告
+- reviewAction: 审核操作
+- issuedAction: 签发操作
+- reportFiling: 报告归档列表
+- archiveOperation: 归档操作
+- revokeArchive: 撤销归档
+- giveAndReclaimList: 发放和回收列表
+- checkReportList: 报告校核列表
+- reviewReportList: 报告审核列表
+- issuedReportList: 报告签发列表
+- reportDistRecoveryList: 报告发放和回收列表
+- reportSend: 报告发放
+- reportReceive: 报告接收
+- reportRecovery: 报告回收
+- downloadAdjustedReport: 下载调整的报告
+- fallBackLog: 报告回退日志记录
+- getSubpackageMonitorRemark: 得到分包因子备注
+- saveReport: 保存报告
+- returnSamplingAndAnalysis: 
+- issueReturnArchive: 已发放回退到归档
+- delUploadPdf: 删除报告里上传的自动生成
+- projectEquipmentCalibrationList: 项目下的校准记录列表
+- addEquipmentCalibrationToReport: 添加设备校准信息到报告
+- delReportEquipmentCalibration: 删除报告里的设备校准信息
+- index: 
+
+## App\HttpController\Api\ReportParser
+- index: 工作站文件解析
+- history: 获取报告文件记录
+- companies: 获取全部实验室列表
+- devices: 获取相应实验室仪器列表
+
+## App\HttpController\Api\ReportRecord
+- curve: 获取工作站报告文件曲线数据
+- curveAbolish: 废止曲线数据
+- concentration: 获取工作站报告文件浓度数据
+- attachment: 查询样品报告文档附件
+- index: 
+
+## App\HttpController\Api\ResourceManager
+- addCatalog: 文件管理添加目录
+- catalogList: 目录列表
+- delCatalog: 删除文件目录
+- editCatalog: 修改文件目录名称
+- addFile: 添加文件
+- delFile: 删除文件
+- delResource: 删除文件资源附件
+- fileDetail: 文件详情
+- editFile: 修改文件
+- fileOperateLog: 文件操作记录
+- fileList: 文件列表
+- addTechnicalStandard: 添加技术标准
+- delTechnicalStandard: 删除技术标准
+- editTechnicalStandard: 修改技术标准
+- delTechnicalStandardResource: 删除技术标准附件
+- technicalStandardDetail: 技术标准详情
+- technicalStandardOperateLog: 技术标准操作记录
+- technicalStandardList: 技术标准列表
+- addEquipment: 新增设备仪器
+- associationSearch: 联想搜索
+- delEquipment: 删除设备
+- equipmentDetail: 设备详情
+- editEquipment: 修改设备
+- equipmentOperateLog: 设备信息操作记录
+- equipmentList: 设备信息列表
+- useDepartmentList: 搜索时下拉的使用部门的列表
+- addMateriel: 新增物料
+- deleteMateriel: 删除物料
+- editMateriel: 修改物料信息
+- materielDetail: 物料详情
+- delMaterielResource: 删除物料附件
+- materielOperateLog: 物料操作记录
+- materielList: 物料列表
+- addEvaluationStandard: 添加评价标准
+- delEvaluationStandard: 删除评价标准
+- evaluationStandardDetail: 评价标准详情
+- editEvaluationStandard: 编辑评价标准
+- delEvaluationStandardResource: 删除评价标准附件
+- evaluationStandardOperateLog: 评价标准操作日志
+- evaluationStandardAddMonitoringIndex: 评价标准添加指标
+- addEvaluationLimit: 评价标准指标增加评价限值
+- delEvaluationLimit: 删除评价标准指标的评价限值
+- mIndexELimitDetail: 指标的评价限值详情
+- evaluationStandardDelMonitoringIndex: 评价标准删除指标
+- evaluationStandardMonitoringIndexLog: 评价标准指标操作日志
+- evaluationStandardMonitoringIndexList: 评价标准添加的指标列表
+- evaluationStandardList: 评价标准列表
+- addMonitoringType: 添加监测类型
+- editMonitoringType: 
+- monitoringTypeAddIcon: 监测类型添加修改大分类图标大分类才可以添加图标
+- monitoringTypeChangeSort: 拖拽改变监测类型的排序
+- delMonitoringType: 删除监测类型
+- monitoringTypeList: 监测类型树状列表
+- addQCStandard: 添加质控标准
+- delQCStandard: 删除质控标准
+- editQcStandard: 修改质控标准
+- delQcStandardResource: 删除质控标准附件
+- qCStandardDetail: 质控标准详情
+- qCStandardOperateLog: 质控标准操作记录
+- qCStandardList: 质控标准列表
+- recordList: 记录单列表
+- recordDropDown: 各个企业采样单下拉
+- collectionAndReturn: 设备的领用和归还
+- equipmentLog: 设备领取记录日志表个人领用以及每个设备下的领用
+- equipmentUsageRecord: 仪器使用记录列表
+- editEquipmentUsage: 修改使用记录
+- addEditDelEqVerRecord: 添加修改删除检定记录
+- eqVerRecordList: 设备检定记录列表
+- addEditDelEqMtRecord: 
+- eqMtRecordList: 设备保养记录列表
+- equipmentCalibrationRecordList: 设备校准记录列表
+- setTestReminders: 设置检定提醒
+- monitoringTypeSampleHandle: 设置监测类型是否需要样品处理
+- samplingRecordBindControlled: 采样记录单绑定受控编号操作
+- samplingRecordControlledAudit: 
+- delPretreatmentProcess: 删除前处理过程
+- index: 
+
+## App\HttpController\Api\ReviewConfig
+- auditList: 
+- bindReviewer: 绑定审核人
+- delReviewer: 删除审核人
+- index: 
+
+## App\HttpController\Api\Sampling
+- taskScheduleList: 采样项目列表
+- projectArrangeSampleUser: 项目安排采样人员信息
+- projectArrangeEquipment: 项目安排设备信息
+- samplingTaskList: 采样任务列表
+- monitorAndRecord: 指标对应的采样表
+- addSamplingTask: 创建采样任务
+- addSamplingRemark: 添加采样备注
+- oneKeySamplingList: 点击一键后的同周期同类型合并后的列表
+- generateAllSamples: 全部生成采样单
+- sampleList: 样品列表
+- sampleListManagement: 采样单管理列表
+- projectSamplingTask: 项目下的采样任务
+- submitSample: 交样操作
+- uploadAttachment: 上传附件
+- attachmentList: 上传的附件列表
+- delAttachment: 删除附件
+- getTagList: 获取采样任务下的标签列表
+- getTaskSampleRecord: 根据采样任务获取采样单
+- getTaskSampleRecordMonitoringIndexList: 根据采样任务获取采样单监测因子
+- workSituationDetail: 项目下的工况表信息
+- saveWorkSituation: 保存工况信息
+- uploadWorkSituationImage: 上传工况信息表点位图片
+- delWorkSituationImage: 删除工况信息里面的图片
+- furnaceSituationDetail: 炉窑情况登记表详情
+- saveFurnaceSituation: 保存炉窑情况登记表
+- automaticOrigRecordDetail: 自动烟气采样原始记录详情
+- saveAutomaticOrigRecord: 保存自动烟气采样原始记录详情
+- uploadImageToRecordSheet: 上传图片到采样记录表
+- recordSheetImageList: 记录单图片列表
+- delRecordSheetImage: 删除记录单图片
+- releaseSample: 释放样品
+- smokeAnalSurveyRecordDetail: 烟气分析测量记录表详情
+- saveSmokeAnalSurveyRecord: 保存烟气分析测量记录表
+- getTaskVerificationRecord: 根据采样任务下仪器校准记录获取校验单
+- samplingFlowCalRecordDetail: 采样流量校准记录详情
+- taskMonitoringIndex: 采样任务下的所有指标因子
+- saveSamplingFlowCalRecord: 保存采样流量校准记录
+- delSamplingFlowCalRecord: 删除采样流量校准记录
+- SampFlowCalUseEqDetail: 采样流量校准所用设备的详情
+- saveSampFlowCalUseEq: 保存采样流量校准所用设备
+- samplingSummaryList: 采样单汇总列表
+- samplingSign: 采样人员签字
+- submitAudit: 采样任务提交审核
+- samplingAuditList: 采样单审核列表
+- samplingAudit: 采样审核
+- sampleManagementList: 样品管理列表
+- receiveSample: 接样操作
+- returnSample: 退回样品操作
+- sampleCancel: 样品作废
+- delSamplingSign: 删除采样单签名
+- wasteWasterPointFreDetail: 废水点位频次记录表详情
+- saveWasteWasterPointFreqRecord: 保存废水点位频次记录表
+- wasteWaterRecordDetail: 废水采样单详情
+- saveWaterRecord: 保存废水采样单记录表
+- projectAssignEquipList: 项目下分配的设备列表
+- delProjectEquip: 删除项目下分配的设备
+- boilerPointFreqRecordDetail: 锅炉点位频次记录表详情
+- saveBoilerPointFreqRecord: 保存锅炉点位频次记录表详情
+- smokeSamplingRecordDetail: 烟气采样记录表详情
+- saveSmokeSamplingRecord: 保存烟气采样记录表详情
+- reSamplingTaskRecord: 释放采样任务单大释放
+- smokeBlacknessDetail: 烟气黑度原始记录表详情
+- saveSmokeBlackness: 保存烟气黑度
+- indusEnterSocialLifeNoiseSceneDetail: 工业企业厂界噪声社会生活环境噪声现场检测原始记录表
+- saveIndusEnterSocialLifeNoiseScene: 保存工业企业厂界噪声社会生活环境噪声现场检测原始记录表
+- delEquipment: 删除采样单里面的设备
+- unorganizedPointFreqRecordDetail: 无组织点位频次记录表详情
+- saveUnorganizedPointFreqRecord: 保存无组织点位频次记录表
+- unorganizedWasteGasRecordDetail: 无组织废气采样原始记录表详情
+- saveUnorganizedWasteGas: 保存无组织废气采样原始记录表
+- scanNumberGetInfo: 扫描样品编号得到信息
+- sampleRetentionList: 样品留样列表
+- sampleHandleList: 样品处理列表
+- sampleHandleCycle: 样品默认处理天数设置
+- sampleHandle: 样品处理操作
+- samplePretreatmentTime: 样品预处理时间设置
+- sampleHandleRecord: 样品流转单列表
+- organizedPointFreqRecordDetail: 有组织点位频次记录表详情
+- saveOrganizedPointFreqRecord: 保存有组织点位频次记录表
+- organizedSamplingRecordDetail: 有组织采样记录表详情
+- saveOrganizedSamplingRecord: 保存有组织采样记录表
+- autoOrganizedSamplingRecordDetail: 直读有组织采样记录表详情
+- saveAutoOrganizedSamplingRecord: 保存直读有组织采样记录表
+- samplingTaskPointList: 采样任务下的点位列表
+- drWasterPointFreDetail: 生活饮用水点位频次记录表详情
+- saveDrWasterPointFreqRecord: 保存生活饮用水点位频次记录表
+- drWaterSamplingRecordDetail: 生活饮用水采样原始记录表详情
+- saveDrWaterSamplingRecord: 保存生活饮用水采样原始记录表
+- furnacesPointFreqRecordDetail: 炉窑点位频次记录表详情
+- saveFurnacesPointFreqRecord: 保存炉窑点位频次记录表详情
+- editTransportationCondition: 修改样品的运输条件
+- index: 
+
+## App\HttpController\Api\Sampling2
+- grWasterPointFreDetail: 地下水点位频次记录表详情
+- saveGrWasterPointFreqRecord: 保存地下水点位频次记录表
+- grWaterSamplingRecordDetail: 地下水采样原始记录表详情
+- saveGrWaterSamplingRecord: 保存地下水采样原始记录表
+- surWasterPointFreDetail: 地表水点位频次记录表详情
+- saveSurWasterPointFreqRecord: 保存地表水点位频次记录表
+- surWaterSamplingRecordDetail: 地表水采样原始记录表详情
+- saveSurWaterSamplingRecord: 保存地表水采样原始记录表
+- autoWasteWaterRecordDetail: 废水采样原始记录表直读详情
+- saveAutoWasteWaterRecord: 保存废水采样原始记录表直读
+- autoDrWSamplingRecordDetail: 直读生活饮用水采样原始记录表详情
+- saveAutoDrWSamplingRecord: 保存直读生活饮用水采样原始记录表
+- autoGroundWaterRecordDetail: 直读地下水采样原始记录表详情
+- saveAutoGroundRecord: 保存直读地下水采样原始记录表
+- autoSurfaceWaterRecordDetail: 直读地表水采样原始记录表详情
+- saveAutoSurfaceRecord: 保存直读地表水采样原始记录表
+- soilSamplingRecordDetail: 土壤采样原始记录表详情
+- saveSoilSamplingRecord: 保存土壤采样原始记录表
+- projectSampleDeliveryList: 送样项目列表
+- sampleDeliveryList: 送样样品列表送样交样管理
+- submitSample: 送样交样操作
+- editSampleProperties: 修改送样样品性状
+- sampleDeliveryList2: 送样样品列表样品管理
+- receiveSample: 送样样品接样操作
+- returnSample: 送样退回样品操作
+- getTagList: 送样打印标签列表
+- samplingTSampleReAgent: 采样记录单样品保存剂信息
+- samplePreAgentList: 样品保存剂列表采样任务安排
+- addSqControlSample: 采样单添加质控样
+- modifySamplingDate: 修改采样单采样日期
+- clickGetMeOxygenContentMeanValue: 点击获取实测含氧量平均值
+- index: 
+
+## App\HttpController\Api\SamplingReagentReady
+- readyList: 采样试剂准备列表
+- take: 采样试剂接取
+- allocation: 采样试剂分配
+- readyToFinish: 准备完成
+- returnOperation: 退回操作
+- receive: 领取操作
+- release: 释放操作
+- readyProcessLog: 准备进度日志表
+- index: 
+
+## App\HttpController\Api\Subcontract
+- index: 分包管理列表
+- detail: 
+- supplementAndAssign: 分包负责人补充信息和分配执行人
+- delResource: 删除业务附件资源
+- executorReceiveAction: 分包业务执行者接收不接收业务单
+- businessSuspend: 分包业务暂停执行中的业务才可以暂停
+- businessRestart: 分包业务重启暂停中的业务才可以重启
+- businessAcceptanceSubmit: 分包业务提交待验收业务状态是执行中才可以提交待验收
+- businessAcceptanceCheck: 分包业务验收待验收状态的业务才可以验收
+- businessWithdraw: 
+- processLog: 分包业务进度日志
+- getNextOperator: 分包审核流程获取下一步操作人
+
+## App\HttpController\Api\SupervisoryPlatform
+- updateEntrustingPartyList: 更新监管平台委托方列表
+- uploadFile: 文件上传到监管平台代表文件上传
+- insertContractInfo: 合同更新到监管平台
+- insertMonitoringTask: 监测项目更新到监管平台
+- samplingPlanUpdatePlatform: 采样计划更新的到监管平台
+- sampleManageUploadAttachment: 采样管理附件上传到监管平台
+- uploadSamplingRecords: 采样记录上传到监管平台
+- platformPointTask: 平台点位下采样任务
+- uploadFileToPlatform: 上传图片到监管平台
+- sampleManageSubmit: 监管平台采样管理提交
+- getPlatformNumber: 获取监管平台系统编号
+- updateReportToPlatform: 上传报告至监管平台
+- endReport: 监管平台数据报告完结
+- projectList: 监管平台下的项目列表
+- projectPointInfo: 项目下的点位信息
+- platformUserList: 监管平台下的人员列表
+- platformEquipmentList: 监管平台下的设备列表
+- index: 
+
+## App\HttpController\Api\SystemConfig
+- detail: 企业信息详情
+- save: 保存企业信息
+- delResource: 
+- userLoginLogList: 用户登录日志列表
+- addRecordTemplate: 新增记录单模板
+- recordTemplateList: 记录单模板列表
+- allCompanyList: 所有的公司列表
+- assignmentRecord: 
+- recordDetail: 记录单详情
+- editRecordTemplate: 修改记录单模版
+- kickEveryOneOut: 踢除所有在线的人
+- getExcelOriginalRecordTable: 获取阿里云的表的列表
+- getExcelBindControlledList: 获取绑定的受控列表
+- excelBindControlled: 表绑定受控编号操作新增和编辑
+- delExcelControlled: 删除表受控信息
+- excelControlledAudit: 
+- getSampleBindControlledList: 获取样品受控单绑定的受控列表
+- sampleBindControlled: 样品流转单绑定受控编号操作编辑
+- delSampleControlled: 删除样品流转单受控信息
+- sampleControlledAudit: 
+- delRecordTemplate: 删除了记录单
+- index: 
+
+## App\HttpController\Api\User
+- add: 新增人员
+- disableAndDelete: 
+- index: 
+- index2: 人员列表
+- detail: 
+- edit: 编辑用户信息
+- editSelf: 
+- checkUserSignature: 检查用户签名
+- userSignature: 用户电子签名
+- editSelfPassword: 
+- dragChangeSort: 拖拽用户进行排序
+- userPermissionsOperateLog: 人员管理修改权限记录列表
+- addUserRightGroup: 增加用户权限组
+- userRightGroupList: 用户权限组列表
+- editUserRightGroup: 编辑用户权限组
+- delUserRightGroup: 删除用户权限组
+- delSignature: 删除签名
+- showMenu: 显示用户菜单
+- unbindWeChat: 用户取消微信绑定
+- addAndEditQualification: 添加及编辑能力资质模板
+- qualificationList: 能力资质列表
+- delQualification: 删除了能力资质
+
+## App\HttpController\Api\UserAction
+- add: 添加权限节点
+- index: 权限列表
+
+## App\HttpController\Api\Utility
+- deCodeToken: 
+- addUserOperateLog: 添加用户操作日志新增操作修改操作删除操作
+- get_real_ip: 
+- getUserForDepartment: 
+- getSonIdForParent: 
+- getDepartmentForPositionId: 
+- getDepartmentIdForPositionId: 
+- getDepartmentHeadForPositionId: 
+- clearToken: 
+- getUserAction: 获取用户拥有的权限节点路径
+- getBusinessType: 根据合同获取业务类型名称大类
+- checkUserStatus: 
+- getUserContractList: 根据获取合同列表信息
+- getUserBusinessList: 
+- getUserSubcontractList: 获取分包列表里面对应的
+- getDepartmentReviewForDockingUserId: 
+- getDepartmentInvoiceReviewForDockingUserId: 
+- getDepartmentPayReviewForDockingUserId: 
+- getUserInvoiceApplicationList: 根据获取发票申请列表
+- getUserPayApplicationList: 根据获取支付申请列表
+- getLastWeek: 获取今天到到少天之前的日期
+- getWeek: 获取当天到天的之后日期
+- getAllDayForTime: 根据给定的日期获取到当前日期的天数
+- getAllWeekForTime: 根据给定的日期获取到当前日期的周数
+- getAllMonthForTime: 
+- getMonthNum: 
+- arraySort: 
+- getPositionIdForDepartmentId: 
+- getUserForPositionId: 根据获取用户信息
+- checkUserShowModule: 
+- checkUserShowModuleAction: 检查用户可以看到模块
+- uniqueArr: 数组去重
+- checkRepeat: 
+- getUserInfo: 根据公司和用户获取该用户基础信息
+- autoGenerationNumber: 根据模型获取生成自动生成的编号
+- ossUpload: 阿里云上传
+- ossSignUrl: 签名
+- addEquipmentUsageRecord: 添加仪器使用记录
+- getSamplingTaskIdForSampling: 根据样品得到对应的采样单
+- idsToId: 变成
+- checkMonitoringGroup: 检测是否存在指标组
+- XMLGetArr: 监管平台转成
+- curl_vm_record: 传递内容
+- createFile: 监管平台接口返回上传的新文件名称
+- arrayCalAv: 报告中计算样品因子的平均值
+- round2: 四舍六入五成双
+- forMTypeIdGetSId: 根据监测类型判断样品属于该监测类型
+- convertSNumberOrSId: 样品编号和样品相互转换
+- getSTaskIdForSample: 根据样品编号得到采样任务单的根据样品得到采样任务单的
+- getCycleForSample: 通过自采样样品信息得到周期
+- getRangeForSampleId: 根据样品判断是否是该监测类型的如果存在返回该样品
+- reportCalResult: 报告计算结果
+- qualityControlReport: 
+- calValidNumber: 计算一个数字是几位有效数字
+- judgeDigit: 判断一个数字的最高位或者最小位
+- allCalReportResult: 计算报告结果
+- getFloatValue: 不四舍五入截取浮点型字符串
+- secret: 
+- forTaskGetPointInfo: 通过采样任务单获取点位信息
+- countingMethod: 科学计数法
+- getLen: 一个数字小数点有几位
+- is_string_float: 
+- getMaxValue: 
+- getRangeForSamplingId: 根据样品得到监测类型
+- keepDigit: 检出限小数保留规则为的时候
+- getIntersectSampleIdForTask: 通过采样任务获取下面的样品和比较的样品交集
+- getOssListObjects: 
+- actionCutPng: 
+- create_qfz_doc: 
+- curl_get: 
+- generate_password: 
+- mIdSortDisplay: 
+- mIdSort: 
+- arrayKeyUnique: 
+- checkRetestSample: 检查是否存在复测样
+- filter_by_value: 二维数组某个字段的值查找数组
+- checkMIGroupCondition: 
+- addZero: 
+- getEquipmentIdFromMId: 
+
+## App\HttpController\Api\Wechat
+- sendTemplateMsg: 发送消息模板
+- createErWeiMa: 
+- subscribeEvent: 关注事件
+- unSubscribeEvent: 取消关注事件
+- getMessageTemplate: 获取消息模板列表信息
+- jssdkConfig: 获取前端注册使用的签名包
+- index: 

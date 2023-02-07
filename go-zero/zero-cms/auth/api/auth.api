@@ -1,0 +1,15 @@
+type (
+	LoginReq {
+		Username string `json:"username"`
+		Password string `json:"password"`
+		Captcha  string `json:"captcha"`
+	}
+
+	LoginRes {
+	}
+)
+
+service auth-api {
+	@handler Login
+	post /login (LoginReq) returns (LoginRes)
+}

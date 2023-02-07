@@ -1,0 +1,91 @@
+type (
+	RegisterRequest {
+		// Name string `path:"name,options=you|me"`
+		Username  string `json:"username"`
+		Password  string `json:"password"`
+		Password2 string `json:"password2"`
+		Captcha   string `json:"captcha"`
+	}
+
+	RegisterByEmailRequest {
+		Email string `json:"email"`
+		Code  string `json:"code"`
+	}
+
+	RegisterBySmsRequest {
+		MobilePhone string `json:"mobilePhone"`
+		Code        string `json:"code"`
+	}
+
+	LoginRequest {
+		Username string `json:"username"`
+		Password string `json:"password"`
+		Captcha  string `json:"captcha"`
+	}
+
+	LoginByEmailRequest {
+		Email string `json:"email"`
+		Code  string `json:"code"`
+	}
+
+	LoginBySmsRequest {
+		MobilePhone string `json:"mobilePhone"`
+		Code        string `json:"code"`
+	}
+
+	ForgetByEmailRequest {
+		Email string `json:"email"`
+		Code  string `json:"code"`
+	}
+
+	ForgetBySmsRequest {
+		MobilePhone string `json:"mobilePhone"`
+		Code        string `json:"code"`
+	}
+
+	ResetRequest {
+		Token    string `json:"token"`
+		Password string `json:"password"`
+	}
+)
+
+type LoginResponse {
+	AccessToken  string `json:"accessToken"`
+	AccessExpire int64  `json:"accessExpire"`
+	RefreshAfter int64  `json:"refreshAfter"`
+}
+
+type Response {
+	Code    int         `json:"code"`
+	Message string      `json:"message"`
+	Data    interface{} `json:"data"`
+}
+
+service auth-api {
+	@handler RegisterHandler
+	post /register (RegisterRequest) returns (Response)
+
+	@handler RegisterByEmailHandler
+	post /register/email (RegisterByEmailRequest) returns (Response)
+
+	@handler RegisterBySmsHandler
+	post /register/sms (RegisterBySmsRequest) returns (Response)
+
+	@handler LoginHandler
+	post /login (LoginRequest) returns (Response)
+
+	@handler LoginByEmailHandler
+	post /login/email (LoginByEmailRequest) returns (Response)
+
+	@handler LoginBySmsHandler
+	post /login/sms (LoginBySmsRequest) returns (Response)
+
+	@handler ForgetByEmailHandler
+	post /forget/email (ForgetByEmailRequest) returns (Response)
+
+	@handler ForgetBySmsHandler
+	post /forget/sms (ForgetBySmsRequest) returns (Response)
+
+	@handler ResetHandler
+	put /reset (ResetRequest) returns (Response)
+}
