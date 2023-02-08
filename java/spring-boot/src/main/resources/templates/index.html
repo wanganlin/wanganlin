@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/app.css" th:href="@{/css/app.css}"/>
+    <script type="text/javascript" src="../static/js/app.js" th:src="@{/js/app.js}"></script>
+</head>
+<body>
+<div class="header">
+    <div class="logo">
+        <img src="../static/img/logo.png" th:src="@{/img/logo.png}"/>
+    </div>
+
+    welcome
+    <span th:text="haha"></span>
+    <br>
+    <span th:text="${varName}"></span>
+
+    <br>
+    判断指定字符串是否为空
+    <span th:text="${#strings.isEmpty(varName)}"></span>
+    <br>
+    判断指定字符串是否包含
+    <span th:text="${#strings.contains(varName, 'ac')}"></span>
+    <br>
+    判断指定字符串开头
+    <span th:text="${#strings.startsWith(varName, 'j')}"></span>
+    <br>
+    判断指定字符串结尾
+    <span th:text="${#strings.endsWith(varName, 'k')}"></span>
+    <br>
+    <br>
+    日期时间：
+    <br>
+    <span th:text="${now}"></span>
+    <br>
+    <span th:text="${time}"></span>
+    <br>
+    <span th:text="${timeFormat}"></span>
+    <br>
+    <span th:text="${date}"></span>
+    <br>
+    <span th:text="${#dates.format(date, 'yyyy-MM-dd hh:mm')}"></span>
+
+    <br>
+    <br>
+    判断：
+    <span th:if="${sex == 0}">
+        nv
+    </span>
+    <span th:if="${sex == 1}">
+        nan
+    </span>
+    <br>
+    switch
+    <span th:switch="${sex}">
+    <span th:case="0">
+        nv2
+    </span>
+    <span th:case="1">
+        nan2
+    </span>
+    <span th:case="*">
+        none
+    </span>
+    </span>
+
+    <br>
+    <br>
+    循环：
+    <span th:each="str, status : ${myList}">
+        <div th:text="${str}"></div>
+        <div th:text="${status.count}"></div>
+        <div th:text="${status.index}"></div>
+        <div th:text="${status.first}"></div>
+        <div th:text="${status.odd}"></div>
+        <div th:text="${status.even}"></div>
+        <div th:text="${status.size}"></div>
+        <div th:text="${status.last}"></div>
+    </span>
+
+    <span th:each="attr : ${myMap}">
+        <div th:text="${attr.key}"></div>
+        <div th:text="${attr.value}"></div>
+        <hr>
+    </span>
+
+    <br>
+    <br>
+    request & session：
+<!--    <div th:text="${#request.getAttribute('enName')}"></div>-->
+<!--    <div th:text="${#session.getAttribute('token')}"></div>-->
+
+</div>
+
+</body>
+</html>
