@@ -1,0 +1,39 @@
+type (
+	AdReq {
+		Name string `json:"name"`
+	}
+	AdRes {
+	}
+
+	NavReq {
+		Name string `json:"name"`
+	}
+	NavRes {
+	}
+
+	PermissionReq {
+		Name string `json:"name"`
+	}
+	PermissionRes {
+	}
+
+	PrivilegeReq {
+		Name string `json:"name"`
+	}
+	PrivilegeRes {
+	}
+)
+
+service system-api {
+	@handler Ad
+	post /ad (AdReq) returns (AdRes)
+	
+	@handler Nav
+	post /nav (NavReq) returns (NavRes)
+	
+	@handler Permission
+	post /permission (PermissionReq) returns (PermissionRes)
+	
+	@handler Privilege
+	get /privilege/:userId (PrivilegeReq) returns (PrivilegeRes)
+}
