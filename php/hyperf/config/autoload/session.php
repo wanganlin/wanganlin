@@ -8,10 +8,10 @@ return [
     'handler' => Handler\FileHandler::class,
     'options' => [
         'connection' => 'default',
-        'path' => BASE_PATH . '/runtime/sessions',
-        'gc_maxlifetime' => 1440,
+        'path' => BASE_PATH . '/runtime/session',
+        'gc_maxlifetime' => 1200,
         'session_name' => 'SESSION_ID',
         'domain' => null,
-        'cookie_lifetime' => 5 * 60 * 60,
+        'cookie_lifetime' => 1440,
     ],
 ];
