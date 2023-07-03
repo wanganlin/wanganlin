@@ -6,7 +6,7 @@ namespace app\controller\user\request\auth;
 
 use think\Validate;
 
-class RegisterRequest extends Validate
+class SignupRequest extends Validate
 {
     /**
      * @var array

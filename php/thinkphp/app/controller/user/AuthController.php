@@ -6,8 +6,8 @@ namespace app\controller\user;
 
 use app\controller\user\request\auth\ForgetRequest;
 use app\controller\user\request\auth\LoginRequest;
-use app\controller\user\request\auth\RegisterRequest;
 use app\controller\user\request\auth\ResetRequest;
+use app\controller\user\request\auth\SignupRequest;
 use app\controller\web\BaseController as Controller;
 use app\enums\GlobalConst;
 use app\middleware\RedirectIfAuthenticated;
@@ -63,19 +63,19 @@ class AuthController extends Controller
      * @param Request $request
      * @return View
      */
-    public function register(Request $request): View
+    public function signup(Request $request): View
     {
-        return view('register');
+        return view('signup');
     }
 
     /**
      * @param Request $request
      * @return Json
      */
-    public function registerHandle(Request $request): Json
+    public function signupHandle(Request $request): Json
     {
         try {
-            validate(RegisterRequest::class)->check($request->post());
+            validate(SignupRequest::class)->check($request->post());
         } catch (ValidateException $e) {
             return $this->error($e->getError());
         }

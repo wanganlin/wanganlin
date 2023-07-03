@@ -21,7 +21,7 @@
         {:token_field()}
     </form>
     {else}
-    <a href="{:route('user/auth/register')}">免费注册</a> |
+    <a href="{:route('user/auth/signup')}">免费注册</a> |
     <a href="{:route('user/auth/login')}">登录</a>
     {/if}
 </div>
