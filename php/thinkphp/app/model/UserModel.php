@@ -4,50 +4,26 @@ declare(strict_types=1);
 
 namespace app\model;
 
-class UserModel
+use think\Model;
+use think\model\relation\BelongsToMany;
+
+class UserModel extends Model
 {
     /**
-     * 用户ID
-     * @var int
-     */
-    private int $id;
-
-    /**
-     * 用户名
      * @var string
      */
-    private string $username;
+    protected $table = 'user';
 
     /**
-     * @return int
+     * @var string
      */
-    public function getId(): int
-    {
-        return $this->id;
-    }
+    protected $pk = 'id';
 
     /**
-     * @param int $id
+     * @return BelongsToMany
      */
-    public function setId(int $id): void
+    public function roles(): BelongsToMany
     {
-        $this->id = $id;
+        return $this->belongsToMany(AuthGroup::class, AuthGroupAccess::class);
     }
-
-    /**
-     * @return string
-     */
-    public function getUsername(): string
-    {
-        return $this->username;
-    }
-
-    /**
-     * @param string $username
-     */
-    public function setUsername(string $username): void
-    {
-        $this->username = $username;
-    }
-
 }

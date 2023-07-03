@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace app\controller\console;
 
+use app\controller\console\request\auth\ForgetRequest;
+use app\controller\console\request\auth\LoginRequest;
+use app\controller\console\request\auth\ResetRequest;
 use app\controller\Controller;
 use app\enums\GlobalConst;
 use app\middleware\RedirectIfAuthenticated;
-use app\request\console\auth\ForgetRequest;
-use app\request\console\auth\LoginRequest;
-use app\request\console\auth\ResetRequest;
 use app\service\auth\input\LoginInput;
 use app\service\auth\LoginService;
 use think\exception\ValidateException;

@@ -2,25 +2,27 @@
 
 declare(strict_types=1);
 
-namespace app\request\console\auth;
+namespace app\controller\user\request\auth;
 
 use think\Validate;
 
-class ResetRequest extends Validate
+class RegisterRequest extends Validate
 {
     /**
      * @var array
      */
     protected $rule = [
-        'token' => 'require',
+        'passport' => 'require',
         'password' => 'require',
+        'captcha|验证码' => 'require|captcha',
     ];
 
     /**
      * @var array
      */
     protected $message = [
-        'token.require' => '密码重置令牌必须',
+        'passport.require' => '登录用户名必须',
         'password.require' => '登录密码必须',
+        'captcha.require' => '图片验证码必须',
     ];
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\request\user\auth;
+namespace app\controller\console\request\auth;
 
 use think\Validate;
 

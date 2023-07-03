@@ -2,17 +2,18 @@
 
 declare(strict_types=1);
 
-namespace app\request\user\auth;
+namespace app\controller\user\request\auth;
 
 use think\Validate;
 
-class ForgetRequest extends Validate
+class LoginRequest extends Validate
 {
     /**
      * @var array
      */
     protected $rule = [
-        'email' => 'require|email',
+        'passport' => 'require',
+        'password' => 'require',
         'captcha|验证码' => 'require|captcha',
     ];
 
@@ -20,8 +21,8 @@ class ForgetRequest extends Validate
      * @var array
      */
     protected $message = [
-        'email.require' => '电子邮箱地址必须',
-        'email.email' => '电子邮箱格式不正确',
+        'passport.require' => '登录用户名必须',
+        'password.require' => '登录密码必须',
         'captcha.require' => '图片验证码必须',
     ];
 }

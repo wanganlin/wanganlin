@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace app\controller\user;
 
+use app\controller\user\request\auth\ForgetRequest;
+use app\controller\user\request\auth\LoginRequest;
+use app\controller\user\request\auth\RegisterRequest;
+use app\controller\user\request\auth\ResetRequest;
+use app\controller\web\BaseController as Controller;
 use app\enums\GlobalConst;
 use app\middleware\RedirectIfAuthenticated;
-use app\request\user\auth\ForgetRequest;
-use app\request\user\auth\LoginRequest;
-use app\request\user\auth\RegisterRequest;
-use app\request\user\auth\ResetRequest;
-use app\controller\web\BaseController as Controller;
 use app\service\auth\input\LoginInput;
 use app\service\auth\LoginService;
 use think\exception\ValidateException;

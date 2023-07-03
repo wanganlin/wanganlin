@@ -4,26 +4,49 @@ declare(strict_types=1);
 
 namespace app\entity;
 
-use app\model\BelongsToMany;
-use think\Model;
-
-class User extends Model
+class User
 {
     /**
-     * @var string
+     * 用户ID
+     * @var int
      */
-    protected $table = 'user';
+    private int $id;
 
     /**
+     * 用户名
      * @var string
      */
-    protected $pk = 'id';
+    private string $username;
 
     /**
-     * @return BelongsToMany
+     * @return int
      */
-    public function roles(): BelongsToMany
+    public function getId(): int
     {
-        return $this->belongsToMany(AuthGroup::class, AuthGroupAccess::class);
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername(string $username): void
+    {
+        $this->username = $username;
     }
 }
