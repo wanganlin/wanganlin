@@ -1,6 +1,10 @@
 <?php
 
-const VERSION = 'v1.0.0';
-const RELEASE = '20230112';
+use think\facade\Env;
 
-return new think\App();
+$app = new think\App();
+
+Env::set('RELEASE', '20240126');
+Env::set('VERSION', 'v1.0.0');
+
+return $app;

@@ -13,7 +13,7 @@ if (! function_exists('asset')) {
     {
         $root = request()->root(true);
 
-        return $root.'/'.ltrim($path, '/').'?v='.RELEASE;
+        return $root.'/'.ltrim($path, '/').'?v='.env('RELEASE');
     }
 }
 
@@ -42,33 +42,6 @@ if (! function_exists('is_mobile')) {
         $rule = '/^1[3-9]\d{9}$/';
 
         return is_scalar($mobile) && 1 === preg_match($rule, (string) $mobile);
-    }
-}
-
-if (! function_exists('route')) {
-    /**
-     * 路由链接url
-     *
-     * @param  string  $path
-     * @param  array   $vars
-     * @return string
-     */
-    function route(string $path = '', array $vars = []): string
-    {
-        if (Str::substr($path, 0, 1) !== '/') {
-            $pathInfo = request()->pathinfo();
-            $pathList = array_pad(explode('/', $pathInfo), 3, 'index');
-
-            [$m, $c, $a] = array_pad(explode('/', $path), 3, null);
-            if (is_null($c)) {
-                $path = $pathList[0] . '/' . $pathList[1] . '/' . $m;
-            } elseif (is_null($a)) {
-                $path = $pathList[0] . '/' . $c . '/' . $m;
-            }
-            $path = '/' . $path;
-        }
-
-        return url($path, $vars);
     }
 }
 

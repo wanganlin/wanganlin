@@ -5,26 +5,32 @@
     "keywords": ["thinkphp", "php",  "mysql", "cms"],
     "license": "Apache-2.0",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "aliyuncs/oss-sdk-php": "^2.6",
-        "overtrue/easy-sms": "^2.4",
-        "overtrue/pinyin": "^5.2",
-        "overtrue/socialite": "^4.8",
+        "endroid/qr-code": "^5.0.2",
+        "firebase/php-jwt": "^6.10.0",
+        "overtrue/easy-sms": "^2.5",
+        "overtrue/pinyin": "^5.3",
+        "overtrue/socialite": "^4.10",
+        "phpoffice/phpspreadsheet": "^1.29.0",
         "topthink/framework": "^8.0",
         "topthink/think-captcha": "^3.0",
         "topthink/think-filesystem": "^2.0",
         "topthink/think-image": "^1.0",
-        "topthink/think-migration": "^3.0",
+        "topthink/think-migration": "^3.1",
         "topthink/think-orm": "^3.0",
         "topthink/think-queue": "^3.0",
+        "topthink/think-swoole": "^4.0",
         "topthink/think-view": "^2.0",
-        "w7corp/easywechat": "^6.12",
-        "yansongda/pay": "^3.5"
+        "w7corp/easywechat": "^6.15",
+        "yansongda/pay": "^3.5",
+        "workerman/crontab": "^1.0.6",
+        "workerman/gateway-worker": "^3.1.1"
     },
     "require-dev": {
-        "laravel/pint": "^1.4",
-        "symfony/var-dumper": ">=4.2",
-        "zircote/swagger-php": "^4.6"
+        "laravel/pint": "^1.13",
+        "symfony/var-dumper": "^7.0",
+        "zircote/swagger-php": "^4.8"
     },
     "autoload": {
         "psr-4": {
@@ -45,6 +51,6 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

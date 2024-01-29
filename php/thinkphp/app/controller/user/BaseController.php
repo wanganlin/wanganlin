@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\controller\user;
 
 use app\controller\web\BaseController as Controller;
-use app\enums\GlobalConst;
+use app\constant\GlobalConst;
 use app\middleware\Authenticate;
 
 abstract class BaseController extends Controller

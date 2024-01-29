@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\response;
 
-use think\facade\Session;
 use think\response\Json;
 
 trait JsonResponse

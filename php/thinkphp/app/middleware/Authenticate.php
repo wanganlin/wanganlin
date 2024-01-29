@@ -30,7 +30,7 @@ class Authenticate
             } else {
                 $callback = urlencode($request->url(true));
 
-                return redirect('/'.$guard.'/auth/login?callback='.$callback);
+                return redirect('/'.$guard.'/passport/login?callback='.$callback);
             }
         }
 

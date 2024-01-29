@@ -5,11 +5,10 @@ use think\migration\db\Column;
 
 class CreateUserTable extends Migrator
 {
-    public function up()
+    public function up(): void
     {
         $table = $this->table('user');
-        $table->addColumn(Column::unsignedInteger('id')->setUnsigned()->setComment('编号'))
-            ->addColumn(Column::string('username')->setUnique()->setComment('登录用户名'))
+        $table->addColumn(Column::string('username')->setUnique()->setComment('登录用户名'))
             ->addColumn(Column::string('password')->setComment('登录用户密码'))
             ->addColumn(Column::string('password_salt')->setComment('用户密码盐值'))
             ->addColumn(Column::string('reset_token')->setComment('密码重置hash'))
@@ -30,7 +29,7 @@ class CreateUserTable extends Migrator
             ->save();
     }
 
-    public function down()
+    public function down(): void
     {
         $this->dropTable('user');
     }

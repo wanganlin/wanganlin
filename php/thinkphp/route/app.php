@@ -1,6 +1,6 @@
 <?php
 
-use app\enums\GlobalConst;
+use app\constant\GlobalConst;
 use think\facade\Route;
 use think\helper\Str;
 

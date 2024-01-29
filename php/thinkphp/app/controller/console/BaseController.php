@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\controller\console;
 
 use app\controller\Controller;
-use app\enums\GlobalConst;
+use app\constant\GlobalConst;
 use app\middleware\Authenticate;
 use app\middleware\Privilege;
 
