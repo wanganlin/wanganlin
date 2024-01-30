@@ -24,6 +24,6 @@ class IndexController extends BaseController
             return view('/error');
         }
 
-        return view('/' . $data->template);
+        return view('/'.$data->template);
     }
 }

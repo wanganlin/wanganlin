@@ -13,23 +13,15 @@ use think\response\Redirect;
 
 class OAuthBundleService
 {
-    /**
-     * @var UserService
-     */
     private UserService $userService;
 
-    /**
-     * @var WechatService
-     */
     private WechatService $wechatService;
 
-    /**
-     * @var Application
-     */
     private Application $wechat;
 
     /**
      * __construct
+     *
      * @throws InvalidArgumentException
      */
     public function __construct()
@@ -41,9 +33,6 @@ class OAuthBundleService
 
     /**
      * 生成授权链接
-     *
-     * @param  Request  $request
-     * @return Redirect
      */
     public function redirect(Request $request): Redirect
     {
@@ -59,8 +48,6 @@ class OAuthBundleService
     /**
      * 授权回调
      *
-     * @param  Request  $request
-     * @return Json
      *
      * @throws GuzzleException
      * @throws AuthorizeFailedException

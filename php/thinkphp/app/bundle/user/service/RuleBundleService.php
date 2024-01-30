@@ -11,9 +11,8 @@ class RuleBundleService
     /**
      * 获取管理资源链接
      *
-     * @param  int  $menu 是否仅显示菜单
-     * @param  int  $status 显示状态
-     * @return array
+     * @param  int  $menu  是否仅显示菜单
+     * @param  int  $status  显示状态
      */
     public function getRule(int $menu = 1, int $status = 1): array
     {

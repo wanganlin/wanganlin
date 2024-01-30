@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\controller\console;
 
 use app\controller\Controller;
+use app\foundation\constant\GlobalConst;
 use app\middleware\Authenticate;
 use app\middleware\Privilege;
 
@@ -14,4 +15,12 @@ abstract class BaseController extends Controller
         Authenticate::class,
         Privilege::class,
     ];
+
+    protected function initialize(): void
+    {
+        if (! session('?'.GlobalConst::ConsoleToken)) {
+             redirect('/')->send();
+             exit();
+        }
+    }
 }

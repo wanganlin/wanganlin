@@ -6,5 +6,4 @@ namespace app\bundle\user\service;
 
 class LogBundleService
 {
-
 }

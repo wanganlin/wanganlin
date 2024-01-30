@@ -12,10 +12,6 @@ class Privilege
 {
     /**
      * 处理请求
-     *
-     * @param  Request  $request
-     * @param  Closure  $next
-     * @return Response
      */
     public function handle(Request $request, Closure $next): Response
     {

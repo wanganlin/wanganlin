@@ -26,7 +26,7 @@ class SignupController extends BaseController
             $formData = $request->post();
 
             $v = new SignupRequest();
-            if (!$v->check($formData)) {
+            if (! $v->check($formData)) {
                 throw new CustomException($v->getError());
             }
 

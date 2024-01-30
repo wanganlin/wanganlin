@@ -14,7 +14,7 @@ abstract class BaseController extends Controller
         $default = config('app.default_theme', 'default');
 
         Config::set([
-            'view_dir_name' => 'public/themes/' . $default . '/html'
+            'view_dir_name' => 'public/themes/'.$default.'/html',
         ], 'view');
     }
 }

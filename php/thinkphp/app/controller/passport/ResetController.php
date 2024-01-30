@@ -30,7 +30,7 @@ class ResetController extends BaseController
             $formData = $request->post();
 
             $v = new ResetRequest();
-            if (!$v->check($formData)) {
+            if (! $v->check($formData)) {
                 throw new CustomException($v->getError());
             }
 

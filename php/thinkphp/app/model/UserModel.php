@@ -9,12 +9,33 @@ use think\Model;
 class UserModel extends Model
 {
     /**
-     * @var string
+     * 设置表
      */
-    protected $table = 'user';
+    protected $name = 'user';
 
     /**
-     * @var string
+     * 设置字段
      */
-    protected $pk = 'id';
+    protected $field = [
+        'id',
+        'username',
+        'password',
+        'password_salt',
+        'reset_token',
+        'name',
+        'avatar',
+        'birthday',
+        'motto',
+        'email',
+        'email_verified_time',
+        'mobile',
+        'mobile_verified_time',
+        'remember_token',
+        'last_login_ip',
+        'last_login_time',
+        'status',
+        'create_time',
+        'update_time',
+        'delete_time',
+    ];
 }

@@ -6,5 +6,7 @@ namespace app\foundation\constant;
 
 class GlobalConst
 {
+    const AuthName = 'auth';
 
+    const ConsoleToken = 'console_token';
 }

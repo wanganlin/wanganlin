@@ -12,10 +12,8 @@ class DatabaseSeeder extends Seeder
      * More information on writing seeders is available here:
      * http://docs.phinx.org/en/latest/seeding.html
      */
-    public function run()
+    public function run(): void
     {
-        $this->call([
-            UserSeeder::class,
-        ]);
+        //
     }
 }

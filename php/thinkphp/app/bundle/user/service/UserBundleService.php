@@ -4,20 +4,17 @@ declare(strict_types=1);
 
 namespace app\bundle\user\service;
 
-use app\entity\UserEntity;
+use app\entity\User;
 use app\model\UserModel;
 
 class UserBundleService
 {
     /**
      * 根据条件查询用户
-     *
-     * @param array $condition
-     * @return UserModel|null
      */
     public function getUser(array $condition): ?UserModel
     {
-        $user = UserEntity::where($condition)->findOrEmpty();
+        $user = UserModel::where($condition)->findOrEmpty();
         if ($user->isEmpty()) {
             return null;
         }
@@ -31,9 +28,6 @@ class UserBundleService
 
     /**
      * 根据用户ID查询用户
-     *
-     * @param int $id
-     * @return UserModel|null
      */
     public function getUserById(int $id): ?UserModel
     {
@@ -42,9 +36,6 @@ class UserBundleService
 
     /**
      * 根据用户名查询用户
-     *
-     * @param string $username
-     * @return UserModel|null
      */
     public function getUserByUsername(string $username): ?UserModel
     {
@@ -53,9 +44,6 @@ class UserBundleService
 
     /**
      * 根据用户邮箱查询用户
-     *
-     * @param string $email
-     * @return UserModel|null
      */
     public function getUserByEmail(string $email): ?UserModel
     {
@@ -64,9 +52,6 @@ class UserBundleService
 
     /**
      * 根据用户手机号查询用户
-     *
-     * @param string $mobile
-     * @return UserModel|null
      */
     public function getUserByMobile(string $mobile): ?UserModel
     {
@@ -75,8 +60,6 @@ class UserBundleService
 
     /**
      * 密码加密
-     * @param string $password
-     * @return string
      */
     public function passwordHash(string $password): string
     {
@@ -85,9 +68,6 @@ class UserBundleService
 
     /**
      * 密码校验
-     * @param string $password
-     * @param string $hash
-     * @return bool
      */
     public function passwordVerify(string $password, string $hash): bool
     {

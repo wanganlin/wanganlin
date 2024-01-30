@@ -15,29 +15,21 @@ abstract class Controller
 
     /**
      * 应用实例
-     *
-     * @var App
      */
     protected App $app;
 
     /**
      * Request实例
-     *
-     * @var Request
      */
     protected Request $request;
 
     /**
      * 是否批量验证
-     *
-     * @var bool
      */
     protected bool $batchValidate = false;
 
     /**
      * 控制器中间件
-     *
-     * @var array
      */
     protected array $middleware = [];
 
@@ -61,11 +53,10 @@ abstract class Controller
     }
 
     /**
-     * @param  array  $data 数据
-     * @param  array|string  $validate 验证器名或者验证规则数组
-     * @param  array  $message 提示信息
-     * @param  bool  $batch 是否批量验证
-     * @return bool
+     * @param  array  $data  数据
+     * @param  array|string  $validate  验证器名或者验证规则数组
+     * @param  array  $message  提示信息
+     * @param  bool  $batch  是否批量验证
      */
     protected function validate(array $data, array|string $validate, array $message = [], bool $batch = false): bool
     {

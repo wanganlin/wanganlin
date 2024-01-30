@@ -16,9 +16,8 @@ trait JsonResponse
     /**
      * 返回封装后的API数据到客户端
      *
-     * @param  mixed  $data 要返回的数据
-     * @param  array  $headers 发送的Header信息
-     * @return Json
+     * @param  mixed  $data  要返回的数据
+     * @param  array  $headers  发送的Header信息
      */
     protected function success($data, array $headers = []): Json
     {
@@ -31,11 +30,6 @@ trait JsonResponse
 
     /**
      * 返回异常数据到客户端
-     *
-     * @param  string  $message
-     * @param  int  $code
-     * @param  array  $headers
-     * @return Json
      */
     protected function error(string $message = '', int $code = 40001, array $headers = []): Json
     {
@@ -48,10 +42,6 @@ trait JsonResponse
 
     /**
      * 返回 Json 数据格式
-     *
-     * @param $data
-     * @param  array  $headers
-     * @return Json
      */
     protected function response($data, array $headers = []): Json
     {
@@ -62,8 +52,6 @@ trait JsonResponse
 
     /**
      * 创建 Session ID
-     *
-     * @return string
      */
     protected function createSessionId(): string
     {

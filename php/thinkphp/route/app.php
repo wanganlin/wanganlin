@@ -1,6 +1,14 @@
 <?php
 
+use app\foundation\constant\GlobalConst;
+use app\support\Str;
 use think\facade\Route;
+
+Route::get('/admin', function () {
+    session(GlobalConst::ConsoleToken, Str::random());
+
+    return redirect('/console');
+});
 
 $paths = glob(app_path('controller/*'), GLOB_ONLYDIR);
 foreach ($paths as $path) {

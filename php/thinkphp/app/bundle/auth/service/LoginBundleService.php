@@ -4,15 +4,18 @@ declare(strict_types=1);
 
 namespace app\bundle\auth\service;
 
+use app\bundle\auth\service\input\LoginInput;
 use app\bundle\user\service\UserBundleService;
+use app\foundation\constant\GlobalConst;
 use app\foundation\exception\CustomException;
 use app\model\UserModel;
-use app\bundle\auth\service\input\LoginInput;
 
 class LoginBundleService
 {
     /**
      * 根据用户名和密码登录
+     *
+     * @throws CustomException
      */
     public function login(LoginInput $loginInput): bool
     {
@@ -22,7 +25,7 @@ class LoginBundleService
         }
 
         $userManager = new UserBundleService();
-        if (!$userManager->passwordVerify($loginInput->getPassword(), $userModel->password)) {
+        if (! $userManager->passwordVerify($loginInput->getPassword(), $userModel->password)) {
             throw new CustomException('用户登录密码不正确');
         }
 
@@ -36,16 +39,13 @@ class LoginBundleService
         }
 
         // 保存session
-        session('auth', $userModel->getId());
+        session(GlobalConst::AuthName, $userModel->getId());
 
         return true;
     }
 
     /**
      * 获取登录用户
-     *
-     * @param string $username
-     * @return UserModel|null
      */
     private function getUser(string $username): ?UserModel
     {
@@ -55,6 +55,7 @@ class LoginBundleService
         } elseif (is_mobile($username)) {
             return $userBundleService->getUserByMobile($username);
         }
+
         return $userBundleService->getUserByUsername($username);
     }
 }

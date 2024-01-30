@@ -31,7 +31,7 @@ class LoginController extends BaseController
             $formData = $request->post();
 
             $v = new LoginRequest();
-            if (!$v->check($formData)) {
+            if (! $v->check($formData)) {
                 throw new CustomException($v->getError());
             }
 

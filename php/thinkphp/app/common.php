@@ -30,7 +30,17 @@ if (! function_exists('is_mobile')) {
     {
         $rule = '/^1[3-9]\d{9}$/';
 
-        return 1 === preg_match($rule, $mobile);
+        return preg_match($rule, $mobile) === 1;
+    }
+}
+
+if (! function_exists('resource_path')) {
+    /**
+     * 获取资源文件目录
+     */
+    function resource_path(string $path = ''): string
+    {
+        return base_path('resource').ltrim($path, '/');
     }
 }
 

@@ -20,5 +20,5 @@ return [
     // 标签库标签结束标记
     'taglib_end' => '}',
     // 是否开启模板编译缓存,设为false则每次都会重新编译
-    'tpl_cache' => !env('APP_DEBUG', false),
+    'tpl_cache' => ! env('APP_DEBUG', false),
 ];

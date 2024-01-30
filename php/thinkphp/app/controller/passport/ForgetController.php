@@ -30,7 +30,7 @@ class ForgetController extends BaseController
                 throw new CustomException($v->getError());
             }
 
-            return  $this->success('data');
+            return $this->success('data');
         } catch (Throwable $e) {
             Log::error($e);
 
