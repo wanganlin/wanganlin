@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\controller\passport;
 
 use app\controller\home\BaseController;
+use app\foundation\constant\GlobalConst;
 use app\foundation\exception\CustomException;
 use think\exception\ValidateException;
 use think\facade\Log;
@@ -17,12 +18,13 @@ class LogoutController extends BaseController
     public function index(Request $request): Json
     {
         try {
-            if ($request->isAjax()) {
+            if ($request->isAjax() && session('?'.GlobalConst::ConsoleToken)) {
+                session(GlobalConst::AuthName, null);
 
-                return $this->success('data');
+                return $this->success();
             }
 
-            throw new CustomException('请求方法异常');
+            throw new CustomException('退出登录失败');
         } catch (Throwable $e) {
             Log::error($e);
 

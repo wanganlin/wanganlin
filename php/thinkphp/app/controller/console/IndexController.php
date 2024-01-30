@@ -21,8 +21,6 @@ class IndexController extends BaseController
 
     public function logout(): Json
     {
-        session('auth_console', null);
 
-        return $this->success('logout');
     }
 }

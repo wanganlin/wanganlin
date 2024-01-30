@@ -16,10 +16,10 @@ trait JsonResponse
     /**
      * 返回封装后的API数据到客户端
      *
-     * @param  mixed  $data  要返回的数据
+     * @param mixed $data  要返回的数据
      * @param  array  $headers  发送的Header信息
      */
-    protected function success($data, array $headers = []): Json
+    protected function success(mixed $data = null, array $headers = []): Json
     {
         return $this->response([
             'code' => 0,

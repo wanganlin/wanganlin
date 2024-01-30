@@ -1,4 +1,4 @@
-{layout name="layouts/app" /}
+{layout name="layouts/console" /}
 
 <div style="padding: 15px;">
     <blockquote class="layui-elem-quote layui-text">
