@@ -1,6 +1,6 @@
 # ThinkPHP
 
-> 运行环境要求PHP8.1
+> 运行环境要求PHP8.2
 
 ## 安装
 
@@ -13,9 +13,10 @@ composer create-project wanganlin/thinkphp
 ```
 app                   核心应用文件
   controller          控制器文件
-	console           平台接口
-	user              消费者接口
-	web               网页
+	api               API接口
+	console           运营模块
+	user              会员模块
+	web               门户模块
   exception           异常文件
   handler             微信公众平台消息处理类
   middleware          中间件

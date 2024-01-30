@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.2",
         "aliyuncs/oss-sdk-php": "^2.6",
-        "endroid/qr-code": "^5.0.2",
+        "endroid/qr-code": "^5.0.4",
         "firebase/php-jwt": "^6.10.0",
         "overtrue/easy-sms": "^2.5",
         "overtrue/pinyin": "^5.3",
@@ -25,7 +25,7 @@
         "w7corp/easywechat": "^6.15",
         "yansongda/pay": "^3.5",
         "workerman/crontab": "^1.0.6",
-        "workerman/gateway-worker": "^3.1.1"
+        "workerman/gateway-worker": "^3.1.5"
     },
     "require-dev": {
         "laravel/pint": "^1.13",
