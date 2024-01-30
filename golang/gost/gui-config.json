@@ -5,7 +5,7 @@
       "server": "127.0.0.1",
       "server_port": 8088,
       "password": "123456",
-      "method": "none",
+      "method": "chacha20-ietf-poly1305",
       "remarks": "BGW",
       "timeout": 5,
       "warnLegacyUrl": false
@@ -25,7 +25,7 @@
   "useOnlinePac": false,
   "secureLocalPac": true,
   "regeneratePacOnUpdate": true,
-  "autoCheckUpdate": false,
+  "autoCheckUpdate": true,
   "checkPreRelease": false,
   "skippedUpdateVersion": "",
   "isVerboseLogging": false,
@@ -41,7 +41,7 @@
   "geositeProxiedGroups": [
     "geolocation-!cn"
   ],
-  "geositePreferDirect": false,
+  "geositePreferDirect": true,
   "userAgent": "ShadowsocksWindows/$version",
   "logViewer": {
     "topMost": false,
