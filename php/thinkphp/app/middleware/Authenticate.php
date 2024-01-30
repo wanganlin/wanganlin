@@ -15,12 +15,11 @@ class Authenticate
      *
      * @param  Request  $request
      * @param  Closure  $next
-     * @param  string  $guard
      * @return Response
      */
-    public function handle(Request $request, Closure $next, string $guard): Response
+    public function handle(Request $request, Closure $next): Response
     {
-        if (! session('?auth_'.$guard)) {
+        if (! session('?auth')) {
             if ($request->isAjax()) {
                 return json([
                     'code' => 40001,
@@ -30,7 +29,7 @@ class Authenticate
             } else {
                 $callback = urlencode($request->url(true));
 
-                return redirect('/'.$guard.'/passport/login?callback='.$callback);
+                return redirect('/passport/login?callback='.$callback);
             }
         }
 

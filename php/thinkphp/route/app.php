@@ -1,23 +1,16 @@
 <?php
 
-use app\constant\GlobalConst;
 use think\facade\Route;
-use think\helper\Str;
 
-// 自定义控制台入口
-Route::get('/admin', function () {
-    session(GlobalConst::SYSTEM_TOKEN, Str::random());
-    return redirect('/console');
-});
-
-// 自动化路由
-$dirs = glob(app_path('controller/*'), GLOB_ONLYDIR);
-foreach ($dirs as $dir) {
-    $m = basename($dir);
+$paths = glob(app_path('controller/*'), GLOB_ONLYDIR);
+foreach ($paths as $path) {
+    $m = basename($path);
     $v = $m === config('app.default_app') ? '' : $m;
     Route::group($v, function () {
         Route::get(':c/:a', ':c/:a');
-        Route::post(':c/:a', ':c/:aHandle');
+        Route::post(':c/:a', ':c/:a');
+        Route::put(':c/:a', ':c/:a');
+        Route::delete(':c/:a', ':c/:a');
         Route::get(':c', ':c/index');
         Route::get('/', 'Index/index');
     })->prefix($m.'.');

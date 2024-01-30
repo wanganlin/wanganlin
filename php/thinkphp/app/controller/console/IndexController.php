@@ -5,34 +5,24 @@ declare(strict_types=1);
 namespace app\controller\console;
 
 use think\response\Json;
+use think\response\View;
 
 class IndexController extends BaseController
 {
-    /**
-     * @return Json
-     */
-    public function index(): Json
+    public function index(): View
     {
-        return $this->success('');
+        return view('index');
     }
 
-    /**
-     * 起始页
-     *
-     * @return Json
-     */
     public function dashboard(): Json
     {
         return $this->success('');
     }
 
-    /**
-     * @return Json
-     */
     public function logout(): Json
     {
         session('auth_console', null);
 
-        return $this->succeed('logout');
+        return $this->success('logout');
     }
 }

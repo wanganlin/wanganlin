@@ -15,12 +15,11 @@ class RedirectIfAuthenticated
      *
      * @param  Request  $request
      * @param  Closure  $next
-     * @param  string  $guard
      * @return Response
      */
-    public function handle(Request $request, Closure $next, string $guard): Response
+    public function handle(Request $request, Closure $next): Response
     {
-        if (session('?auth_'.$guard)) {
+        if (session('?auth')) {
             if ($request->isAjax()) {
                 return json([
                     'code' => 40001,
@@ -28,7 +27,7 @@ class RedirectIfAuthenticated
                     'data' => null,
                 ]);
             } else {
-                return redirect('/'.$guard);
+                return redirect('/');
             }
         }
 

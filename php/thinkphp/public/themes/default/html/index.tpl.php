@@ -1,3 +1,5 @@
 {layout name="layout/app" /}
 
-welcome
+<div>
+    welcome
+</div>
