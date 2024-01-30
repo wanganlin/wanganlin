@@ -7,7 +7,7 @@ namespace app\support;
 use ReflectionClass;
 use ReflectionProperty;
 
-trait ArrayObject
+trait ArrayHelper
 {
     public function setData(array $row): void
     {

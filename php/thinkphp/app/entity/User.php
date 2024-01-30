@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace app\entity;
 
-use app\support\ArrayObject;
+use app\support\ArrayHelper;
 use OpenApi\Attributes as OA;
 
 #[OA\Schema(schema: 'UserSchema')]
 class User
 {
-    use ArrayObject;
+    use ArrayHelper;
 
     #[OA\Property(property: 'id', description: 'ID', type: 'integer')]
     private int $id;
