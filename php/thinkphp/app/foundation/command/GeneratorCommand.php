@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace app\command;
+namespace app\foundation\command;
 
+use think\facade\Db;
+use app\support\Str;
 use think\console\Command;
 use think\console\Input;
 use think\console\Output;
@@ -40,7 +42,7 @@ class GeneratorCommand extends Command
             $this->entity($model.'Entity', $table, $db);
             $this->model($model, $table);
         }
-        
+
         // 指令输出
         $output->writeln('generate');
     }

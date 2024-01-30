@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\constant;
+namespace app\foundation\constant;
 
 class GlobalConst
 {

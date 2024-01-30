@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\controller;
 
-use app\response\JsonResponse;
+use app\foundation\response\JsonResponse;
 use think\App;
 use think\Request;
 use think\Validate;

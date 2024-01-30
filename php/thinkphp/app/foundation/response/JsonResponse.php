@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\response;
+namespace app\foundation\response;
 
 use think\response\Json;
 

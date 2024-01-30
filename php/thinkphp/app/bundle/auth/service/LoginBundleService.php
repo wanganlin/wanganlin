@@ -5,30 +5,25 @@ declare(strict_types=1);
 namespace app\bundle\auth\service;
 
 use app\bundle\user\service\UserBundleService;
+use app\foundation\exception\CustomException;
 use app\model\UserModel;
 use app\bundle\auth\service\input\LoginInput;
-use Exception;
 
 class LoginBundleService
 {
     /**
      * 根据用户名和密码登录
-     *
-     * @param LoginInput $loginInput
-     * @param string $guard
-     * @return bool
-     * @throws Exception
      */
-    public function login(LoginInput $loginInput, string $guard): bool
+    public function login(LoginInput $loginInput): bool
     {
         $userModel = $this->getUser($loginInput->getUsername());
         if (is_null($userModel)) {
-            throw new Exception('用户信息不存在');
+            throw new CustomException('用户信息不存在');
         }
 
         $userManager = new UserBundleService();
         if (!$userManager->passwordVerify($loginInput->getPassword(), $userModel->password)) {
-            throw new Exception('用户登录密码不正确');
+            throw new CustomException('用户登录密码不正确');
         }
 
         // 校验状态
@@ -37,11 +32,11 @@ class LoginBundleService
 
         // 记住登录
         if ($loginInput->isRememberMe()) {
-            cookie($guard . '_remember', $userModel->getId(), 30 * 24 * 3600);
+            cookie('remember', $userModel->getId(), 30 * 24 * 3600);
         }
 
         // 保存session
-        session('auth_' . $guard, $userModel->getId());
+        session('auth', $userModel->getId());
 
         return true;
     }

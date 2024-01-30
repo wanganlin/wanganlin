@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\bundle\user\service;
 
-use app\constant\GlobalConst;
+use app\foundation\constant\GlobalConst;
 
 class RuleBundleService
 {

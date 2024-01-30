@@ -6,11 +6,15 @@ namespace app\controller\passport;
 
 use app\bundle\auth\service\input\LoginInput;
 use app\bundle\auth\service\LoginBundleService;
+use app\controller\passport\request\LoginRequest;
+use app\foundation\exception\CustomException;
 use think\exception\ValidateException;
+use think\facade\Log;
 use think\Request;
 use think\response\Json;
 use think\response\Redirect;
 use think\response\View;
+use Throwable;
 
 class LoginController extends BaseController
 {
@@ -24,22 +28,32 @@ class LoginController extends BaseController
     public function mobile(Request $request): Json
     {
         try {
-            validate(LoginRequest::class)->check($request->post());
-        } catch (ValidateException $e) {
-            return $this->error($e->getError());
-        }
+            $formData = $request->post();
 
-        $loginInput = new LoginInput();
-        $loginInput->setUsername($request->post('username'));
-        $loginInput->setPassword($request->post('password'));
-        $loginInput->setRememberMe($request->post('remember') === 'on');
+            $v = new LoginRequest();
+            if (!$v->check($formData)) {
+                throw new CustomException($v->getError());
+            }
 
-        try {
-            $loginService = new LoginBundleService();
-            $loginService->login($loginInput);
-            return $this->success('ok');
-        } catch (\Exception $e) {
-            return $this->error($e->getMessage());
+            $loginInput = new LoginInput();
+            $loginInput->setUsername($formData['username']);
+            $loginInput->setPassword($formData['password']);
+            $loginInput->setRememberMe($formData['remember'] === 'on');
+
+            $loginBundleService = new LoginBundleService();
+            if ($loginBundleService->login($loginInput)) {
+                return $this->success('ok');
+            }
+
+            throw new CustomException('登录失败');
+        } catch (Throwable $e) {
+            Log::error($e);
+
+            if ($e instanceof CustomException || $e instanceof ValidateException) {
+                return $this->error($e->getMessage());
+            }
+
+            return $this->error('请求错误，请稍后再试。');
         }
     }
 }
