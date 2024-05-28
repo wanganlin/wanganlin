@@ -23,7 +23,9 @@ func (a *app) Run(addr ...string) error {
 
 func (a *app) Register(r *gin.Engine) {
 	AppProvider.Boot(r)
+	ConfigProvider.Boot(r)
 	DatabaseProvider.Boot(r)
 	RouteProvider.Boot(r)
+	SessionProvider.Boot(r)
 	ViewProvider.Boot(r)
 }

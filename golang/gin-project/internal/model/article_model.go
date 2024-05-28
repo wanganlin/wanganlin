@@ -7,6 +7,7 @@ import (
 )
 
 type articleModel struct {
+	gorm.Model
 	entity.ArticleEntity
 }
 
