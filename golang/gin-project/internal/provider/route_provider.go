@@ -2,7 +2,9 @@ package provider
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/juling/juling/internal/routes"
+	apiRoute "github.com/juling/juling/internal/app/api/route"
+	consoleRoute "github.com/juling/juling/internal/app/console/route"
+	webRoute "github.com/juling/juling/internal/app/web/route"
 )
 
 type routeProvider struct {
@@ -11,5 +13,7 @@ type routeProvider struct {
 var RouteProvider = &routeProvider{}
 
 func (a *routeProvider) Boot(r *gin.Engine) {
-	routes.Register(r)
+	apiRoute.Register(r)
+	consoleRoute.Register(r)
+	webRoute.Register(r)
 }
