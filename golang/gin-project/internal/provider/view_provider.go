@@ -10,5 +10,5 @@ type viewProvider struct {
 var ViewProvider = &viewProvider{}
 
 func (a *viewProvider) Boot(r *gin.Engine) {
-	r.LoadHTMLGlob("templates/**/*.tmpl")
+	r.LoadHTMLGlob("templates/*.tmpl")
 }

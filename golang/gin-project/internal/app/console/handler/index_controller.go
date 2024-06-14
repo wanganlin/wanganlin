@@ -11,7 +11,7 @@ type indexController struct {
 var IndexController = &indexController{}
 
 func (a *indexController) Index(c *gin.Context) {
-	c.HTML(http.StatusOK, "console/index.tmpl", gin.H{
+	c.JSON(http.StatusOK, gin.H{
 		"title": "Admin Page",
 	})
 }

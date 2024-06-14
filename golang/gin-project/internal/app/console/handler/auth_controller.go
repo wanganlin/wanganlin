@@ -11,7 +11,7 @@ type authController struct {
 var AuthController = &authController{}
 
 func (a *authController) Login(c *gin.Context) {
-	c.HTML(http.StatusOK, "console/auth_login.tmpl", gin.H{
+	c.JSON(http.StatusOK, gin.H{
 		"title": "系统登录",
 	})
 }

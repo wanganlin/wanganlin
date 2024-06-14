@@ -14,5 +14,5 @@ func (a *appProvider) Boot(r *gin.Engine) {
 	r.StaticFile("/favicon.ico", "public/favicon.ico")
 	r.StaticFile("/robots.txt", "public/robots.txt")
 	r.StaticFS("/assets", http.Dir("public/assets"))
-	r.StaticFS("/static", http.Dir("public/static"))
+	r.StaticFS("/admin", http.Dir("public/admin"))
 }

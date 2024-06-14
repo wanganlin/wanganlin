@@ -7,4 +7,5 @@ import (
 
 func Register(r *gin.Engine) {
 	r.GET("/", handler.IndexController.Index)
+	r.GET("/catalog", handler.CatalogController.Index)
 }

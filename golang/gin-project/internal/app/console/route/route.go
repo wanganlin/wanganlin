@@ -6,7 +6,7 @@ import (
 )
 
 func Register(r *gin.Engine) {
-	consoleRoute := r.Group("/admin")
+	consoleRoute := r.Group("/api/admin")
 	{
 		consoleRoute.GET("/login", handler.AuthController.Login)
 		consoleRoute.GET("/", handler.IndexController.Index)
