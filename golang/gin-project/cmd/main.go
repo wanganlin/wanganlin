@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	if err := App.Run(":8080"); err != nil {
-		log.Fatal(err)
+	if err := App.Run(); err != nil {
+		log.Fatalf("Failed to run server: %v", err)
 	}
 }
