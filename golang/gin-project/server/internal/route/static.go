@@ -19,15 +19,10 @@ func (a *staticRoute) Register(r *gin.Engine) {
 
 // assets 加载静态文件
 func (a *staticRoute) assets(r *gin.Engine) {
-	if gfile.IsDir("docs") {
-		r.StaticFS("/docs", http.Dir("docs"))
-	}
-
-	if gfile.IsDir("public") {
-		r.StaticFS("/assets", http.Dir("public/assets"))
-		r.StaticFS("/themes", http.Dir("public/themes"))
-		r.StaticFile("/favicon.ico", "public/favicon.ico")
-		r.StaticFile("/robots.txt", "public/robots.txt")
+	if gfile.IsDir("assets") {
+		r.StaticFS("/assets", http.Dir("assets"))
+		r.StaticFile("/favicon.ico", "assets/favicon.ico")
+		r.StaticFile("/robots.txt", "assets/robots.txt")
 	}
 }
 

@@ -23,7 +23,7 @@ database:
   port: 3306
   username: root
   password: root
-  database: force
+  database: colaphp
   datasource:
     maxIdleConn: 10
     maxOpenConn: 100
