@@ -1,26 +1,69 @@
 app:
   name: Gin
+  key: 123456
   debug: true
+  timezone: Asia/Shanghai
 
 server:
   port: 8008
+  readTimeout: 10
+  writeTimeout: 10
 
 logging:
+  channel: sls
   level: debug
+  endpoint: cn-shanghai.log.aliyuncs.com
+  accessKey: 
+  accessSecret: 
+  projectName: logs
+  logStore: order
 
 database:
   host: 127.0.0.1
   port: 3306
   username: root
   password: root
+  database: force
+  datasource:
+    maxIdleConn: 10
+    maxOpenConn: 100
+
+session:
+  driver: cookie
+
+cookie:
+  path: /
+  domain:
+  lifetime: 1440
+  secure: false
+  httpOnly: true
+  sameSite: 1
+
+filesystem:
+  disk: local
+
+queue:
+  connection: rabbitmq
+
+cache:
+  store: redis
+  database: 1
+  prefix:
 
 redis:
   host: 127.0.0.1
   port: 6379
-  username: root
   password: root
   database: 0
 
-cache:
-  database: 1
-  prefix:
+mail:
+  host: 127.0.0.1
+  port: 2525
+  username:
+  password:
+  from:
+    address:
+    name:
+
+view:
+  path: views

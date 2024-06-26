@@ -1,13 +1,12 @@
 package main
 
 import (
+	"github.com/juling/juling/internal/bootstrap"
 	"log"
-
-	. "github.com/juling/juling/internal/bootstrap"
 )
 
 func main() {
-	if err := App.Run(); err != nil {
+	if err := bootstrap.Run(); err != nil {
 		log.Fatalf("Failed to run server: %v", err)
 	}
 }

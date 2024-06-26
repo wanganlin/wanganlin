@@ -3,41 +3,32 @@ package bootstrap
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/juling/juling/internal/config"
-	. "github.com/juling/juling/internal/provider"
-)
-
-type app struct {
-}
-
-var (
-	App       = &app{}
-	servePort int
+	"github.com/juling/juling/internal/global"
+	"github.com/juling/juling/internal/middleware"
+	"github.com/juling/juling/internal/provider"
+	"github.com/juling/juling/internal/route"
 )
 
 func init() {
-	config.InitConfig()
+	global.Boot()
 
-	if config.Cfg.App.Debug {
+	if global.Config.App.Debug {
 		gin.SetMode(gin.DebugMode)
 	} else {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
-	servePort = config.Cfg.Server.Port
+	provider.Register()
 }
 
-func (a *app) Run() error {
+func Run(addr ...string) error {
 	r := gin.Default()
-	a.Register(r)
-	return r.Run(fmt.Sprintf(":%d", servePort))
-}
+	middleware.Register(r)
+	route.Register(r)
 
-func (a *app) Register(r *gin.Engine) {
-	AppProvider.Boot(r)
-	ConfigProvider.Boot(r)
-	DatabaseProvider.Boot(r)
-	RouteProvider.Boot(r)
-	SessionProvider.Boot(r)
-	ViewProvider.Boot(r)
+	if addr == nil {
+		addr = []string{fmt.Sprintf(":%d", global.Config.Server.Port)}
+	}
+
+	return r.Run(addr...)
 }
