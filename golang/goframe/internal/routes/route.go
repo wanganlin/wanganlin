@@ -3,7 +3,6 @@ package routes
 import (
 	"gitee.com/gosoft/gomall/internal/app/auth"
 	"gitee.com/gosoft/gomall/internal/app/console"
-	"gitee.com/gosoft/gomall/internal/app/driver"
 	"gitee.com/gosoft/gomall/internal/app/market"
 	"gitee.com/gosoft/gomall/internal/app/portal"
 	"gitee.com/gosoft/gomall/internal/app/seller"
@@ -21,7 +20,6 @@ var RouteProvider = routeProvider{}
 func (a *routeProvider) Boot(s *ghttp.Server) {
 	auth.Register(s)
 	console.Register(s)
-	driver.Register(s)
 	market.Register(s)
 	portal.Register(s)
 	seller.Register(s)

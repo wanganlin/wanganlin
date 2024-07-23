@@ -4,11 +4,13 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 )
 
-type cUser struct{}
+type (
+	userHandler struct{}
+)
 
-var User = cUser{}
+var User = &userHandler{}
 
-func (a *cUser) Index(r *ghttp.Request) {
+func (a *userHandler) Index(r *ghttp.Request) {
 	err := r.Response.WriteTpl("console/user.html")
 	if err != nil {
 		return

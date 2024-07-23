@@ -1,6 +1,6 @@
 server:
   # 基本配置
-  address: ":8002"
+  address: ":8040"
   serverRoot: "public"
   serverAgent: "Go HTTP Server"
 

@@ -4,11 +4,13 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 )
 
-type cIndex struct{}
+type (
+	indexHandler struct{}
+)
 
-var Index = cIndex{}
+var Index = &indexHandler{}
 
-func (a *cIndex) Index(r *ghttp.Request) {
+func (a *indexHandler) Index(r *ghttp.Request) {
 	err := r.Response.WriteTpl("user/index.html")
 	if err != nil {
 		return

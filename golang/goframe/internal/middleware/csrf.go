@@ -1,11 +1,10 @@
 package middleware
 
 import (
-	"net/http"
-	"time"
-
 	"github.com/gogf/csrf/v2"
 	"github.com/gogf/gf/v2/net/ghttp"
+	"net/http"
+	"time"
 )
 
 // CSRF 跨站点请求中间件

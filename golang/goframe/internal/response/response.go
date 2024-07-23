@@ -2,6 +2,7 @@ package response
 
 import (
 	"gitee.com/gosoft/gomall/internal/exception"
+	"github.com/gogf/gf/v2/net/ghttp"
 	"net/http"
 )
 
@@ -13,21 +14,22 @@ type Result struct {
 }
 
 // Ok 响应成功
-func Ok(c *gin.Context, data any) {
+func Ok(r *ghttp.Response, data any) {
 	res := &Result{
 		Code:    http.StatusOK,
 		Message: http.StatusText(http.StatusOK),
 		Data:    data,
 	}
-	c.JSON(http.StatusOK, res)
+
+	r.WriteJson(res)
 }
 
 // Fail 响应失败
-func Fail(c *gin.Context, err exception.Exception) {
-	code := http.StatusOK
+func Fail(r *ghttp.Response, err exception.Exception) {
+	/*code := http.StatusOK
 	if http.StatusText(err.Code) != "" {
 		code = err.Code
-	}
+	}*/
 
 	res := &Result{
 		Code:    err.Code,
@@ -35,5 +37,5 @@ func Fail(c *gin.Context, err exception.Exception) {
 		Data:    nil,
 	}
 
-	c.AbortWithStatusJSON(code, res)
+	r.WriteJson(res)
 }

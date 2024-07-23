@@ -4,11 +4,13 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 )
 
-type cProfile struct{}
+type (
+	profileHandler struct{}
+)
 
-var Profile = cProfile{}
+var Profile = &profileHandler{}
 
-func (a *cProfile) Index(r *ghttp.Request) {
+func (a *profileHandler) Index(r *ghttp.Request) {
 	err := r.Response.WriteTpl("user/profile.html")
 	if err != nil {
 		return

@@ -5,12 +5,14 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 )
 
-type cReset struct{}
+type (
+	resetHandler struct{}
+)
 
-var Reset = cReset{}
+var Reset = &resetHandler{}
 
 // Index 重置密码
-func (a *cReset) Index(r *ghttp.Request) {
+func (a *resetHandler) Index(r *ghttp.Request) {
 	if r.IsAjaxRequest() {
 		r.Response.WriteJson(g.Map{"aa": "bb"})
 	}

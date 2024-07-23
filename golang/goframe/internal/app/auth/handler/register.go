@@ -5,12 +5,14 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 )
 
-type cRegister struct{}
+type (
+	registerHandler struct{}
+)
 
-var Register = cRegister{}
+var Register = &registerHandler{}
 
 // Index 注册
-func (a *cRegister) Index(r *ghttp.Request) {
+func (a *registerHandler) Index(r *ghttp.Request) {
 	if r.IsAjaxRequest() {
 		r.Response.WriteJson(g.Map{"aa": "bb"})
 	}
