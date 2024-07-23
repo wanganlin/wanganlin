@@ -1,4 +1,4 @@
-module github.com/wanganlin/goframe
+module gitee.com/gosoft/gomall
 
 go 1.19
 
