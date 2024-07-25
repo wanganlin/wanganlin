@@ -9,6 +9,6 @@ import (
 	"gitee.com/gosoft/gomall/internal/app/user/v1"
 )
 
-func (c *ControllerV1) Profile(ctx context.Context, req *v1.ProfileReq) (res *v1.ProfileRes, err error) {
+func (c *ControllerV1) InviteQuery(ctx context.Context, req *v1.InviteQueryReq) (res *v1.InviteQueryRes, err error) {
 	return nil, gerror.NewCode(gcode.CodeNotImplemented)
 }

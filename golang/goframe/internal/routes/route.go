@@ -2,6 +2,14 @@ package routes
 
 import (
 	"gitee.com/gosoft/gomall/internal/controller/auth"
+	"gitee.com/gosoft/gomall/internal/controller/console"
+	"gitee.com/gosoft/gomall/internal/controller/market"
+	"gitee.com/gosoft/gomall/internal/controller/portal"
+	"gitee.com/gosoft/gomall/internal/controller/seller"
+	"gitee.com/gosoft/gomall/internal/controller/shop"
+	"gitee.com/gosoft/gomall/internal/controller/store"
+	"gitee.com/gosoft/gomall/internal/controller/supplier"
+	"gitee.com/gosoft/gomall/internal/controller/user"
 	"gitee.com/gosoft/gomall/internal/middleware"
 	"github.com/gogf/gf/v2/net/ghttp"
 )
@@ -11,6 +19,7 @@ type routeProvider struct{}
 var RouteProvider = routeProvider{}
 
 func (a *routeProvider) Boot(s *ghttp.Server) {
+	s.Group("/api/v1")
 	s.Group("/auth", func(group *ghttp.RouterGroup) {
 		group.Middleware(middleware.CSRF())
 		group.Bind(
@@ -22,7 +31,7 @@ func (a *routeProvider) Boot(s *ghttp.Server) {
 		group.Middleware(middleware.CSRF())
 		group.Middleware(middleware.Auth("console"))
 		group.Bind(
-			auth.NewV1(),
+			console.NewV1(),
 		)
 	})
 
@@ -30,14 +39,14 @@ func (a *routeProvider) Boot(s *ghttp.Server) {
 		group.Middleware(middleware.CORS)
 		group.Middleware(ghttp.MiddlewareHandlerResponse)
 		group.Bind(
-			auth.NewV1(),
+			market.NewV1(),
 		)
 	})
 
 	s.Group("/portal", func(group *ghttp.RouterGroup) {
 		group.Middleware(middleware.CSRF())
 		group.Bind(
-			auth.NewV1(),
+			portal.NewV1(),
 		)
 	})
 
@@ -45,7 +54,7 @@ func (a *routeProvider) Boot(s *ghttp.Server) {
 		group.Middleware(middleware.CSRF())
 		group.Middleware(middleware.Auth("seller"))
 		group.Bind(
-			auth.NewV1(),
+			seller.NewV1(),
 		)
 	})
 
@@ -53,7 +62,7 @@ func (a *routeProvider) Boot(s *ghttp.Server) {
 		group.Middleware(middleware.CORS)
 		group.Middleware(ghttp.MiddlewareHandlerResponse)
 		group.Bind(
-			auth.NewV1(),
+			shop.NewV1(),
 		)
 	})
 
@@ -61,7 +70,7 @@ func (a *routeProvider) Boot(s *ghttp.Server) {
 		group.Middleware(middleware.CSRF())
 		group.Middleware(middleware.Auth("store"))
 		group.Bind(
-			auth.NewV1(),
+			store.NewV1(),
 		)
 	})
 
@@ -69,7 +78,7 @@ func (a *routeProvider) Boot(s *ghttp.Server) {
 		group.Middleware(middleware.CSRF())
 		group.Middleware(middleware.Auth("supplier"))
 		group.Bind(
-			auth.NewV1(),
+			supplier.NewV1(),
 		)
 	})
 
@@ -77,7 +86,7 @@ func (a *routeProvider) Boot(s *ghttp.Server) {
 		group.Middleware(middleware.CSRF())
 		group.Middleware(middleware.Auth("user"))
 		group.Bind(
-			auth.NewV1(),
+			user.NewV1(),
 		)
 	})
 }

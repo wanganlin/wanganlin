@@ -9,6 +9,6 @@ import (
 	"gitee.com/gosoft/gomall/internal/app/user/v1"
 )
 
-func (c *ControllerV1) Profile(ctx context.Context, req *v1.ProfileReq) (res *v1.ProfileRes, err error) {
+func (c *ControllerV1) FavoriteQuery(ctx context.Context, req *v1.FavoriteQueryReq) (res *v1.FavoriteQueryRes, err error) {
 	return nil, gerror.NewCode(gcode.CodeNotImplemented)
 }
