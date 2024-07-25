@@ -5,7 +5,7 @@
 package shop
 
 import (
-	"gitee.com/gosoft/gomall/internal/app/shop"
+	"gitee.com/gosoft/gomall/internal/api/shop"
 )
 
 type ControllerV1 struct{}

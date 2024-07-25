@@ -5,7 +5,7 @@
 package market
 
 import (
-	"gitee.com/gosoft/gomall/internal/app/market"
+	"gitee.com/gosoft/gomall/internal/api/market"
 )
 
 type ControllerV1 struct{}

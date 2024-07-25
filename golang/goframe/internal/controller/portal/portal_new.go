@@ -5,7 +5,7 @@
 package portal
 
 import (
-	"gitee.com/gosoft/gomall/internal/app/portal"
+	"gitee.com/gosoft/gomall/internal/api/portal"
 )
 
 type ControllerV1 struct{}

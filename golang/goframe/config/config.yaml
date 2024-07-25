@@ -23,7 +23,6 @@ server:
 
   # 接口文档
   openapiPath: "/api.json"
-  swaggerPath: "/swagger"
 
 # Database配置
 database:

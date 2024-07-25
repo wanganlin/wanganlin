@@ -19,74 +19,44 @@ type routeProvider struct{}
 var RouteProvider = routeProvider{}
 
 func (a *routeProvider) Boot(s *ghttp.Server) {
-	s.Group("/api/v1")
-	s.Group("/auth", func(group *ghttp.RouterGroup) {
-		group.Middleware(middleware.CSRF())
-		group.Bind(
-			auth.NewV1(),
-		)
-	})
-
-	s.Group("/console", func(group *ghttp.RouterGroup) {
-		group.Middleware(middleware.CSRF())
-		group.Middleware(middleware.Auth("console"))
-		group.Bind(
-			console.NewV1(),
-		)
-	})
-
-	s.Group("/", func(group *ghttp.RouterGroup) {
-		group.Middleware(middleware.CORS)
+	s.Group("/api/v1", func(group *ghttp.RouterGroup) {
 		group.Middleware(ghttp.MiddlewareHandlerResponse)
-		group.Bind(
-			market.NewV1(),
-		)
-	})
+		group.Middleware(middleware.CORS())
 
-	s.Group("/portal", func(group *ghttp.RouterGroup) {
-		group.Middleware(middleware.CSRF())
-		group.Bind(
-			portal.NewV1(),
-		)
-	})
+		group.Group("/auth", func(group *ghttp.RouterGroup) {
+			group.Bind(auth.NewV1())
+		})
 
-	s.Group("/seller", func(group *ghttp.RouterGroup) {
-		group.Middleware(middleware.CSRF())
-		group.Middleware(middleware.Auth("seller"))
-		group.Bind(
-			seller.NewV1(),
-		)
-	})
+		group.Group("/market", func(group *ghttp.RouterGroup) {
+			group.Bind(market.NewV1())
+		})
 
-	s.Group("/shop", func(group *ghttp.RouterGroup) {
-		group.Middleware(middleware.CORS)
-		group.Middleware(ghttp.MiddlewareHandlerResponse)
-		group.Bind(
-			shop.NewV1(),
-		)
-	})
+		group.Group("/shop", func(group *ghttp.RouterGroup) {
+			group.Bind(shop.NewV1())
+		})
 
-	s.Group("/store", func(group *ghttp.RouterGroup) {
-		group.Middleware(middleware.CSRF())
-		group.Middleware(middleware.Auth("store"))
-		group.Bind(
-			store.NewV1(),
-		)
-	})
+		group.Group("/portal", func(group *ghttp.RouterGroup) {
+			group.Bind(portal.NewV1())
+		})
 
-	s.Group("/supplier", func(group *ghttp.RouterGroup) {
-		group.Middleware(middleware.CSRF())
-		group.Middleware(middleware.Auth("supplier"))
-		group.Bind(
-			supplier.NewV1(),
-		)
-	})
+		group.Group("/console", func(group *ghttp.RouterGroup) {
+			group.Bind(console.NewV1()).Middleware(middleware.Auth("console"))
+		})
 
-	s.Group("/user", func(group *ghttp.RouterGroup) {
-		group.Middleware(middleware.CSRF())
-		group.Middleware(middleware.Auth("user"))
-		group.Bind(
-			user.NewV1(),
-		)
+		group.Group("/seller", func(group *ghttp.RouterGroup) {
+			group.Bind(seller.NewV1()).Middleware(middleware.Auth("seller"))
+		})
+
+		group.Group("/store", func(group *ghttp.RouterGroup) {
+			group.Bind(store.NewV1()).Middleware(middleware.Auth("store"))
+		})
+
+		group.Group("/supplier", func(group *ghttp.RouterGroup) {
+			group.Bind(supplier.NewV1()).Middleware(middleware.Auth("supplier"))
+		})
+
+		group.Group("/user", func(group *ghttp.RouterGroup) {
+			group.Bind(user.NewV1()).Middleware(middleware.Auth("user"))
+		})
 	})
 }

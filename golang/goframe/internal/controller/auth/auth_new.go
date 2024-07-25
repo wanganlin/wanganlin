@@ -5,7 +5,7 @@
 package auth
 
 import (
-	"gitee.com/gosoft/gomall/internal/app/auth"
+	"gitee.com/gosoft/gomall/internal/api/auth"
 )
 
 type ControllerV1 struct{}
