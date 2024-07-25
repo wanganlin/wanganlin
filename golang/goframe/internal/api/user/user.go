@@ -13,6 +13,10 @@ import (
 type IUserV1 interface {
 	AccountQuery(ctx context.Context, req *v1.AccountQueryReq) (res *v1.AccountQueryRes, err error)
 	AddressQuery(ctx context.Context, req *v1.AddressQueryReq) (res *v1.AddressQueryRes, err error)
+	AddressCreate(ctx context.Context, req *v1.AddressCreateReq) (res *v1.AddressCreateRes, err error)
+	AddressShow(ctx context.Context, req *v1.AddressShowReq) (res *v1.AddressShowRes, err error)
+	AddressUpdate(ctx context.Context, req *v1.AddressUpdateReq) (res *v1.AddressUpdateRes, err error)
+	AddressDelete(ctx context.Context, req *v1.AddressDeleteReq) (res *v1.AddressDeleteRes, err error)
 	CouponQuery(ctx context.Context, req *v1.CouponQueryReq) (res *v1.CouponQueryRes, err error)
 	FavoriteQuery(ctx context.Context, req *v1.FavoriteQueryReq) (res *v1.FavoriteQueryRes, err error)
 	Index(ctx context.Context, req *v1.IndexReq) (res *v1.IndexRes, err error)
