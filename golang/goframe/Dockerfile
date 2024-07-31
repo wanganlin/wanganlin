@@ -24,7 +24,7 @@ RUN go build -o main -v .
 FROM alpine:latest
 
 # 设置时区为上海（可选）
-RUN apk --no-cache add tzdata
+# RUN apk --no-cache add tzdata
 ENV TZ=Asia/Shanghai
 
 # 环境变量 test or prod

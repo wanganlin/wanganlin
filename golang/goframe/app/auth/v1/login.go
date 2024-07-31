@@ -11,7 +11,7 @@ type (
 
 	LoginEmailRes struct {
 		g.Meta `mime:"application/json"`
-		Token  string `v:"required|token"`
+		Token  string
 	}
 )
 
@@ -24,6 +24,6 @@ type (
 
 	LoginSmsCodeRes struct {
 		g.Meta `mime:"application/json"`
-		Token  string `v:"required|token"`
+		Token  string
 	}
 )
