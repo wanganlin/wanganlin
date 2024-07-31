@@ -1,8 +1,26 @@
 server:
   # 基本配置
-  address: ":8040"
-  serverRoot: "public"
-  serverAgent: "Go HTTP Server"
+  address: ":8040"                   # 本地监听地址。默认":80"，多个地址以","号分隔。例如："192.168.2.3:8000,10.0.3.10:8001"
+  # httpsAddr:      ":443"           # TLS/HTTPS配置，同时需要配置证书和密钥。默认关闭。配置格式同上。
+  # httpsCertPath:  ""               # TLS/HTTPS证书文件本地路径，建议使用绝对路径。默认关闭
+  # httpsKeyPath:   ""               # TLS/HTTPS密钥文件本地路径，建议使用绝对路径。默认关闭
+  # readTimeout:    "60s"            # 请求读取超时时间，一般不需要配置。默认为60秒
+  # writeTimeout:   "0"              # 数据返回写入超时时间，一般不需要配置。默认不超时（0）
+  # idleTimeout:    "60s"            # 仅当Keep-Alive开启时有效，请求闲置时间。默认为60秒
+  # maxHeaderBytes: "10240"          # 请求Header大小限制（Byte）。默认为10KB
+  # keepAlive:      true             # 是否开启Keep-Alive功能。默认true
+  serverAgent:    "Go HTTP Server" # 服务端Agent信息。默认为"GoFrame HTTP Server"
+
+  # 接口文档
+  openapiPath: "/api.json" # OpenAPI接口文档地址
+  # swaggerPath: "/swagger" # 内置SwaggerUI展示地址
+
+  # 静态服务配置
+  # indexFiles:        ["index.html","index.htm"] # 自动首页静态文件检索。默认为["index.html", "index.htm"]
+  # indexFolder:       false                      # 当访问静态文件目录时，是否展示目录下的文件列表。默认关闭，那么请求将返回403
+  serverRoot: "public"                            # 静态文件服务的目录根路径，配置时自动开启静态文件服务。默认关闭
+  # searchPaths:       []                         # 提供静态文件服务时额外的文件搜索路径，当根路径找不到时则按照顺序在搜索目录查找。默认关闭
+  # fileServerEnabled: false                      # 静态文件服务总开关。默认false
 
   # Cookie配置
   cookieMaxAge: "365d" # Cookie有效期。默认为365天
@@ -10,23 +28,57 @@ server:
   cookieDomain: ""     # Cookie有效域名。默认为当前配置Cookie时的域名
 
   # Sessions配置
-  sessionMaxAge: "24h"            # Session有效期
-  sessionIdName: "SESS_ID"        # SessionId的键名名称
-  sessionCookieOutput: true       # Session特性开启时，是否将SessionId返回到Cookie中
-  sessionPath: "runtime/sessions" # Session存储的文件目录路径
+  sessionMaxAge: "24h"         # Session有效期，默认为24小时
+  sessionIdName: "SESS_ID"     # SessionId的键名名称
+  sessionCookieOutput: true    # Session特性开启时，是否将SessionId返回到Cookie中
+  sessionPath: "/tmp/sessions" # Session存储的文件目录路径
 
-  # 日志扩展配置(参数日志组件配置)
-  logger:
-    # path: "runtime/logs/" # 日志文件路径。默认为空，表示关闭，仅输出到终端
-    level: "all"
-    stdout: true
-
-  # 接口文档
-  openapiPath: "/api.json"
+# 日志扩展配置(参数日志组件配置)
+logger:
+  # path: "runtime/logs/" # 日志文件路径。默认为空，表示关闭，仅输出到终端
+  level: "all"
+  stdout: true
 
 # Database配置
 database:
+  logger:
+    path: "runtime/logs/sql"
+    level: "all"
+    stdout: true
+    ctxKeys: [ "RequestId" ]
+
   default:
-    link: "mysql:root:root@tcp(127.0.0.1:3306)/lims2"
+    type: "mysql"
+    link: "root:root@tcp(127.0.0.1:3306)/lims2"
     charset: "utf8"
     debug: "true"
+# database:
+#   分组名称:
+#     host:                  "地址"
+#     port:                  "端口"
+#     user:                  "账号"
+#     pass:                  "密码"
+#     name:                  "数据库名称"
+#     type:                  "数据库类型(如：mariadb/tidb/mysql/pgsql/mssql/sqlite/oracle/clickhouse/dm)"
+#     link:                  "(可选)自定义数据库链接信息，当该字段被设置值时，以上链接字段(Host,Port,User,Pass,Name)将失效，但是type必须有值"
+#     extra:                 "(可选)不同数据库的额外特性配置，由底层数据库driver定义"
+#     role:                  "(可选)数据库主从角色(master/slave)，不使用应用层的主从机制请均设置为master"
+#     debug:                 "(可选)开启调试模式"
+#     prefix:                "(可选)表名前缀"
+#     dryRun:                "(可选)ORM空跑(只读不写)"
+#     charset:               "(可选)数据库编码(如: utf8/gbk/gb2312)，一般设置为utf8"
+#     protocol:              "(可选)数据库连接协议，默认为TCP"
+#     weight:                "(可选)负载均衡权重，用于负载均衡控制，不使用应用层的负载均衡机制请置空"
+#     timezone:              "(可选)时区配置，例如:Local"
+#     namespace:             "(可选)用以支持个别数据库服务Catalog&Schema区分的问题，原有的Schema代表数据库名称，而NameSpace代表个别数据库服务的Schema"
+#     maxIdle:               "(可选)连接池最大闲置的连接数(默认10)"
+#     maxOpen:               "(可选)连接池最大打开的连接数(默认无限制)"
+#     maxLifetime:           "(可选)连接对象可重复使用的时间长度(默认30秒)"
+#     queryTimeout:          "(可选)查询语句超时时长(默认无限制，注意ctx的超时时间设置)"
+#     execTimeout:           "(可选)写入语句超时时长(默认无限制，注意ctx的超时时间设置)"
+#     tranTimeout:           "(可选)事务处理超时时长(默认无限制，注意ctx的超时时间设置)"
+#     prepareTimeout:        "(可选)预准备SQL语句执行超时时长(默认无限制，注意ctx的超时时间设置)"
+#     createdAt:             "(可选)自动创建时间字段名称"
+#     updatedAt:             "(可选)自动更新时间字段名称"
+#     deletedAt:             "(可选)软删除时间字段名称"
+#     timeMaintainDisabled:  "(可选)是否完全关闭时间更新特性，true时CreatedAt/UpdatedAt/DeletedAt都将失效"

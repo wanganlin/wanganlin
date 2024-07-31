@@ -14,7 +14,7 @@ Project Makefile Commands:
 
 gf gen dao -l "mysql:root:root@tcp(127.0.0.1:3306)/db" -p "app"
 
-gf gen ctrl -s "api" -d "app/controller"
+gf gen ctrl -s "app" -d "internal/api"
 
 gf gen service -s "app/service/logic" -d "app/service"
 ```

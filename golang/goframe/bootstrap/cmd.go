@@ -8,14 +8,14 @@ import (
 )
 
 var (
-	App = gcmd.Command{
+	Cmd = gcmd.Command{
 		Name:  "main",
 		Usage: "main",
 		Brief: "start http server",
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
-			s := g.Server()
-			provider.Register(s)
-			s.Run()
+			app := g.Server()
+			provider.Register(app)
+			app.Run()
 			return nil
 		},
 	}

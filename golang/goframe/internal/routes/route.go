@@ -1,16 +1,18 @@
 package routes
 
 import (
-	"gitee.com/gosoft/gomall/internal/controller/auth"
-	"gitee.com/gosoft/gomall/internal/controller/console"
-	"gitee.com/gosoft/gomall/internal/controller/market"
-	"gitee.com/gosoft/gomall/internal/controller/portal"
-	"gitee.com/gosoft/gomall/internal/controller/seller"
-	"gitee.com/gosoft/gomall/internal/controller/shop"
-	"gitee.com/gosoft/gomall/internal/controller/store"
-	"gitee.com/gosoft/gomall/internal/controller/supplier"
-	"gitee.com/gosoft/gomall/internal/controller/user"
+	"gitee.com/gosoft/gomall/internal/api/auth"
+	"gitee.com/gosoft/gomall/internal/api/console"
+	"gitee.com/gosoft/gomall/internal/api/mobile"
+	"gitee.com/gosoft/gomall/internal/api/portal"
+	"gitee.com/gosoft/gomall/internal/api/seller"
+	"gitee.com/gosoft/gomall/internal/api/shop"
+	"gitee.com/gosoft/gomall/internal/api/store"
+	"gitee.com/gosoft/gomall/internal/api/supplier"
+	"gitee.com/gosoft/gomall/internal/api/user"
+	"gitee.com/gosoft/gomall/internal/controller"
 	"gitee.com/gosoft/gomall/internal/middleware"
+	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
 )
 
@@ -27,8 +29,8 @@ func (a *routeProvider) Boot(s *ghttp.Server) {
 			group.Bind(auth.NewV1())
 		})
 
-		group.Group("/market", func(group *ghttp.RouterGroup) {
-			group.Bind(market.NewV1())
+		group.Group("/mobile", func(group *ghttp.RouterGroup) {
+			group.Bind(mobile.NewV1())
 		})
 
 		group.Group("/shop", func(group *ghttp.RouterGroup) {
@@ -57,6 +59,14 @@ func (a *routeProvider) Boot(s *ghttp.Server) {
 
 		group.Group("/user", func(group *ghttp.RouterGroup) {
 			group.Bind(user.NewV1()).Middleware(middleware.Auth("user"))
+		})
+	})
+
+	s.Group("/", func(group *ghttp.RouterGroup) {
+		group.ALLMap(g.Map{
+			"/":         controller.Index,
+			"/catalog":  controller.Catalog,
+			"/category": controller.Category,
 		})
 	})
 }

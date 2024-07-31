@@ -1,6 +1,6 @@
 module gitee.com/gosoft/gomall
 
-go 1.19
+go 1.22
 
 require (
 	github.com/gogf/csrf/v2 v2.0.0
