@@ -11,6 +11,7 @@ import (
 	"gitee.com/gosoft/gomall/internal/api/supplier"
 	"gitee.com/gosoft/gomall/internal/api/user"
 	"gitee.com/gosoft/gomall/internal/controller"
+	u "gitee.com/gosoft/gomall/internal/controller/user"
 	"gitee.com/gosoft/gomall/internal/middleware"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
@@ -59,6 +60,14 @@ func (a *routeProvider) Boot(s *ghttp.Server) {
 
 		group.Group("/user", func(group *ghttp.RouterGroup) {
 			group.Bind(user.NewV1()).Middleware(middleware.Auth("user"))
+		})
+	})
+
+	s.Group("/user", func(group *ghttp.RouterGroup) {
+		group.Middleware(middleware.Auth("web"))
+		group.ALLMap(g.Map{
+			"/":        u.Index,
+			"/address": u.Address,
 		})
 	})
 
