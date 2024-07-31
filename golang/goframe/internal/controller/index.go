@@ -17,10 +17,3 @@ func (c *index) Index(r *ghttp.Request) {
 		panic(err)
 	}
 }
-
-func (c *index) Swagger(r *ghttp.Request) {
-	err := r.Response.WriteTpl("swagger.html")
-	if err != nil {
-		panic(err)
-	}
-}

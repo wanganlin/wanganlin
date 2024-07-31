@@ -4,7 +4,7 @@ import "github.com/gogf/gf/v2/frame/g"
 
 type (
 	LoginEmailReq struct {
-		g.Meta   `path:"/login/email" tags:"认证模块" security:"Brear" method:"post" summary:"通过邮箱登录"`
+		g.Meta   `path:"/login/email" tags:"认证模块" method:"post" summary:"通过邮箱登录"`
 		Email    string `v:"required|email"`
 		Password string `v:"required|password"`
 	}

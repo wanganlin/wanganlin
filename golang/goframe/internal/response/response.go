@@ -15,27 +15,27 @@ type Result struct {
 
 // Ok 响应成功
 func Ok(r *ghttp.Response, data any) {
-	res := &Result{
+	resp := &Result{
 		Code:    http.StatusOK,
 		Message: http.StatusText(http.StatusOK),
 		Data:    data,
 	}
 
-	r.WriteJson(res)
+	r.WriteJsonExit(resp)
 }
 
 // Fail 响应失败
 func Fail(r *ghttp.Response, err exception.Exception) {
-	/*code := http.StatusOK
+	code := http.StatusOK
 	if http.StatusText(err.Code) != "" {
 		code = err.Code
-	}*/
+	}
 
-	res := &Result{
-		Code:    err.Code,
+	resp := &Result{
+		Code:    code,
 		Message: err.Message,
 		Data:    nil,
 	}
 
-	r.WriteJson(res)
+	r.WriteJsonExit(resp)
 }

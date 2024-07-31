@@ -1,6 +1,8 @@
 package middleware
 
 import (
+	"gitee.com/gosoft/gomall/internal/exception"
+	"gitee.com/gosoft/gomall/internal/response"
 	"github.com/gogf/gf/v2/net/ghttp"
 	"net/url"
 )
@@ -17,15 +19,9 @@ func Auth(guard string) func(r *ghttp.Request) {
 			}
 		} else {
 			if auth, err := r.Session.Get("auth_" + guard); err != nil {
-				r.Response.WriteJsonExit(map[string]interface{}{
-					"code": 401,
-					"msg":  "未登录",
-				})
+				response.Fail(r.Response, exception.Forbidden)
 			} else if auth == nil {
-				r.Response.WriteJsonExit(map[string]interface{}{
-					"code": 401,
-					"msg":  "未登录",
-				})
+				response.Fail(r.Response, exception.Forbidden)
 			}
 		}
 

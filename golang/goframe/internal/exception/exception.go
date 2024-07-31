@@ -6,9 +6,10 @@ import (
 
 // 全局通用错误定义
 var (
-	BadRequest  = NewError(http.StatusBadRequest, "请求参数错误")
+	BadRequest  = NewError(http.StatusBadRequest, http.StatusText(http.StatusBadRequest))
+	Forbidden   = NewError(http.StatusForbidden, http.StatusText(http.StatusForbidden))
 	NotFound    = NewError(http.StatusNotFound, http.StatusText(http.StatusNotFound))
-	ServerError = NewError(http.StatusInternalServerError, "服务器内部异常")
+	ServerError = NewError(http.StatusInternalServerError, http.StatusText(http.StatusInternalServerError))
 )
 
 // Exception 错误消息体
