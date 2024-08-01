@@ -11,12 +11,11 @@ Project Makefile Commands:
 ### DAO 生成器
 
 ```
-
-gf gen dao -l "mysql:root:root@tcp(127.0.0.1:3306)/db" -p "app"
-
 gf gen ctrl -s "app" -d "internal/api"
 
-gf gen service -s "app/service/logic" -d "app/service"
+gf gen dao -l "mysql:root:root@tcp(127.0.0.1:3306)/db" -p "internal" -d "repository"
+
+gf gen service -s "internal/service/logic" -d "internal/service"
 ```
 
 
