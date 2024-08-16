@@ -1,8 +1,11 @@
 package captcha
 
 import (
+	"gitee.com/gosoft/gomall/internal/service"
 	"github.com/mojocn/base64Captcha"
 )
+
+type sCaptcha struct{}
 
 // configBody json request body.
 type configBody struct {
@@ -18,8 +21,16 @@ type configBody struct {
 
 var store = base64Captcha.DefaultMemStore
 
+func init() {
+	service.RegisterCaptcha(NewCaptcha())
+}
+
+func NewCaptcha() *sCaptcha {
+	return &sCaptcha{}
+}
+
 // Generate 生成图片验证码
-func Generate() (id, b64s, answer string, err error) {
+func (a *sCaptcha) Generate() (id, b64s, answer string, err error) {
 	param := configBody{
 		CaptchaType: "string",
 		DriverString: &base64Captcha.DriverString{
@@ -55,6 +66,6 @@ func Generate() (id, b64s, answer string, err error) {
 }
 
 // Verify 校验图片验证码
-func Verify(uuid, verifyValue string) bool {
+func (a *sCaptcha) Verify(uuid, verifyValue string) bool {
 	return store.Verify(uuid, verifyValue, true)
 }

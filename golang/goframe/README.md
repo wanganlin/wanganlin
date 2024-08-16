@@ -15,7 +15,7 @@ gf gen ctrl -s "internal/api" -d "internal/handler"
 
 gf gen dao -l "mysql:root:root@tcp(127.0.0.1:3306)/db" -p "internal" -d "repository"
 
-gf gen service -s "internal/service/logic" -d "internal/service"
+gf gen service -s "internal/bundles" -d "internal/service"
 ```
 
 

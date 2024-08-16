@@ -3,11 +3,11 @@ package common
 import (
 	"context"
 	"gitee.com/gosoft/gomall/internal/api/common/v1"
-	"gitee.com/gosoft/gomall/internal/bundles/captcha"
+	"gitee.com/gosoft/gomall/internal/service"
 )
 
 func (c *ControllerV1) Captcha(ctx context.Context, req *v1.CaptchaReq) (res *v1.CaptchaRes, err error) {
-	id, b64s, _, err2 := captcha.Generate()
+	id, b64s, _, err2 := service.Captcha().Generate()
 	if err2 != nil {
 		return nil, err2
 	}
