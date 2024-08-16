@@ -6,16 +6,16 @@ import (
 	"gitee.com/gosoft/gomall/internal/service"
 )
 
-type sAddress struct{}
+type sUserAddress struct{}
 
 func init() {
-	service.RegisterAddress(NewAddress())
+	service.RegisterUserAddress(NewUserAddress())
 }
 
-func NewAddress() *sAddress {
-	return &sAddress{}
+func NewUserAddress() *sUserAddress {
+	return &sUserAddress{}
 }
 
-func (a *sAddress) GetAddressById(ctx context.Context, in model.User) (err error) {
+func (a *sUserAddress) GetAddressById(ctx context.Context, in model.User) (err error) {
 	return nil
 }
