@@ -7,5 +7,6 @@ import (
 
 // Register 注册Infra组件
 func Register(s *ghttp.Server) {
-	routes.RouteProvider.Boot(s)
+	routes.Boot(s)
+	// scheduler.Boot()
 }

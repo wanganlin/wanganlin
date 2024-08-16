@@ -19,9 +19,9 @@ func Auth(guard string) func(r *ghttp.Request) {
 			}
 		} else {
 			if auth, err := r.Session.Get("auth_" + guard); err != nil {
-				response.Fail(r.Response, exception.Forbidden)
+				response.Fail(r.Context(), exception.Forbidden)
 			} else if auth == nil {
-				response.Fail(r.Response, exception.Forbidden)
+				response.Fail(r.Context(), exception.Forbidden)
 			}
 		}
 

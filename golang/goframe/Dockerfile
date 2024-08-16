@@ -18,7 +18,7 @@ RUN go mod download
 COPY . .
 
 # 构建应用程序
-RUN go build -o main -v .
+RUN go build -v -o main -v .
 
 # 使用更小的镜像作为运行环境
 FROM alpine:latest

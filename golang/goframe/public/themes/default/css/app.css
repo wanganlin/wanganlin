@@ -1,0 +1,38 @@
+body {
+    font-size: 14px;
+}
+
+.top-nav {
+    border-bottom: 1px solid #ddd;
+    background-color: #e3e4e5;
+
+    height: 30px;
+    line-height: 30px;
+    color: #999;
+}
+
+.footer {
+    background: #e3e4e5;
+}
+
+/**
+ * 登录
+ */
+
+.login-container {
+    width: 320px;
+    margin: 21px auto 0;
+}
+
+.login-captcha {
+    cursor: pointer;
+    display: none;
+}
+
+.login-other .layui-icon {
+    position: relative;
+    display: inline-block;
+    margin: 0 2px;
+    top: 2px;
+    font-size: 26px;
+}

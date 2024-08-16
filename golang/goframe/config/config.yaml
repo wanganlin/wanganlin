@@ -1,6 +1,6 @@
 server:
   # 基本配置
-  address: ":8000"                   # 本地监听地址。默认":80"，多个地址以","号分隔。例如："192.168.2.3:8000,10.0.3.10:8001"
+  address: ":8080"                   # 本地监听地址。默认":80"，多个地址以","号分隔。例如："192.168.2.3:8000,10.0.3.10:8001"
   # httpsAddr:      ":443"           # TLS/HTTPS配置，同时需要配置证书和密钥。默认关闭。配置格式同上。
   # httpsCertPath:  ""               # TLS/HTTPS证书文件本地路径，建议使用绝对路径。默认关闭
   # httpsKeyPath:   ""               # TLS/HTTPS密钥文件本地路径，建议使用绝对路径。默认关闭
@@ -18,7 +18,7 @@ server:
   # 静态服务配置
   # indexFiles:        ["index.html","index.htm"] # 自动首页静态文件检索。默认为["index.html", "index.htm"]
   # indexFolder:       false                      # 当访问静态文件目录时，是否展示目录下的文件列表。默认关闭，那么请求将返回403
-  serverRoot: "assets"                            # 静态文件服务的目录根路径，配置时自动开启静态文件服务。默认关闭
+  serverRoot: "public"                            # 静态文件服务的目录根路径，配置时自动开启静态文件服务。默认关闭
   # searchPaths:       []                         # 提供静态文件服务时额外的文件搜索路径，当根路径找不到时则按照顺序在搜索目录查找。默认关闭
   # fileServerEnabled: false                      # 静态文件服务总开关。默认false
 

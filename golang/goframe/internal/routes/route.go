@@ -2,8 +2,9 @@ package routes
 
 import (
 	"gitee.com/gosoft/gomall/internal/controller"
-	ucontroller "gitee.com/gosoft/gomall/internal/controller/user"
+	home "gitee.com/gosoft/gomall/internal/controller/user"
 	"gitee.com/gosoft/gomall/internal/handler/auth"
+	"gitee.com/gosoft/gomall/internal/handler/common"
 	"gitee.com/gosoft/gomall/internal/handler/console"
 	"gitee.com/gosoft/gomall/internal/handler/mobile"
 	"gitee.com/gosoft/gomall/internal/handler/portal"
@@ -17,17 +18,17 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 )
 
-type routeProvider struct{}
-
-var RouteProvider = routeProvider{}
-
-func (a *routeProvider) Boot(s *ghttp.Server) {
+func Boot(s *ghttp.Server) {
 	s.Group("/api/v1", func(group *ghttp.RouterGroup) {
 		group.Middleware(ghttp.MiddlewareHandlerResponse)
 		group.Middleware(middleware.CORS())
 
 		group.Group("/auth", func(group *ghttp.RouterGroup) {
 			group.Bind(auth.NewV1())
+		})
+
+		group.Group("/common", func(group *ghttp.RouterGroup) {
+			group.Bind(common.NewV1())
 		})
 
 		group.Group("/mobile", func(group *ghttp.RouterGroup) {
@@ -66,8 +67,8 @@ func (a *routeProvider) Boot(s *ghttp.Server) {
 	s.Group("/user", func(group *ghttp.RouterGroup) {
 		group.Middleware(middleware.Auth("web"))
 		group.ALLMap(g.Map{
-			"/":        ucontroller.Index,
-			"/address": ucontroller.Address,
+			"/":        home.Index,
+			"/address": home.Address,
 		})
 	})
 
