@@ -7,7 +7,7 @@ package user
 import (
 	"context"
 
-	"gitee.com/gosoft/gomall/internal/api/user/v1"
+	"gomall/internal/api/user/v1"
 )
 
 type IUserV1 interface {

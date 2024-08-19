@@ -5,7 +5,7 @@
 package console
 
 import (
-	"gitee.com/gosoft/gomall/internal/api/console"
+	"gomall/internal/api/console"
 )
 
 type ControllerV1 struct{}

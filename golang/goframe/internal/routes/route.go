@@ -1,21 +1,21 @@
 package routes
 
 import (
-	"gitee.com/gosoft/gomall/internal/controller"
-	home "gitee.com/gosoft/gomall/internal/controller/user"
-	"gitee.com/gosoft/gomall/internal/handler/auth"
-	"gitee.com/gosoft/gomall/internal/handler/common"
-	"gitee.com/gosoft/gomall/internal/handler/console"
-	"gitee.com/gosoft/gomall/internal/handler/mobile"
-	"gitee.com/gosoft/gomall/internal/handler/portal"
-	"gitee.com/gosoft/gomall/internal/handler/seller"
-	"gitee.com/gosoft/gomall/internal/handler/shop"
-	"gitee.com/gosoft/gomall/internal/handler/store"
-	"gitee.com/gosoft/gomall/internal/handler/supplier"
-	"gitee.com/gosoft/gomall/internal/handler/user"
-	"gitee.com/gosoft/gomall/internal/middleware"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
+	"gomall/internal/controller"
+	home "gomall/internal/controller/user"
+	"gomall/internal/handler/auth"
+	"gomall/internal/handler/common"
+	"gomall/internal/handler/console"
+	"gomall/internal/handler/mobile"
+	"gomall/internal/handler/portal"
+	"gomall/internal/handler/seller"
+	"gomall/internal/handler/shop"
+	"gomall/internal/handler/store"
+	"gomall/internal/handler/supplier"
+	"gomall/internal/handler/user"
+	"gomall/internal/middleware"
 )
 
 func Boot(s *ghttp.Server) {

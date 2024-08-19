@@ -2,9 +2,9 @@ package bootstrap
 
 import (
 	"context"
-	"gitee.com/gosoft/gomall/internal/provider"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gcmd"
+	"gomall/internal/provider"
 )
 
 var (

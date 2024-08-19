@@ -2,8 +2,8 @@ package user
 
 import (
 	"context"
-	"gitee.com/gosoft/gomall/internal/model"
-	"gitee.com/gosoft/gomall/internal/service"
+	"gomall/internal/model"
+	"gomall/internal/service"
 )
 
 type sUserAddress struct{}

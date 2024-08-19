@@ -7,7 +7,7 @@ package seller
 import (
 	"context"
 
-	"gitee.com/gosoft/gomall/internal/api/seller/v1"
+	"gomall/internal/api/seller/v1"
 )
 
 type ISellerV1 interface {

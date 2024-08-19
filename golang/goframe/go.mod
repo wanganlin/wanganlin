@@ -1,4 +1,4 @@
-module gitee.com/gosoft/gomall
+module gomall
 
 go 1.22
 

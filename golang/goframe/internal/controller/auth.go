@@ -1,12 +1,13 @@
 package controller
 
 import (
-	"gitee.com/gosoft/gomall/internal/exception"
-	"gitee.com/gosoft/gomall/internal/model"
-	"gitee.com/gosoft/gomall/internal/response"
-	"gitee.com/gosoft/gomall/internal/service"
+	"errors"
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/util/gvalid"
+	"gomall/internal/exception"
+	"gomall/internal/model"
+	"gomall/internal/response"
+	"gomall/internal/service"
 )
 
 type (
@@ -26,19 +27,18 @@ func (c *index) Login(r *ghttp.Request) {
 		var req *LoginReq
 		if err := r.Parse(&req); err != nil {
 			// Validation error.
-			if v, ok := err.(gvalid.Error); ok {
+			var v gvalid.Error
+			if errors.As(err, &v) {
 				response.Fail(r.Context(), exception.Exception{
 					Code:    1,
 					Message: v.FirstError().Error(),
 				})
-				return
 			}
 
 			response.Fail(r.Context(), exception.Exception{
 				Code:    1,
 				Message: err.Error(),
 			})
-			return
 		}
 
 		loginInput := model.UserLogin{
@@ -53,7 +53,6 @@ func (c *index) Login(r *ghttp.Request) {
 				Code:    1,
 				Message: err.Error(),
 			})
-			return
 		}
 
 		err = service.UserAuth().Session(r.Context(), user, req.Remember)
@@ -62,7 +61,6 @@ func (c *index) Login(r *ghttp.Request) {
 				Code:    1,
 				Message: err.Error(),
 			})
-			return
 		}
 
 		response.Ok(r.Context(), nil)

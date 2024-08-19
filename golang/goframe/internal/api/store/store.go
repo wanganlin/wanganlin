@@ -7,7 +7,7 @@ package store
 import (
 	"context"
 
-	"gitee.com/gosoft/gomall/internal/api/store/v1"
+	"gomall/internal/api/store/v1"
 )
 
 type IStoreV1 interface {

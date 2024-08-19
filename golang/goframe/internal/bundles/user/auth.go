@@ -2,12 +2,12 @@ package user
 
 import (
 	"context"
-	"gitee.com/gosoft/gomall/internal/enums"
-	"gitee.com/gosoft/gomall/internal/model"
-	"gitee.com/gosoft/gomall/internal/model/entity"
-	"gitee.com/gosoft/gomall/internal/service"
-	"gitee.com/gosoft/gomall/internal/support/validx"
 	"github.com/gogf/gf/v2/frame/g"
+	"gomall/internal/enums"
+	"gomall/internal/model"
+	"gomall/internal/model/entity"
+	"gomall/internal/service"
+	"gomall/internal/support/validx"
 )
 
 type sUserAuth struct{}

@@ -7,7 +7,7 @@ package auth
 import (
 	"context"
 
-	"gitee.com/gosoft/gomall/internal/api/auth/v1"
+	"gomall/internal/api/auth/v1"
 )
 
 type IAuthV1 interface {

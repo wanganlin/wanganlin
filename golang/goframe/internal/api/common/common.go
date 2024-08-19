@@ -7,7 +7,7 @@ package common
 import (
 	"context"
 
-	"gitee.com/gosoft/gomall/internal/api/common/v1"
+	"gomall/internal/api/common/v1"
 )
 
 type ICommonV1 interface {

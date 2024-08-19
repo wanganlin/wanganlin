@@ -5,7 +5,7 @@
 package repository
 
 import (
-	"gitee.com/gosoft/gomall/internal/repository/internal"
+	"gomall/internal/repository/internal"
 )
 
 // internalBackGoodsDao is internal type for wrapping internal DAO implements.

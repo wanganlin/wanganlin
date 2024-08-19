@@ -5,7 +5,7 @@
 package repository
 
 import (
-	"gitee.com/gosoft/gomall/internal/repository/internal"
+	"gomall/internal/repository/internal"
 )
 
 // internalSearchengineDao is internal type for wrapping internal DAO implements.

@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"gitee.com/gosoft/gomall/internal/exception"
-	"gitee.com/gosoft/gomall/internal/response"
 	"github.com/gogf/gf/v2/net/ghttp"
+	"gomall/internal/exception"
+	"gomall/internal/response"
 	"net/url"
 )
 

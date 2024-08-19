@@ -5,7 +5,7 @@
 package user
 
 import (
-	"gitee.com/gosoft/gomall/internal/api/user"
+	"gomall/internal/api/user"
 )
 
 type ControllerV1 struct{}

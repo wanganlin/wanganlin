@@ -1,8 +1,8 @@
 package captcha
 
 import (
-	"gitee.com/gosoft/gomall/internal/service"
 	"github.com/mojocn/base64Captcha"
+	"gomall/internal/service"
 )
 
 type sCaptcha struct{}

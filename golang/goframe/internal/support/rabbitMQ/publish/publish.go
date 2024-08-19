@@ -1,8 +1,8 @@
 package publish
 
 import (
-	"gitee.com/gosoft/gomall/internal/support/rabbitMQ"
 	amqp "github.com/rabbitmq/amqp091-go"
+	"gomall/internal/support/rabbitMQ"
 )
 
 func Publish() {

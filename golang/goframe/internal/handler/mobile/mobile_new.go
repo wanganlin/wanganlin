@@ -5,7 +5,7 @@
 package mobile
 
 import (
-	"gitee.com/gosoft/gomall/internal/api/mobile"
+	"gomall/internal/api/mobile"
 )
 
 type ControllerV1 struct{}

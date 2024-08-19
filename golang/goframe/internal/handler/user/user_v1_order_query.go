@@ -6,7 +6,7 @@ import (
 	"github.com/gogf/gf/v2/errors/gcode"
 	"github.com/gogf/gf/v2/errors/gerror"
 
-	"gitee.com/gosoft/gomall/internal/api/user/v1"
+	"gomall/internal/api/user/v1"
 )
 
 func (c *ControllerV1) OrderQuery(ctx context.Context, req *v1.OrderQueryReq) (res *v1.OrderQueryRes, err error) {

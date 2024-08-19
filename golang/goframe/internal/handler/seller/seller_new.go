@@ -5,7 +5,7 @@
 package seller
 
 import (
-	"gitee.com/gosoft/gomall/internal/api/seller"
+	"gomall/internal/api/seller"
 )
 
 type ControllerV1 struct{}

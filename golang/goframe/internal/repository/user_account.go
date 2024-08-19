@@ -5,7 +5,7 @@
 package repository
 
 import (
-	"gitee.com/gosoft/gomall/internal/repository/internal"
+	"gomall/internal/repository/internal"
 )
 
 // internalUserAccountDao is internal type for wrapping internal DAO implements.

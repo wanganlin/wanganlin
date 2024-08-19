@@ -7,7 +7,7 @@ package mobile
 import (
 	"context"
 
-	"gitee.com/gosoft/gomall/internal/api/mobile/v1"
+	"gomall/internal/api/mobile/v1"
 )
 
 type IMobileV1 interface {

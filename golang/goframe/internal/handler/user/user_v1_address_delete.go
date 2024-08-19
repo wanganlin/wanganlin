@@ -6,7 +6,7 @@ import (
 	"github.com/gogf/gf/v2/errors/gcode"
 	"github.com/gogf/gf/v2/errors/gerror"
 
-	"gitee.com/gosoft/gomall/internal/api/user/v1"
+	"gomall/internal/api/user/v1"
 )
 
 func (c *ControllerV1) AddressDelete(ctx context.Context, req *v1.AddressDeleteReq) (res *v1.AddressDeleteRes, err error) {

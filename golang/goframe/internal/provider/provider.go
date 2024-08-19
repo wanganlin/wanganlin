@@ -1,8 +1,8 @@
 package provider
 
 import (
-	"gitee.com/gosoft/gomall/internal/routes"
 	"github.com/gogf/gf/v2/net/ghttp"
+	"gomall/internal/routes"
 )
 
 // Register 注册Infra组件

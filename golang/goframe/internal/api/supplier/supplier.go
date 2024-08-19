@@ -7,7 +7,7 @@ package supplier
 import (
 	"context"
 
-	"gitee.com/gosoft/gomall/internal/api/supplier/v1"
+	"gomall/internal/api/supplier/v1"
 )
 
 type ISupplierV1 interface {

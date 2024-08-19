@@ -7,7 +7,7 @@ package portal
 import (
 	"context"
 
-	"gitee.com/gosoft/gomall/internal/api/portal/v1"
+	"gomall/internal/api/portal/v1"
 )
 
 type IPortalV1 interface {

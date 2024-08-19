@@ -2,10 +2,10 @@ package user
 
 import (
 	"context"
-	"gitee.com/gosoft/gomall/internal/model/entity"
-	"gitee.com/gosoft/gomall/internal/repository"
-	"gitee.com/gosoft/gomall/internal/service"
 	"github.com/gogf/gf/v2/frame/g"
+	"gomall/internal/model/entity"
+	"gomall/internal/repository"
+	"gomall/internal/service"
 )
 
 type sUser struct{}

@@ -7,7 +7,7 @@ package console
 import (
 	"context"
 
-	"gitee.com/gosoft/gomall/internal/api/console/v1"
+	"gomall/internal/api/console/v1"
 )
 
 type IConsoleV1 interface {

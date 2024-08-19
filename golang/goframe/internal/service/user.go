@@ -8,8 +8,8 @@ package service
 import (
 	"context"
 
-	"gitee.com/gosoft/gomall/internal/model"
-	"gitee.com/gosoft/gomall/internal/model/entity"
+	"gomall/internal/model"
+	"gomall/internal/model/entity"
 	"github.com/gogf/gf/v2/frame/g"
 )
 

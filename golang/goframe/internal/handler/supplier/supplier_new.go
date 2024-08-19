@@ -5,7 +5,7 @@
 package supplier
 
 import (
-	"gitee.com/gosoft/gomall/internal/api/supplier"
+	"gomall/internal/api/supplier"
 )
 
 type ControllerV1 struct{}

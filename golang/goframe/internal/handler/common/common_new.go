@@ -5,7 +5,7 @@
 package common
 
 import (
-	"gitee.com/gosoft/gomall/internal/api/common"
+	"gomall/internal/api/common"
 )
 
 type ControllerV1 struct{}

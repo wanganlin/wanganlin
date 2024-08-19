@@ -5,6 +5,6 @@
 package bundles
 
 import (
-	_ "gitee.com/gosoft/gomall/internal/bundles/captcha"
-	_ "gitee.com/gosoft/gomall/internal/bundles/user"
+	_ "gomall/internal/bundles/captcha"
+	_ "gomall/internal/bundles/user"
 )

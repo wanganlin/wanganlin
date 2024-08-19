@@ -1,9 +1,9 @@
 package scheduler
 
 import (
-	"gitee.com/gosoft/gomall/internal/jobs"
 	"github.com/gogf/gf/v2/os/gcron"
 	"github.com/gogf/gf/v2/os/gctx"
+	"gomall/internal/jobs"
 )
 
 var (
