@@ -1,0 +1,35 @@
+{
+    "name": "juling/think-foundation",
+    "license": "Apache-2.0",
+    "require": {
+        "php": "^8.3",
+        "aliyuncs/oss-sdk-php": "^2.7.2",
+        "endroid/qr-code": "^6.0.4",
+        "firebase/php-jwt": "^6.11.1",
+        "phpoffice/phpspreadsheet": "^4.3.1",
+        "ramsey/uuid": "^4.8.1",
+        "topthink/framework": "^8.0",
+        "yansongda/pay": "^3.7",
+        "w7corp/easywechat": "^6.17",
+        "overtrue/pinyin": "^5.3",
+        "overtrue/easy-sms": "^3.1",
+        "workerman/crontab": "^1.0.6",
+        "workerman/gateway-worker": "^4.0.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.21",
+        "phpstan/phpstan": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Juling\\Foundation\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

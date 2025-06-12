@@ -1,0 +1,70 @@
+{
+    "name": "phpmall/phpmall",
+    "description": "the phpmall",
+    "type": "project",
+    "keywords": ["phpmall", "thinkphp", "php",  "mysql"],
+    "license": "Apache-2.0",
+    "require": {
+        "php": "^8.3",
+        "juling/think-foundation": "^1.0",
+        "topthink/framework": "^8.0",
+        "topthink/think-captcha": "^3.0",
+        "topthink/think-filesystem": "^3.0",
+        "topthink/think-image": "^1.0",
+        "topthink/think-migration": "^3.1",
+        "topthink/think-orm": "^4.0",
+        "topthink/think-queue": "^3.0",
+        "topthink/think-swoole": "^4.1",
+        "topthink/think-throttle": "^2.0",
+        "topthink/think-view": "^2.0"
+    },
+    "require-dev": {
+        "juling/think-devtools": "^1.0",
+        "laravel/pint": "^1.22",
+        "phpstan/phpstan": "^2.1",
+        "topthink/think-dumper": "^1.0",
+        "topthink/think-trace": "^1.0",
+        "zircote/swagger-php": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php artisan service:discover",
+            "@php artisan vendor:publish"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "package/devtools",
+            "options": {
+                "versions": {
+                    "juling/think-devtools": "1.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "package/foundation",
+            "options": {
+                "versions": {
+                    "juling/think-foundation": "1.0"
+                }
+            }
+        }
+    ]
+}
