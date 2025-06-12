@@ -2,9 +2,9 @@
 
 namespace app\controllers;
 
+use app\requests\ContactForm;
 use yii\web\Request;
 use yii\web\Response;
-use app\requests\ContactForm;
 
 class SiteController extends BaseController
 {

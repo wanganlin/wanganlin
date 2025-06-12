@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\support\JsonResponse;
+use app\responses\JsonResponse;
 use Yii;
 use yii\web\Controller;
 use yii\web\Session;

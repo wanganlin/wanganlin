@@ -1,6 +1,6 @@
 <?php
 
-namespace app\services\user\internal\output;
+namespace app\bundles\user\internal\output;
 
 class UserOutput
 {

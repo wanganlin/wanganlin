@@ -1,6 +1,6 @@
 <?php
 
-namespace app\support;
+namespace app\responses;
 
 use Yii;
 use yii\web\Response;

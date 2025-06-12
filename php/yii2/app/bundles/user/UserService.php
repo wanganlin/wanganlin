@@ -1,6 +1,6 @@
 <?php
 
-namespace app\services\user;
+namespace app\bundles\user;
 
 use app\models\User;
 
