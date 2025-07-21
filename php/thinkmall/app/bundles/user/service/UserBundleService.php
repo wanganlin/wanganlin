@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace app\bundle\user\service;
+namespace app\bundles\user\service;
 
-use app\entity\User;
-use app\model\UserModel;
+use app\bundles\user\model\UserModel;
 
 class UserBundleService
 {

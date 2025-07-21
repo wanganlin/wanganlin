@@ -65,10 +65,10 @@ class GenEntityCommand extends Command
             '{$className}',
             '{$fields}',
         ], [
-            $className,
+            $className.'Entity',
             $fields,
         ], $content);
 
-        file_put_contents(app_path('entity').$className.'.php', $content);
+        file_put_contents(app_path('entity').$className.'Entity.php', $content);
     }
 }

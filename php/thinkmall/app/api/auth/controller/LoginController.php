@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace app\api\auth\controller;
 
-use app\bundle\auth\service\input\LoginInput;
-use app\bundle\auth\service\LoginBundleService;
+use app\bundles\auth\service\input\LoginInput;
+use app\bundles\auth\service\LoginBundleService;
 use app\api\auth\request\LoginRequest;
 use app\exception\CustomException;
 use think\exception\ValidateException;

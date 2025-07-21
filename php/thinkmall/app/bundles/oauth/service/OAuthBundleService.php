@@ -1,8 +1,8 @@
 <?php
 
-namespace app\bundle\oauth\service;
+namespace app\bundles\oauth\service;
 
-use app\service\UserService;
+use app\bundles\user\service\UserService;
 use EasyWeChat\Kernel\Exceptions\InvalidArgumentException;
 use EasyWeChat\OfficialAccount\Application;
 use GuzzleHttp\Exception\GuzzleException;

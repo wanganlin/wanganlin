@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace app\bundle\auth\service;
+namespace app\bundles\auth\service;
 
-use app\bundle\auth\service\input\LoginInput;
-use app\bundle\user\service\UserBundleService;
+use app\bundles\auth\service\input\LoginInput;
+use app\bundles\user\model\UserModel;
+use app\bundles\user\service\UserBundleService;
 use app\constant\GlobalConst;
 use app\exception\CustomException;
-use app\model\UserModel;
 
 class LoginBundleService
 {

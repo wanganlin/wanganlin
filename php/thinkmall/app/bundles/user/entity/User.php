@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\entity;
+namespace app\bundles\user\entity;
 
 use app\support\ArrayHelper;
 use OpenApi\Attributes as OA;

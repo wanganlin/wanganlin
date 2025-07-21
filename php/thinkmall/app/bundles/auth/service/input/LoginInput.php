@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\bundle\auth\service\input;
+namespace app\bundles\auth\service\input;
 
 class LoginInput
 {

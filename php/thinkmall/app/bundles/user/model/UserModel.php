@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\model;
+namespace app\bundles\user\model;
 
 use think\Model;
 
@@ -16,7 +16,7 @@ class UserModel extends Model
     /**
      * 设置字段
      */
-    protected $field = [
+    protected array $field = [
         'id',
         'username',
         'password',

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace app\repository;
+namespace app\bundles\user\repository;
 
-use app\entity\User;
+use app\bundles\user\entity\User;
 use Exception;
 use Juling\Foundation\Database\Contract\RepositoryInterface;
 use Juling\Foundation\Database\Repository\CurdRepository;
