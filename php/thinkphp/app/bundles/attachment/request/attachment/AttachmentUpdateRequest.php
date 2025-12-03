@@ -1,0 +1,116 @@
+<?php
+
+declare(strict_types=1);
+
+namespace app\bundles\attachment\request\attachment;
+
+use OpenApi\Attributes as OA;
+use think\Validate;
+
+#[OA\Schema(
+    schema: 'AttachmentUpdateRequest',
+    required: [
+        'id',
+        'user_id',
+        'category_id',
+        'name',
+        'original_name',
+        'path',
+        'url',
+        'storage_type',
+        'file_type',
+        'mime_type',
+        'size',
+        'ext',
+        'width',
+        'height',
+        'duration',
+        'md5',
+        'sha1',
+        'download_count',
+        'status',
+        'deleted',
+        'created_time',
+        'updated_time',
+        'deleted_time',
+    ],
+    properties: [
+        new OA\Property(property: 'id', description: 'ID', type: 'integer'),
+        new OA\Property(property: 'user_id', description: '上传用户ID', type: 'integer'),
+        new OA\Property(property: 'category_id', description: '分类ID', type: 'integer'),
+        new OA\Property(property: 'name', description: '文件名', type: 'string'),
+        new OA\Property(property: 'original_name', description: '原始文件名', type: 'string'),
+        new OA\Property(property: 'path', description: '文件路径', type: 'string'),
+        new OA\Property(property: 'url', description: '访问URL', type: 'string'),
+        new OA\Property(property: 'storage_type', description: '存储类型: local-本地;oss-阿里云;qiniu-七牛云;cos-腾讯云', type: 'string'),
+        new OA\Property(property: 'file_type', description: '文件类型: image-图片;video-视频;audio-音频;document-文档', type: 'string'),
+        new OA\Property(property: 'mime_type', description: 'MIME类型', type: 'string'),
+        new OA\Property(property: 'size', description: '文件大小(字节)', type: 'integer'),
+        new OA\Property(property: 'ext', description: '文件扩展名', type: 'string'),
+        new OA\Property(property: 'width', description: '宽度(图片/视频)', type: 'integer'),
+        new OA\Property(property: 'height', description: '高度(图片/视频)', type: 'integer'),
+        new OA\Property(property: 'duration', description: '时长(音视频,秒)', type: 'integer'),
+        new OA\Property(property: 'md5', description: 'MD5值', type: 'string'),
+        new OA\Property(property: 'sha1', description: 'SHA1值', type: 'string'),
+        new OA\Property(property: 'download_count', description: '下载次数', type: 'integer'),
+        new OA\Property(property: 'status', description: '状态: 1-正常;2-禁用', type: 'integer'),
+        new OA\Property(property: 'deleted', description: '删除状态: 0-未删除;1-已删除', type: 'integer'),
+        new OA\Property(property: 'created_time', description: '创建时间', type: 'string'),
+        new OA\Property(property: 'updated_time', description: '更新时间', type: 'string'),
+        new OA\Property(property: 'deleted_time', description: '删除时间', type: 'string'),
+    ]
+)]
+class AttachmentUpdateRequest extends Validate
+{
+    protected $rule = [
+        'id' => 'require',
+        'user_id' => 'require',
+        'category_id' => 'require',
+        'name' => 'require',
+        'original_name' => 'require',
+        'path' => 'require',
+        'url' => 'require',
+        'storage_type' => 'require',
+        'file_type' => 'require',
+        'mime_type' => 'require',
+        'size' => 'require',
+        'ext' => 'require',
+        'width' => 'require',
+        'height' => 'require',
+        'duration' => 'require',
+        'md5' => 'require',
+        'sha1' => 'require',
+        'download_count' => 'require',
+        'status' => 'require',
+        'deleted' => 'require',
+        'created_time' => 'require',
+        'updated_time' => 'require',
+        'deleted_time' => 'require',
+    ];
+
+    protected $message = [
+        'id.require' => '请设置ID',
+        'user_id.require' => '请设置上传用户ID',
+        'category_id.require' => '请设置分类ID',
+        'name.require' => '请设置文件名',
+        'original_name.require' => '请设置原始文件名',
+        'path.require' => '请设置文件路径',
+        'url.require' => '请设置访问URL',
+        'storage_type.require' => '请设置存储类型: local-本地;oss-阿里云;qiniu-七牛云;cos-腾讯云',
+        'file_type.require' => '请设置文件类型: image-图片;video-视频;audio-音频;document-文档',
+        'mime_type.require' => '请设置MIME类型',
+        'size.require' => '请设置文件大小(字节)',
+        'ext.require' => '请设置文件扩展名',
+        'width.require' => '请设置宽度(图片/视频)',
+        'height.require' => '请设置高度(图片/视频)',
+        'duration.require' => '请设置时长(音视频,秒)',
+        'md5.require' => '请设置MD5值',
+        'sha1.require' => '请设置SHA1值',
+        'download_count.require' => '请设置下载次数',
+        'status.require' => '请设置状态: 1-正常;2-禁用',
+        'deleted.require' => '请设置删除状态: 0-未删除;1-已删除',
+        'created_time.require' => '请设置创建时间',
+        'updated_time.require' => '请设置更新时间',
+        'deleted_time.require' => '请设置删除时间',
+    ];
+}

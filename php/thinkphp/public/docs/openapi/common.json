@@ -1,0 +1,77 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "公共API文档",
+        "description": "公共接口",
+        "contact": {
+            "name": "API Develop Team"
+        },
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "/api/common",
+            "description": "开发环境"
+        }
+    ],
+    "paths": {
+        "/captcha/image": {
+            "get": {
+                "tags": [
+                    "公共模块"
+                ],
+                "summary": "图片验证码接口",
+                "operationId": "596c673943f8a7fccc79165df6204c6f",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CaptchaImageResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sms/send": {
+            "post": {
+                "tags": [
+                    "公共模块"
+                ],
+                "summary": "发送短信验证码接口",
+                "operationId": "4522d11d1c6733d95dcd723766cd8e82",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CaptchaImageResponse": {
+                "properties": {
+                    "captchaId": {
+                        "description": "图片验证码ID",
+                        "type": "string"
+                    },
+                    "captchaImage": {
+                        "description": "图片验证码",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "公共模块",
+            "description": "公共模块"
+        }
+    ]
+}

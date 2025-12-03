@@ -1,0 +1,44 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "门户API文档",
+        "description": "公共接口",
+        "contact": {
+            "name": "API Develop Team"
+        },
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "/api/portal",
+            "description": "开发环境"
+        }
+    ],
+    "paths": {
+        "/home": {
+            "get": {
+                "tags": [
+                    "门户模块"
+                ],
+                "summary": "门户首页接口",
+                "operationId": "aabc0fa6d55aa399359b0786e27f5066",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "门户模块",
+            "description": "门户模块"
+        }
+    ]
+}

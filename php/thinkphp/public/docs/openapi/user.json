@@ -1,0 +1,146 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "会员API文档",
+        "description": "公共接口",
+        "contact": {
+            "name": "API Develop Team"
+        },
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "/api/user",
+            "description": "开发环境"
+        }
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "认证模块"
+                ],
+                "summary": "用户登录接口",
+                "operationId": "cb885025b83e75cabacb74f19785a27b",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LoginResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/forget": {
+            "post": {
+                "tags": [
+                    "认证模块"
+                ],
+                "summary": "用户忘记密码",
+                "operationId": "bd6de7cd8f04a8e8aa068647158c02ab",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/reset": {
+            "post": {
+                "tags": [
+                    "认证模块"
+                ],
+                "summary": "用户重设密码",
+                "operationId": "c028fd7969259766d9783f4af7441b62",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/dashboard": {
+            "get": {
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "用户首页接口",
+                "operationId": "4a0547d14e59313cc1f17b8a50b87010",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "LoginResponse": {
+                "description": "登录响应",
+                "properties": {
+                    "user": {
+                        "$ref": "#/components/schemas/UserVo"
+                    },
+                    "token": {
+                        "description": "访问令牌",
+                        "type": "string"
+                    },
+                    "refreshToken": {
+                        "description": "刷新令牌",
+                        "type": "string"
+                    },
+                    "expiresIn": {
+                        "description": "令牌过期时间（秒）",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "UserVo": {
+                "description": "用户VO",
+                "properties": {
+                    "id": {
+                        "description": "用户ID",
+                        "type": "integer"
+                    },
+                    "username": {
+                        "description": "用户名",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "JWT 认证信息",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "认证模块",
+            "description": "认证模块"
+        },
+        {
+            "name": "用户模块",
+            "description": "用户模块"
+        }
+    ]
+}
